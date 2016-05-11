@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{padding: 0; margin: 0;}
+			ul{ padding: 0; margin:0; overflow: hidden;}
+			.mid{ width: 810px; height: 500px; margin: 50px auto;}
+			#fn-right{ float: right; width: 580px;}
+			#box{ width: 210px; height: 110px; background: #e7efe7; float:left; position: relative;}
+			#box li{width: 190px; margin: 0 10px; line-height: 30px; border-bottom: 1px dotted #ccc; font-size: 12px;}
+			.nav{ display: none; padding: 10px; position: absolute; z-index: 999; left: 210px; top:0px; width: 300px; background: #fff; border: 1px solid #ccc; border-radius: 3px}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oBox=document.getElementById('box');
+				var oLi=oBox.getElementsByTagName('li');
+				var oDiv=oBox.getElementsByTagName('div');
+				for(var i=0; i<oLi.length; i++){
+					oLi[i].index=i;
+					oLi[i].onmouseover=function(){
+						oDiv[this.index].style.display='block';
+					}
+					oLi[i].onmouseout=function(){
+						oDiv[this.index].style.display='none';
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="mid">
+			<div id="box">
+				<ul>
+					<li>境内分支机构</li>
+					<li>海外分支机构</li>
+					<li>主要控股企业</li>
+				</ul>
+				<div class="nav">
+					sdsdsfsf
+				</div>
+				<div class="nav">
+					adssdsafsfafsffasf
+				</div>
+				<div class="nav">
+					sdsdssfaffffffffffffffffffffffffffffffffsf
+				</div>
+			</div>
+			<div id="fn-right"><img src="img/pic01.jpg" /></div>
+			<div style="clear: both;"></div>
+		</div>
+	</body>
+</html>

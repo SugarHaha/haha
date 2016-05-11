@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{padding: 0; margin: 0;}
+			ul{ padding: 0; margin:0; overflow: hidden;}
+			#box{ width: 670px; height: 350px; margin: 0 auto;}
+			.pic{float: left; width: 550px; height:350px; overflow: hidden; display: none;}
+			.nav{ float: right; width: 120px; height: 350px;}
+			.nav li{ background: #211821; color: #fff; border-bottom: 1px solid #524a52; width: 120px;height: 69px; text-align: center; line-height: 70px; font-size: 14px;}
+			.nav li.on{ background: #f7528c;}		
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oBox=document.getElementById('box');
+				var oLi=oBox.getElementsByTagName('li');
+				var oPic=oBox.getElementsByTagName('div');
+				for(i=0; i<oLi.length; i++){
+					oLi[i].index=i;
+					oLi[i].onmouseover=function(){
+						for(j=0; j<oLi.length; j++){
+							oLi[j].className='';
+							oPic[j].style.display='none'
+						}
+						this.className='on';
+						oPic[this.index].style.display='block'
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<div class="pic" style="display: block;"><img src="img/pic.jpg" /></div>
+			<div class="pic"><img src="img/pic02.jpg" /></div>
+			<div class="pic"><img src="img/pic.jpg" /></div>
+			<div class="pic"><img src="img/pic02.jpg" /></div>
+			<div class="pic"><img src="img/pic.jpg" /></div>
+			<div class="nav">
+				<ul>
+					<li class="on">时尚新品</li>
+					<li>简约之美</li>
+					<li>HOLLOW风潮</li>
+					<li>“公主病”万岁</li>
+					<li>纯棉立体</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

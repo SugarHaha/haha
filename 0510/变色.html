@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		#box{ background: #333; width: 100px; height: 100px;}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){			
+			color1.onclick=function(){
+				var oBox=document.getElementById('box');
+				oBox.style.background='red';
+			}
+			color2.onclick=function(){
+				var oBox=document.getElementById('box');
+				oBox.style.background='blue';
+			}
+		}
+	</script>
+	<body>
+		<input type="button" value="红色" id="color1" />
+		<input type="button" value="蓝色" id="color2"/>
+		<div id="box"></div>
+	</body>
+</html>

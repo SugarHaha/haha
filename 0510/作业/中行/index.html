@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{padding: 0; margin: 0;}
+			ul{ padding: 0; margin:0; overflow: hidden;}
+			.top{ width: 980px; margin: 0 auto;}
+			#box{width: 980px; margin: 0 auto;}	
+			#box li{ float: left; list-style-type: none; width: 100px; text-align: center; position: relative;}
+			.md{ display: none; width: 980px; height: 200px; background: #f2f2f2; position: absolute;z-index: 999;}
+			.nn{ width: 980px; height: 300px; background: #8A2BE2; margin: 0 auto;}		
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oBox=document.getElementById('box');
+				var oLi=oBox.getElementsByTagName('li');
+				var oDiv=oBox.getElementsByTagName('div');
+				for(var i=0; i<oLi.length; i++){
+					oLi[i].index=i;
+					oLi[i].onmouseover=function(){
+						oDiv[this.index].style.display='block';
+						
+					}
+					oLi[i].onmouseout=function(){
+						oDiv[this.index].style.display='none';
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="top"><img src="img/01.jpg" /></div>
+		<div id="box">
+			<ul>
+				<li>首页</li>
+				<li>公司金融</li>
+				<li>个人金融</li>
+				<li>银行卡</li>
+			</ul>
+			<div class="md">
+				aaaaaaa
+			</div>
+			<div class="md">
+				bbbbb
+			</div>
+			<div class="md">
+				ccc
+			</div>
+			<div class="md">
+				ddd
+			</div>
+			
+		</div>
+		<div class="nn"></div>
+	</body>
+</html>
