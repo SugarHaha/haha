@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{ width: 150px; height: 150px; background: #ccc;}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oBox=document.getElementById('box');
+				oBox.onclick=function(){
+					var r=parseInt( (Math.random()*256));
+					var g=parseInt( (Math.random()*256));
+					var b=parseInt( (Math.random()*256));
+					oBox.style.background='rgb('+r+','+g+','+b+')'
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>

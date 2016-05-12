@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{ margin: 0; padding: 0;}
+			ul{padding: 0; margin: 0;overflow: hidden;}
+			#box{ width: 585px; height: 400px; margin: 50px auto; border: 1px solid #ccc;}
+			#box li{ width: 100px; background:#F2F2F2; height: 49px; border-bottom: 1px solid #fff; line-height: 50px; text-align: center;}
+			.fn-left{ float:left;}
+			.fn-right{ float: right;}
+			#pic{ width: 385px; height: 400px; float: left;}
+			.pica{ width: 385px; height: 400px; display: none; position: relative;}
+			.pica img{ width: 385px; height: 400px;}
+			.pica span{ width: 375px; height: 40px; position: absolute; bottom: 0; background: #424242; color: #fff; line-height: 40px; padding: 0 5px;}
+			#box li.on{ background: #E84A7E; color: #fff;}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oBox=document.getElementById('box');
+				var oLi=oBox.getElementsByTagName('li');
+				var oDiv=document.getElementById("pic").getElementsByTagName('div');
+				for(var i=0; i<oLi.length; i++){
+					oLi[i].index=i;
+					oLi[i].onmouseover=function(){
+						for(var j=0; j<oLi.length; j++){
+							oLi[j].className='';
+							oDiv[j].style.display='none'
+						}
+						this.className='on';
+						oDiv[this.index].style.display='block'
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<ul class="fn-left">
+				<li class="on">连衣裙</li>
+				<li>雪纺衫</li>
+				<li>凉鞋</li>
+				<li>女包</li>
+				<li>T恤</li>
+				<li>真丝裙</li>
+				<li>防晒衣</li>
+				<li>蚊帐</li>
+			</ul>
+			<ul class="fn-right">
+				<li>连衣裙</li>
+				<li>雪纺衫</li>
+				<li>凉鞋</li>
+				<li>女包</li>
+				<li>T恤</li>
+				<li>真丝裙</li>
+				<li>防晒衣</li>
+				<li>蚊帐</li>
+			</ul>
+			<div id="pic">
+				<div class="pica" style="display: block;"><p><img src="img/img1.jpg" /></p><span>11111</span></div>
+				<div class="pica"><p><img src="img/img2.jpg" /></p><span>22222</span></div>
+				<div class="pica"><p><img src="img/img3.jpg" /></p><span>33333</span></div>
+				<div class="pica"><p><img src="img/img4.jpg" /></p><span>44444</span></div>
+				<div class="pica"><p><img src="img/img5.jpg" /></p><span>55555</span></div>
+				<div class="pica"><p><img src="img/img6.jpg" /></p><span>66666</span></div>
+				<div class="pica"><p><img src="img/img7.jpg" /></p><span>77777</span></div>
+				<div class="pica"><p><img src="img/img8.jpg" /></p><span>88888</span></div>
+				<div class="pica"><p><img src="img/img9.jpg" /></p><span>99999</span></div>
+				<div class="pica"><p><img src="img/img10.jpg" /></p><span>101010</span></div>
+				<div class="pica"><p><img src="img/img11.jpg" /></p><span>1111111111</span></div>
+				<div class="pica"><p><img src="img/img12.jpg" /></p><span>1212121212</span></div>
+				<div class="pica"><p><img src="img/img13.jpg" /></p><span>1313133</span></div>
+				<div class="pica"><p><img src="img/img14.jpg" /></p><span>141414</span></div>
+				<div class="pica"><p><img src="img/img15.jpg" /></p><span>151515</span></div>
+				<div class="pica"><p><img src="img/img16.jpg" /></p><span>161616</span></div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{ margin: 0;padding: 0;}
+			ul{ margin: 0 ; padding: 0; overflow: hidden;}
+			#box{ width: 600px; margin: 50px auto; border: 1px solid #ccc;}
+			#box li{ width: 600px; height: 30px;}
+			#box li.withe{ background: #fff;}
+			#box li.grck{ background: #f2f2f2;}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oBox=document.getElementById('box');
+				var oLi=oBox.getElementsByTagName('li');
+				for(i=0; i<oLi.length; i++){
+					if(i%2==0){
+						oLi[i].className='withe';
+					}else{
+						oLi[i].className='grck';
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id='box'>
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</body>
+</html>

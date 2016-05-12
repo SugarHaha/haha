@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			select{display: none;}
+		</style>
+		<script type="text/javascript">
+		window.onload=function(){
+			var oSet=document.getElementsByTagName('select');			
+				oSet[0].onchange=function(){
+					for(i=1; i<oSet.length;i++){
+						oSet[i].style.display='none';
+					}
+					oSet[this.value].style.display='block'
+				}
+		}
+		</script>
+	</head>
+	<body>
+		<select id="select" style="display: block;">
+			<option value="1">北京</option>
+			<option value="2">山东</option>
+			<option value="3">四川</option>
+			<option value="4">东北</option>
+		</select>
+		<select style="display: block;">
+			<option>朝阳</option>
+			<option>海淀</option>
+			<option>昌平</option>
+			<option>通州</option>
+		</select>
+		<select>
+			<option>济南</option>
+			<option>青岛</option>
+			<option>烟台</option>
+			<option>聊城</option>
+		</select>
+		<select>
+			<option>成都</option>
+			<option>绵阳</option>
+			<option>汶川</option>
+		</select>
+		<select>
+			<option>黑龙江</option>
+			<option>长春</option>
+			<option>辽宁</option>
+		</select>
+	</body>
+</html>

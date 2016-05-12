@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{ width: 150px; height: 150px; background: #ccc; float: left;}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oBox=document.getElementsByTagName('div');
+				for(i=0;i<oBox.length; i++){
+					var r=parseInt( (Math.random()*256));
+					var g=parseInt( (Math.random()*256));
+					var b=parseInt( (Math.random()*256));
+					oBox[i].style.background='rgb('+r+','+g+','+b+')'
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</body>
+</html>

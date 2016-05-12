@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oText1=document.getElementById('text1');
+				var oText2=document.getElementById('text2');
+				var oBtn=document.getElementById('btn')
+				oBtn.onclick=function(){
+					var num1=Number(oText1.value);
+					var num2=Number(oText2.value);
+					var num3=num1+num2;
+					if(isNaN(num3)){
+						alert('不是一个数字');
+					}else{
+						alert(num3);
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="text1" />+
+		<input type="text" id="text2" />
+		<input type="button" value="求和" id="btn" />
+	</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oBut=document.getElementById('but');
+			var count=1;
+				oBut.onclick=function(){
+					oBut.value=count;
+					alert(count++);						
+				}
+		}
+	</script>
+	<body>
+		<input type="button" value="0" id="but" />
+	</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			input{ width: 100px; height: 30px; border: none;}
+			.mid{ width: 300px; height: 200px; text-align: center; line-height: 200px; border: 2px solid #CCCCCC; display: none;} 
+			.on{ background: #8A2BE2; color: #fff;}
+		</style>
+		<script type="text/javascript">
+		function tab(id){
+			var oBox=document.getElementById(id);
+			var aInput=oBox.getElementsByTagName('input');
+			var oDiv=oBox.getElementsByTagName('div');				
+			for(var i=0; i<aInput.length; i++){
+				aInput[i].index=i;
+				aInput[i].onclick=function(){
+					for(var j=0; j<aInput.length; j++){
+						aInput[j].className='';
+						oDiv[j].style.display='none';
+					}
+					this.className='on';
+					oDiv[this.index].style.display='block'
+				}
+				
+			}
+		}
+		window.onload=function(){
+			tab('box');
+			tab('box1');
+			tab('box2');
+		}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<input type="button" value="选项卡一" class="on" />
+			<input type="button" value="选项卡二" />
+			<input type="button" value="选项卡三" />
+			<div class="mid" style="display: block;">我是选项卡一</div>
+			<div class="mid">我是选项卡二</div>
+			<div class="mid">我是选项卡三</div>
+		</div>
+		<div id="box1">
+			<input type="button" value="选项卡一" class="on" />
+			<input type="button" value="选项卡二" />
+			<input type="button" value="选项卡三" />
+			<div class="mid" style="display: block;">我是选项卡一</div>
+			<div class="mid">我是选项卡二</div>
+			<div class="mid">我是选项卡三</div>
+		</div>
+		<div id="box2">
+			<input type="button" value="选项卡一" class="on" />
+			<input type="button" value="选项卡二" />
+			<input type="button" value="选项卡三" />
+			<div class="mid" style="display: block;">我是选项卡一</div>
+			<div class="mid">我是选项卡二</div>
+			<div class="mid">我是选项卡三</div>
+		</div>
+	</body>
+</html>
