@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{font-size: 12px; margin: 0; padding: 0;}
+			#box{width: 285px; height: 240px; margin: 150px auto; border: 1px solid #ccc;}
+			.week{ float: left; width: 90px; overflow: hidden; margin: 0; padding: 0;}
+			.week li{ width: 90px; height: 39px; background: #211821; border-bottom:1px solid #393942; text-align: center; color: #fff; line-height: 40px;}
+			.week li.active{ background: #000;}
+			#pic{ float: left; width: 195px; position: relative;}
+			#pic img{ width: 195px; height: 240px;}
+			#pic span{position: absolute;  bottom:3px; left: 0; width: 175px; height: 30px; line-height: 30px; background: #333333; color: #fff; padding: 0 10px;}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oBox=document.getElementById('box');
+				var oLi=oBox.getElementsByTagName('li');
+				var oPic=document.getElementById('pic');
+				var oTitleList = ["星期一", "星期二", "星期三", "星期四", "星期五", "周末"];
+				for(var i=0; i<oLi.length; i++){
+					oLi[i].onmouseover=function(){
+						for(var j=0; j<oLi.length;j++){
+							if(oLi[j] !== this){
+								oLi[j].className='';
+								continue;
+							}
+							this.className='active';
+							oPic.innerHTML = "<p><img src=\"img/img" + (j + 1) + ".jpg\" /></p><span>" + oTitleList[j] + "干什么呢</span>"
+						}
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<ul class="week">
+				<li>星期一</li>
+				<li>星期二</li>
+				<li>星期三</li>
+				<li>星期四</li>
+				<li>星期五</li>
+				<li>周末</li>
+			</ul>
+			<div id="pic"><p><img src="img/img1.jpg" /></p><span>星期一干什么呢</span></div>
+		</div>
+	</body>
+</html>

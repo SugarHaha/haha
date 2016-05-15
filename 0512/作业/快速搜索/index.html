@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				font-size: 12px;
+			}
+			
+			ul {
+				padding: 0;
+				margin: 0;
+				overflow: hidden;
+			}
+			
+			.box {
+				width: 285px;
+				margin: 0 auto;
+				border: 1px solid #ccc;
+				padding: 10px;
+				height: 300px;
+			}
+			
+			.text {
+				width: 200px;
+				height: 40px;
+				background: #fff;
+				border: none;
+				float: left;
+			}
+			
+			.left {
+				width: 240px;
+				float: left;
+			}
+			
+			.left span {
+				width: 40px;
+				float: left;
+				text-align: center;
+				line-height: 40px;
+			}
+			
+			.pic {
+				width: 40px;
+				height: 40px;
+				border-left: 1px solid #ccc;
+				float: left;
+			}
+			
+			.input {
+				border: 1px solid #ccc;
+			}
+			
+			.options {
+				width: 283px;
+				border: 1px solid #ccc;
+				border-top: none;
+				display: none;
+			}
+			
+			.options li {
+				line-height: 30px;
+				padding: 0 10px;
+			}
+			
+			.options li:hover {
+				background: #f2f2f2;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var oImg = document.getElementsByClassName("pic")[0].getElementsByTagName("img")[0];
+				var oOptions = document.getElementsByClassName('options')[0];
+				var oLi = oOptions.getElementsByTagName('li');
+				oImg.onclick = function() {
+					if (oOptions.style.display === "none") {
+						oOptions.style.display = 'block';
+						oImg.src = 'img/pic1.jpg';
+					} else {
+						oOptions.style.display = 'none';
+						oImg.src = 'img/pic2.jpg';
+					}
+				}
+				for (var i = 0; i < oLi.length; i++) {
+					oLi[i].onclick = function() {
+						var oText = document.getElementsByClassName('text')[0];
+						var num = parseInt(this.innerText) + "";
+						var danwei = this.innerText.split(num)[1];
+						var oSpan = document.getElementsByClassName('left')[0].getElementsByTagName('span')[0];
+						oText.value = num;
+						oSpan.innerHTML = danwei;
+						oOptions.style.display = 'none';
+						oImg.src = 'img/pic2.jpg';
+					}
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div class="box">
+			<div class="input">
+				<div class="left">
+					<input type="text" class="text" />
+					<span>万元</span>
+				</div>
+				<div class="pic"><img src="img/pic2.jpg" /></div>
+				<div style="clear: both;"></div>
+			</div>
+			<div class="options">
+				<ul>
+					<li>5元</li>
+					<li>10万元</li>
+					<li>15万元</li>
+					<li>20万元</li>
+					<li>25万元</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+
+</html>
