@@ -66,6 +66,19 @@
 						}
 					}
 				}
+				//图片循环
+				var oTaobao_tab = document.getElementById('taobao_tab');
+				var oLi = oTaobao_tab.getElementsByTagName('li');
+				var oTaobao_nb=document.getElementById('taobao_nb');
+				var oAiya=oTaobao_nb.getElementsByTagName('a');
+				for(var i = 0; i < oLi.length; i++){
+					oAiya[i].onmouseover=function(){
+						for( var j = 0; j < oLi.length; j++){
+							
+						}
+						this.className='active';
+					}
+				}
 			}
 		</script>
 	</head>
@@ -795,7 +808,7 @@
 				</div>
 				<div class="hr_10"></div>
 				<div class="taobaoAd bor">
-					<div class="taobao_tab">
+					<div class="taobao_tab" id='taobao_tab'>
 						<ul class="taobaoImg abs">
 							<li class="show">
 								<a href="#"><img src="img/taobaoAd/01.jpg"></a>
@@ -833,7 +846,7 @@
 							<span>$12</span>
 						</div>
 					</div>
-					<div class="taobao_nb">
+					<div class="taobao_nb" id='taobao_nb'>
 						<a href="#" class="active"></a>
 						<a href="#"></a>
 						<a href="#"></a>

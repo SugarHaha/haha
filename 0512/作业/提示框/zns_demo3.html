@@ -27,9 +27,11 @@
 				var oLi = ul.getElementsByTagName("li");
 				for (var i = 0; i < oLi.length; i++) {
 					oLi[i].onmouseover = function() {
+						this.className='active';
 						this.getElementsByTagName('p')[0].style.display = 'block';
 					}
 					oLi[i].onmouseout = function() {
+						this.className='';
 						this.getElementsByTagName('p')[0].style.display = 'none';
 					}
 				}

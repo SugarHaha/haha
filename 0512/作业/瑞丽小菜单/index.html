@@ -14,19 +14,19 @@
 			#pic span{position: absolute;  bottom:3px; left: 0; width: 175px; height: 30px; line-height: 30px; background: #333333; color: #fff; padding: 0 10px;}
 		</style>
 		<script type="text/javascript">
-			window.onload=function(){
-				var oBox=document.getElementById('box');
-				var oLi=oBox.getElementsByTagName('li');
-				var oPic=document.getElementById('pic');
+			window.onload = function(){
+				var oBox = document.getElementById('box');
+				var oLi = oBox.getElementsByTagName('li');
+				var oPic = document.getElementById('pic');
 				var oTitleList = ["星期一", "星期二", "星期三", "星期四", "星期五", "周末"];
-				for(var i=0; i<oLi.length; i++){
+				for(var i = 0; i < oLi.length; i++){
 					oLi[i].onmouseover=function(){
-						for(var j=0; j<oLi.length;j++){
+						for(var j = 0; j < oLi.length; j++){
 							if(oLi[j] !== this){
 								oLi[j].className='';
 								continue;
 							}
-							this.className='active';
+							this.className = 'active';
 							oPic.innerHTML = "<p><img src=\"img/img" + (j + 1) + ".jpg\" /></p><span>" + oTitleList[j] + "干什么呢</span>"
 						}
 					}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oBox=document.getElementById('box');
+				var oInputs=oBox.getElementsByTagName('input');
+				oInputs[oInputs.length-1].onclick=function(){
+					var res = 0;
+					var ok = true;
+					for(var i = 0; i < oInputs.length-1; i++){
+						var n=Number(oInputs[i].value);
+						if(isNaN(n)){
+							alert('第'+(i+1)+'不是数字');
+							ok=false
+						}
+						res+=n
+					}
+					if(ok){
+						alert(res)
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<input type="text" />
+			<input type="text" />
+			<input type="text" />
+			<input type="text" />
+			<input type="text" />
+			<input type="text" />
+			<input type="text" />
+			<input type="text" />
+			<input type="text" />
+			<input type="button" id="btn" value="计算" />
+		</div>
+	</body>
+</html>
