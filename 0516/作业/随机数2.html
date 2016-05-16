@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		function rnd(m,n){
+			return parseInt(Math.random()*(m-n)+n);
+		}			
+			window.onload = function(){
+				var oBtn = document.getElementById('btn');
+				var oBox = document.getElementById('box');
+				// 点击按钮
+				// oBtn.onclick = function(){
+					
+				// }
+				// 随机数
+				function findInAdd(n,arr){
+					
+				}
+				var arr = [];
+				for(i = 0; i < 6; i++){
+					var n = rnd(1,34);
+					arr.push(n);
+				}
+				oBox.innerHTML = arr;
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="随机选择" id="btn" />
+		<div id="box"></div>
+	</body>
+</html>
