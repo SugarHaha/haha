@@ -12,19 +12,32 @@
 			return ''+n;
 		}
 	}
-	window.onload = function(){
+	window.onload = function(){		
 		var oYear = document.getElementById('year');
-		var oImg1 = oYear.getElementsByTagName('img');
-		function year(){
-			var oDate = new Date();
+		var oTime = document.getElementById('time');
+		var oNum = oYear.getElementsByClassName('num');
+		var oNum1 = oTime.getElementsByClassName('num');
+		var oNum2 = oTime.getElementsByClassName('num1');
+		function clock(){
+			var oDate = new Date(); 
 			var Y = oDate.getFullYear();
 			var M = oDate.getMonth();
 			var D = oDate.getDate();
-			var sYear = toDou(Y) + toDou(M) + toDou(D);
-			for(var i = 0; i < oImg1.length; i++){
-				oImg1[i].src='images/'+sYear.charAt(i)+'.png';
+			var h = oDate.getHours();
+			var m = oDate.getMinutes();
+			var s = oDate.getSeconds();
+			var W = oDate.getDay();
+			var syear = toDou(Y) + toDou(M+1) + toDou(D);			
+			for(var i = 0; i < oNum.length; i++){
+				oNum[i].src='images/'+ syear.charAt(i) +'.png';				
+			}
+			var sTime = toDou(h) + toDou(m) + toDou(s);
+			for(var i = 0; i < oNum1.length; i++){
+				oNum1[i].src='images/'+ sTime.charAt(i) +'.png';
 			}
 		}
+		clock();
+		setInterval(clock,1000)
 	}
 </script>
 </head>

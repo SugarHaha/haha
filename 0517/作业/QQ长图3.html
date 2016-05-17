@@ -16,12 +16,30 @@ a{width:100%; height:50%; position:absolute; left:0; z-index:2; opacity:0;}
 <script type="text/javascript">
 	window.onload = function(){
 		var oBox = document.getElementById('box');
-		var aImg = oBox.getElementsByTagName('img');
+		var oImg1 = document.getElementById('img1');
  		var oUp = document.getElementById('up');
 		var oDown = document.getElementById('down');
-		var rnd = 0;
+		var count = 0;
+		var timer = null;
 		oUp.onmouseover = function(){
-			
+			clearInterval(timer);
+			timer = setInterval(function(){
+				count--;
+				if( count < -468){
+					count = -468
+				}
+				oImg1.style.top=count+'px';
+			},50);			
+		}
+		oDown.onmouseover = function(){
+			clearInterval(timer);
+			timer = setInterval(function(){
+				count++;
+				if( count > 0){
+					count = 0
+				}
+				oImg1.style.top=count+'px';
+			},50);			
 		}
 	}
 </script>

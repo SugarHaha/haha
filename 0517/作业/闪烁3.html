@@ -23,7 +23,24 @@ input{border:none; background:none;}
 .content{font:14px/1.5 "Microsoft YaHei"; padding:10px;}
 .content h3{font-size:14px;}
 </style>
-<script></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var oBtn = document.getElementById('btn1');
+		var oShadow = document.getElementById('shadow');
+		var oDiv = document.getElementById('div1');
+		var oTitle = document.getElementsByClassName('title') 
+		oBtn.onclick = function(){
+			oShadow.style.display = 'block';
+			oDiv.style.display = 'block';
+		}
+		oShadow.onclick = function(){
+			function show(){
+				
+			}
+			setInterval(show,2000)
+		}
+	}
+</script>
 </head>
 
 <body>
