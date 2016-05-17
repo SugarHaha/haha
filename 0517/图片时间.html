@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{ background: #000; text-align: center; font-size: 50px; color: #fff; line-height:37px; margin-top: 50px;}
+		</style>
+		<script type="text/javascript">
+			function toDou(n){
+				if(n < 10){
+					return '0'+n;
+				}else{
+					return ''+n;
+				}
+			}
+			window.onload = function(){
+				var oImg = document.getElementsByTagName('img');				
+				function showtime(){
+					var oDate = new Date();
+					var h = oDate.getHours();
+					var m = oDate.getMinutes();
+					var s = oDate.getSeconds();
+					var sTime = toDou(h) + toDou(m) + toDou(s);
+					for(var i = 0; i < oImg.length; i++){
+						oImg[i].src='img/'+sTime.charAt(i)+'.png';
+					}
+				}
+				showtime();
+				setInterval(showtime,1000)
+			}
+		</script>
+	</head>
+	<body>
+		<img src="img/0.png" />
+		<img src="img/0.png" />
+		:
+		<img src="img/0.png" />
+		<img src="img/0.png" />
+		:
+		<img src="img/0.png" />
+		<img src="img/0.png" />
+	</body>
+</html>

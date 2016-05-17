@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function rnd(n,m){
+				return parseInt(Math.random() * (m - n)+n)
+			}
+			window.onload = function(){
+				var oBtn = docunment.getElementById('btn');
+				var oBox = documnent.getElementById('box');
+				var timer = null;
+				function fnshow(){
+					timer = setInterval(function(){
+						var arr = [];
+						while(arr.length < 6){
+							var n = rnd(1,34);
+							if(!timer == n){
+								arr.push(n);
+							}
+						}
+					},200)
+				}
+				oBtn.onclick = fnshow;
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="随机数" id="btn"/>
+		<div id="box"></div>
+	</body>
+</html>
