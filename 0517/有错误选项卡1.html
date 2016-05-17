@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			input {
+				border: none;
+				width: 80px;
+				height: 35px;
+				line-height: 35px;
+			}
+			
+			.on {
+				background: red;
+				color: #fff;
+			}
+			
+			#box1 {
+				width: 300px;
+				height: 200px;
+				border: 2px solid #ccc;
+				text-align: center;
+				line-height: 200px;
+				display: none;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var oBox = document.getElementById('box');
+				var aInput = oBox.getElementsByTagName('input');
+				var oDiv = document.getElementById('box1');
+				var timer = null
+				for (var i = 0; i < aInput.length; i++) {
+					aInput[i].index = i;					
+					aInput[i].onmouseover = function() {
+						var _this = this
+						timer = setTimeout(function() {
+							for (var j = 0; j < aInput.length; j++) {
+								aInput[j].className = '';
+								oDiv[j].style.display = 'none';
+							}
+							_this.className = 'on';
+							oDiv[_this.index].style.display = 'block';
+						}, 300)
+					}
+					aInput[i].onmouseout = function() {
+						clearTimeout(timer);
+					}
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="box">
+			<input type="button" value="选项卡一" class="on" />
+			<input type="button" value="选项卡二" />
+			<input type="button" value="选项卡三" />
+			<div id="box1" style="display: block;">我是选项卡一</div>
+			<div id="box1">我是选项卡二</div>
+			<div id="box1">我是选项卡三</div>
+		</div>
+	</body>
+
+</html>

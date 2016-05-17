@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box {
+				float: left;
+			}
+			
+			input {
+				width: 100px;
+				height: 30px;
+				border: none;
+			}
+			
+			#prev {
+				float: left;
+			}
+			
+			#next {
+				flex: left;
+			}
+			
+			.boxa {
+				width: 350px;
+				height: 200px;
+				line-height: 200px;
+				text-align: center;
+				border: 2px solid #ccc;
+				display: none;
+			}
+			
+			.on {
+				background: #122E67;
+				color: #fff;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var oBox = document.getElementById('box');
+				var aInput = oBox.getElementsByTagName('input');
+				var oDiv = oBox.getElementsByTagName('div');
+				var oPrev = document.getElementById('prev');
+				var oNext = document.getElementById('next');
+				var iNow = 0;
+				var timer = null;
+				for (var i = 0; i < aInput.length; i++) {
+					aInput[i].index = i;
+					aInput[i].onclick = function() {
+						iNow = this.index;
+						tab();
+					}
+
+					function tab() {
+						for (var j = 0; j < aInput.length; j++) {
+							aInput[j].className = '';
+							oDiv[j].style.display = 'none';
+						}
+						aInput[iNow].className = 'on';
+						oDiv[iNow].style.display = 'block';
+					}
+					oPrev.onclick = function() {
+						iNow--;
+						if (iNow == -1) {
+							iNow = aInput.length - 1;
+						}
+						tab();
+					}
+					next = setInterval(next, 1000);
+					oNext.onclick = next;
+
+					function next() {
+						iNow++;
+						if (iNow == aInput.length) {
+							iNow = 0;
+						}
+						tab();
+					}
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="box">
+			<a href="javascript:;" id="prev">
+				<-</a>
+					<input type="button" value="第一" class="on" />
+					<input type="button" value="第二" />
+					<input type="button" value="第三" />
+					<a href="javascript:;" id="next">-></a>
+					<div class="boxa" style="display: block;">第一个选项卡</div>
+					<div class="boxa">第二个选项卡</div>
+					<div class="boxa">第三个选项卡</div>
+
+		</div>
+	</body>
+
+</html>
