@@ -19,6 +19,11 @@
 		var oUl = document.getElementById('ul');
 		var oSon = document.getElementById('son');
 		var oGraSon = document.getElementById('graSon')
+		for( i = 0; i < oSon.length; i++){
+			oUl[i].onmouseover = function(){
+				oSon.style.display = 'block';
+			}
+		}
 	}
 </script>
 </head>

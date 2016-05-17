@@ -28,16 +28,15 @@ input{border:none; background:none;}
 		var oBtn = document.getElementById('btn1');
 		var oShadow = document.getElementById('shadow');
 		var oDiv = document.getElementById('div1');
-		var oTitle = document.getElementsByClassName('title') 
+		var oTitle = document.getElementsByClassName('title')[0]; 
 		oBtn.onclick = function(){
 			oShadow.style.display = 'block';
 			oDiv.style.display = 'block';
 		}
 		oShadow.onclick = function(){
-			function show(){
+			setTimeout(function(){
 				
-			}
-			setInterval(show,2000)
+			},2000)
 		}
 	}
 </script>
