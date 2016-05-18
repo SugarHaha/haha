@@ -14,37 +14,36 @@ a{width:100%; height:50%; position:absolute; left:0; z-index:2; opacity:0;}
 #down{  bottom:0; background:blue;}
 </style>
 <script type="text/javascript">
-	window.onload = function(){
-		var oBox = document.getElementById('box');
-		var oImg1 = document.getElementById('img1');
- 		var oUp = document.getElementById('up');
-		var oDown = document.getElementById('down');
-		var count = 0;
-		var timer = null;
-		oUp.onmouseover = function(){
-			clearInterval(timer);
-			timer = setInterval(function(){
-				count--;
-				if( count <= 300-768){
-					count = -300-768
-				}
-				oImg1.style.top=count+'px';
-			},50);			
-		}
-		oDown.onmouseover = function(){
-			clearInterval(timer);
-			timer = setInterval(function(){
-				count++;
-				if( count > 0){
-					count = 0
-				}
-				oImg1.style.top=count+'px';
-			},50);			
-		}
-		oUp.onmouseout = oDown.onmouseout = function(){
-			clearInterval(timer);		
-		}
+window.onload = function(){
+	var oUp = document.getElementById('up');
+	var oDown = document.getElementById('down');
+	var oImg = document.getElementById('img1');
+	var count = 0;
+	var time = null;
+	oUp.onmouseover = function(){
+		clearInterval(time);
+		time = setInterval(function(){
+			count--;
+			if( count <= -468){
+				count = -468;
+			}
+			oImg.style.top = count+'px';
+		},50)
 	}
+	oDown.onmouseover = function(){
+		clearInterval(time);
+		time = setInterval(function(){
+			count++;
+			if( count > 0 ){
+				count = 0;
+			}
+			oImg.style.top = count+'px';
+		},50)
+	}
+	oUp.onmouseout = oDown.onmouseout = function(){
+		clearInterval(time);
+	}
+}
 </script>
 </head>
 

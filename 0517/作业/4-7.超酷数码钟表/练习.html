@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -15,11 +15,10 @@
 	window.onload = function(){		
 		var oYear = document.getElementById('year');
 		var oTime = document.getElementById('time');
-		var oNum = oYear.getElementsByClassName('num');
-		var oNum1 = oTime.getElementsByClassName('num');
-		var oNum2 = oTime.getElementsByClassName('num1');
+		var aImg1 = oYear.getElementsByTagName('img');
+		var aImg2 = oTime.getElementsByTagName('img');
 		function clock(){
-			var oDate = new Date(); 
+			var oDate = new Date();
 			var Y = oDate.getFullYear();
 			var M = oDate.getMonth();
 			var D = oDate.getDate();
@@ -27,13 +26,20 @@
 			var m = oDate.getMinutes();
 			var s = oDate.getSeconds();
 			var week = oDate.getDay();
-			var syear = Y + toDou(M+1) + toDou(D);			
-			for(var i = 0; i < oNum.length; i++){
-				oNum[i].src='images/'+ syear.charAt(i) +'.png';				
+			var weekArr = ['sever','one','two','three','four','five','six']
+			var showYear = Y+'-'+ toDou(M+1) + '-' + toDou(D) +'-';
+			var showTime = toDou(h)+':'+ toDou(m) + ':' + toDou(s) +':'+ week;
+			for (i = 0; i < aImg1.length; i++){
+				if(showYear.charAt(i) == '-'){
+					continue;
+				}
+				aImg1[i].src='images/'+ showYear.charAt(i) +'.png';				
 			}
-			var sTime = toDou(h) + toDou(m) + toDou(s);
-			for(var i = 0; i < oNum1.length; i++){
-				oNum1[i].src='images/'+ sTime.charAt(i) +'.png';
+			for (i = 0; i < aImg2.length; i++){
+				if(showTime.charAt(i) == ':'){
+					continue;
+				}
+				aImg2[i].src='images/'+ showTime.charAt(i) +'.png';
 			}
 		}
 		clock();

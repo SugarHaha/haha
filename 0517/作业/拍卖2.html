@@ -21,22 +21,34 @@
 			var oTime = document.getElementById('time');
 			var overTime = 5;
 			var showTime = null;
-			clearInterval(showTime);
+			var showTime2 = null;
+			var end = 10;
+			oText.innerHTML = '即将拍卖';
+			oTime.innerHTML = '距拍卖开始: 05 秒';
 			showTime = setInterval(function(){
-			overTime--;						
-			oTime.innerHTML = '倒计时: '+toDou(overTime)+' 秒';
-			if( overTime == 0){
-				oText.innerHTML = '开始拍卖';	
-				clearInterval(showTime);
-			}
-			}, 1000)			
+				overTime--;
+				oTime.innerHTML = '距拍卖开始: '+toDou(overTime)+' 秒';
+				if(overTime <= 0){
+					clearInterval(showTime);
+					oText.innerHTML = '开始拍卖';
+					showTime2 = setInterval(function(){						
+						end--;
+						oTime.innerHTML = '距拍卖结束: '+toDou(end)+' 秒';
+						if(end <= 0){
+							clearInterval(showTime2);
+							oText.innerHTML = '拍卖结束';
+						}
+					},1000)
+				}				
+				
+			},1000)
 		}
 		</script>
 	</head>
 	<body>
 		<div id="box">
-			<div id="text">即将拍卖</div>
-			<div id="time">倒计时: 05 秒</div>
+			<div id="text"></div>
+			<div id="time"></div>
 		</div>
 	</body>
 </html>

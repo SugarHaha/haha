@@ -11,7 +11,58 @@
 <![endif]-->
 <link href="style/zns_style.css" rel="stylesheet" type="text/css" />
 </head>
-<script></script>
+<script>
+	function tuDou(n){
+		if(n < 10){
+			return '0'+n;
+		}else{
+			return ''+n;
+		}
+	}
+	window.onload = function(){
+		var oFill = document.getElementById('fill_in');
+		var aInput = oFill.getElementsByTagName('input');
+		var oGo = document.getElementById('go');
+		var oTarget = document.getElementById('target');
+		var oDay = document.getElementById('day');
+		var oHour = document.getElementById('hour');
+		var oMin = document.getElementById('min');
+		var oSec = document.getElementById('sec');
+		var timer = null;
+		oGo.onclick = function(){
+			clearInterval(timer);
+			//输入时间
+			var Y = aInput[0].value;
+			var M = aInput[1].value;
+			var D = aInput[2].value;
+			oTarget.innerHTML = '现在距离 - <strong>'+ Y + '年' + M + '月' + D +'日</strong> - 还剩：';
+			//获取输入时间
+			var time1 = new Date();
+			time1.setFullYear(tuDou(Y),tuDou(M-1),tuDou(D));
+			time1.setHours(0,0,0,0);
+			//输入时间距离1970年的时间 -秒
+			var showtime1 = parseInt(time1.getTime()/1000);
+			//获取当前时间			
+			function show(){					
+				var now = new Date();
+				var nowTime = parseInt(now.getTime()/1000);
+				var s =  showtime1 - nowTime;
+				var d = parseInt(s / 86400);
+				s%= 86400;
+				var h = parseInt(s / 3600);
+				s%= 3600;
+				var m = parseInt(s / 60);
+				s%= 60;					
+				oDay.innerHTML = tuDou(d);
+				oHour.innerHTML = tuDou(h);
+				oMin.innerHTML = tuDou(m);
+				oSec.innerHTML = tuDou(s); 
+			}
+			show();
+			timer = setInterval(show,1000)
+		}
+	}
+</script>
 <body>
 
 <div id="zhinengshe">
@@ -28,7 +79,7 @@
     <a href="javascript:;" id="go" class="go"></a>
 
     <p id="target">
-        现在距离 -
+   	现在距离 -
         <strong>2013年12月25日</strong>
         - 还剩：
     </p>

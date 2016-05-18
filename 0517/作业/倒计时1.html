@@ -6,21 +6,22 @@
 		<script type="text/javascript">
 			window.onload = function(){				
 				var oBtn = document.getElementById('btn');
-				var time = null;		
-					oBtn.onclick = function(){
-						oBtn.disabled = true;
-						clearInterval(time);
-						var overTime = 60;
-						time = setInterval(function(){
-						overTime--;						
-						oBtn.value = ''+ (overTime + 1) +'秒后重新获取';
-						if( overTime < 0){
+				var timer = null;
+				oBtn.onclick = function(){
+					oBtn.disabled = true;
+					var count = 60;
+					function showTime(){								
+						count--;
+						oBtn.value =  (count + 1) +'秒后重新获取';
+						if (count < 0){
 							oBtn.value = '免费获取验证码';
-							clearInterval(time);
+							clearInterval(timer);
 							oBtn.disabled = false;
 						}
-						}, 1000)							
 					}
+					showTime();
+					timer = setInterval(showTime,1000);
+				}
 			}
 		</script>
 	</head>
