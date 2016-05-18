@@ -34,9 +34,18 @@ input{border:none; background:none;}
 			oDiv.style.display = 'block';
 		}
 		oShadow.onclick = function(){
-			setTimeout(function(){
-				
-			},2000)
+			var flashNum = 3;
+			function timeOut(){
+				console.log(oTitle.className);
+				oTitle.className = oTitle.className === "title flicker_01" ? "title flicker_02" : "title flicker_01";
+				if(oTitle.className === "title flicker_01"){
+					if(!--flashNum){
+						return;
+					}
+				}
+				setTimeout(timeOut, 200);
+			}
+			timeOut();
 		}
 	}
 </script>

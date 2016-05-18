@@ -15,16 +15,22 @@
 .graSon{ display:none;position:absolute; left:100px; top:-1px;}
 </style>
 <script type="text/javascript">
-	window.onload = function(){
-		var oUl = document.getElementById('ul');
-		var oSon = document.getElementById('son');
-		var oGraSon = document.getElementById('graSon')
-		for( i = 0; i < oSon.length; i++){
-			oUl[i].onmouseover = function(){
-				oSon.style.display = 'block';
-			}
-		}
+	window.onload = function(){       
+        var li_list = document.getElementById("ul1").getElementsByTagName("li");
+        for(var i = 0; i < li_list.length; ++i){
+            if(li_list[i].getElementsByTagName("ul").length){
+                li_list[i].onmouseover = function(){
+                    var temp_ul = this.getElementsByTagName("ul")[0];
+                    temp_ul.style.display = "block";
+                }
+                li_list[i].onmouseout = function(){
+                    var temp_ul = this.getElementsByTagName("ul")[0];
+                    temp_ul.style.display = "none";
+                }
+            }
+        }
 	}
+
 </script>
 </head>
 
