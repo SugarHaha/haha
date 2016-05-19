@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function setStyle(obj,name){
+				for(name in json){
+					obj.style[name] = json[name]
+				}
+			}
+			window.onload = function(){
+				var oBox = document.getElementById('box');
+				setStyle(oBox,{
+					'width' : '200px',
+					'height' : '200px',
+					'background' : '#ccc'
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>
