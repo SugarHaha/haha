@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{padding: 0; margin: 0; font-size: 12px;}
+			ul{padding: 0; margin: 0; overflow: hidden;}
+			#box{ width: 250px;  margin: 50px auto; background: #dee7e7; padding: 10px;}
+			#box h2{ font-size: 16px; width: 250px; height: 40px; line-height: 40px; border-bottom: 1px solid #94bdd6; margin-bottom: 10px;}
+			#box li{ line-height: 35px; border-bottom: 1px dashed #fff; list-style: none;}
+			#box li p{ padding: 0 10px;}
+			.nub{ width: 16px; height: 13px; line-height: 13px; text-align: center;font-weight: bold; background: #185a84; font-size: 14px; color: #fff; display: block; float: left; margin-right: 5px; margin-top: 10px;}
+			#div1{ height: 60px; background: #fff; padding: 10px; line-height: 22px; overflow: hidden; display: none;}
+			#div1 img{ float: left; padding-right: 10px; overflow: hidden;}
+			#div1 span{ width: 16px; height: 13px; line-height: 13px; text-align: center;font-weight: bold; background: #185a84; font-size: 14px; color: #fff; display: block; float: left; margin-right: 5px;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBox = document.getElementById('box');
+				var aP= oBox.getElementsByTagName('p');
+				var oDiv =  oBox.getElementsByTagName('div');
+				for(var i = 0; i < aP.length; i++){
+					aP[i].index=i;
+					aP[i].onmouseover = function(){
+						for(var j=0; j<aP.length; j++){
+							aP[j].style.display='';
+							oDiv[j].style.display='none';
+						}
+						this.style.display='none'
+						oDiv[this.index].style.display='block'
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<h2>排行榜</h2>
+			<ul>
+				<li><p style="display: none;"><span class="nub">1</span>我国首列永磁跨座式单轨列车问世</p>
+				<div id="div1" style="display: block;"><span class="nub">1</span><img src="img/img01.jpg" />轨道不是两条而是一条，车辆采用橡胶轮胎，骑跨在高架轨道梁上行驶...</div>				
+				</li>
+				<li><p><span class="nub">2</span>我国首列永磁跨座式单轨列车问世</p>
+				<div id="div1"><span class="nub">2</span><img src="img/img01.jpg" />轨道不是两条而是一条，车辆采用橡胶轮胎，骑跨在高架轨道梁上行驶...</div>				
+				</li>
+				<li><p><span class="nub">3</span>我国首列永磁跨座式单轨列车问世</p>
+				<div id="div1"><span class="nub">3</span><img src="img/img01.jpg" />轨道不是两条而是一条，车辆采用橡胶轮胎，骑跨在高架轨道梁上行驶...</div>				
+				</li>
+				<li><p><span class="nub">4</span>我国首列永磁跨座式单轨列车问世</p>
+				<div id="div1"><span class="nub">4</span><img src="img/img01.jpg" />轨道不是两条而是一条，车辆采用橡胶轮胎，骑跨在高架轨道梁上行驶...</div>				
+				</li>
+				<li><p><span class="nub">5</span>我国首列永磁跨座式单轨列车问世</p>
+				<div id="div1"><span class="nub">5</span><img src="img/img01.jpg" />轨道不是两条而是一条，车辆采用橡胶轮胎，骑跨在高架轨道梁上行驶...</div>			
+				</li>
+				<li><p><span class="nub">6</span>我国首列永磁跨座式单轨列车问世</p>
+				<div id="div1"><span class="nub">6</span><img src="img/img01.jpg" />轨道不是两条而是一条，车辆采用橡胶轮胎，骑跨在高架轨道梁上行驶...</div>				
+				</li>
+				<li><p><span class="nub">7</span>我国首列永磁跨座式单轨列车问世</p>
+				<div id="div1"><span class="nub">7</span><img src="img/img01.jpg" />轨道不是两条而是一条，车辆采用橡胶轮胎，骑跨在高架轨道梁上行驶...</div>				
+				</li>
+				<li><p><span class="nub">8</span>我国首列永磁跨座式单轨列车问世</p>
+				<div id="div1"><span class="nub">8</span><img src="img/img01.jpg" />轨道不是两条而是一条，车辆采用橡胶轮胎，骑跨在高架轨道梁上行驶...</div>				
+				</li>
+				<li><p><span class="nub">9</span>我国首列永磁跨座式单轨列车问世</p>
+				<div id="div1"><span class="nub">9</span><img src="img/img01.jpg" />轨道不是两条而是一条，车辆采用橡胶轮胎，骑跨在高架轨道梁上行驶...</div>				
+				</li>
+				<li><p><span class="nub">10</span>我国首列永磁跨座式单轨列车问世</p>
+				<div id="div1"><span class="nub">10</span><img src="img/img01.jpg" />轨道不是两条而是一条，车辆采用橡胶轮胎，骑跨在高架轨道梁上行驶...</div>
+				</li>
+			</ul>
+		</div>
+	</body>
+
+</html>
