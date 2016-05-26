@@ -3,6 +3,9 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<style type="text/css">
+			#box{ width: 100px; height: 100px; background: #0099FF;}
+		</style>
 		<script type="text/javascript">
 			function setStyle(obj,name){
 				for(name in json){
@@ -11,11 +14,13 @@
 			}
 			window.onload = function(){
 				var oBox = document.getElementById('box');
-				setStyle(oBox,{
-					'width' : '200px',
-					'height' : '200px',
-					'background' : '#ccc'
-				})
+				oBox.onclick = function(){
+					setStyle(oBox,{
+						'width' : '200px',
+						'height' : '200px',
+						'background' : '#ccc'
+					})
+				}
 			}
 		</script>
 	</head>

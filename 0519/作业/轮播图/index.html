@@ -36,7 +36,7 @@
 							aLi[j].className='';
 							oDiv[j].style.display='none';
 						}
-						aLi[iNow]='on';
+						aLi[iNow].className='on';
 						oDiv[iNow].style.display='block'
 				}
 				timer = setInterval(next,2000);
@@ -56,6 +56,21 @@
 					}
 					show();
 				}
+				
+				oPrev.onmousedown = function(){
+					oPrev.getElementsByTagName("img")[0].src = "img/4.jpg";
+				}
+				oPrev.onmouseup = function(){
+					oPrev.getElementsByTagName("img")[0].src = "img/2.jpg";
+				}
+				oNext.onmousedown = function(){
+					oNext.getElementsByTagName("img")[0].src = "img/3.jpg";
+				}
+				oNext.onmouseup = function(){
+					oNext.getElementsByTagName("img")[0].src = "img/1.jpg";
+				}
+				
+				
 				oBox.onmouseover = function(){
 					clearInterval(timer);
 				}
