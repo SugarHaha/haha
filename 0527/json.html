@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var json =   [{
+					'ctry': '北京',
+					'tmp': '30℃',
+					'food': [{
+						'ctry': '簋街',
+						'food': '麻小'
+					}, {
+						'ctry': '前门',
+						'food': '涮肚'
+					}]
+				},{
+					'ctry': '上海',
+					'tmp': '30℃',
+					'food': [{
+						'ctry': '簋街',
+						'food': '麻小'
+					}, {
+						'ctry': '前门',
+						'food': '涮肚'
+					}]
+				}]
+			}
+			document.write('地址：' + json.name[1]['ctry'] + '&nbsp;温度：' + json.name[1]['tmp'] +
+			'小吃:&nbsp;' + json.name[1]['food'][0]['ctry'] + ':'+ json.name[1]['food'][0]['food']+ ';'+json.name[1]['food'][1]['ctry'] + ':'+json.name[1]['food'][1]['food'])
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

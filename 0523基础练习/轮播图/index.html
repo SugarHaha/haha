@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{padding: 0; margin: 0;}
+			#box{ width:680px; height:380px; margin: 50px auto; position: relative;}
+			.pic{ width:680px; height:380px; display: none;}
+			.pic img{ width:680px; height:380px;}
+			.pic p{ height: 40px;  background-color: rgba(0,0,0,0.5); position: absolute;z-index:1; line-height: 40px; bottom: 0; width: 660px; padding: 0 10px; color: #fff;} 
+			#prev{ width: 46px; height: 47px; position: absolute; left: 10px; top: 50%; margin-top: -23px;}
+			#next{ width: 46px; height: 47px; position: absolute; right: 10px; top: 50%;margin-top: -23px;}
+			#list{ position: absolute; bottom: 10px; right: 10px; z-index: 2;}
+			#list li{ list-style: none; width: 10px; height: 10px; background: #fff; margin: 0 3px; float: left;}
+			#list li.on{ background: #ef3929;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBox = document.getElementById('box');
+				var aLi = oBox.getElementsByTagName('li');
+				var oDiv = oBox.getElementsByTagName('div');
+				var oPrev = document.getElementById('prev');
+				var oNext = document.getElementById('next');
+				var count = 0;
+				var timer = null;
+				for(var i = 0; i < aLi.length; i++){
+					aLi[i].index = i;
+					aLi[i].onmouseover = function(){
+						count = this.index;	
+						show();
+					}
+				}
+				function show(){
+					for(var j = 0; j < aLi.length; j++){
+						aLi[j].className = '';
+						oDiv[j].style.display = 'none';
+					}						
+					aLi[count].className = 'on';
+					oDiv[count].style.display = 'block';
+				}
+				oNext.onclick = function(){
+					count++;
+					if(count == aLi.length){
+						count = 0;
+					}
+					show();
+				}
+				timer = setInterval(function(){
+					count++;
+					if(count == aLi.length){
+						count = 0;
+					}
+					show();
+				},1000);
+				oPrev.onclick = function(){						
+					if(count == 0){
+						count = aLi.length;
+					}
+					count--;
+					show();
+				}
+				oBox.onmouseover = function(){
+					clearInterval(timer);
+				}
+				oBox.onmouseout = function(){
+					timer = setInterval(next,1000);
+				}				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<ul id="list">
+				<li class="on"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<a href="javascript:;" id="prev"><img src="img/2.jpg" /></a>
+			<div class="pic" style="display: block;"><img src="img/pic.png" /><p>我是文字，我是来卖萌的1</p></div>
+			<div class="pic"><img src="img/pic1.png" /><p>我是文字，我是来卖萌的2</p></div>
+			<div class="pic"><img src="img/pic2.png" /><p>我是文字，我是来卖萌的3</p></div>
+			<div class="pic"><img src="img/pic3.png" /><p>我是文字，我是来卖萌的4</p></div>
+			<div class="pic"><img src="img/pic4.png" /><p>我是文字，我是来卖萌的5</p></div>
+			<a href="javascript:;" id="next"><img src="img/1.jpg" /></a>
+			
+		</div>
+	</body>
+</html>

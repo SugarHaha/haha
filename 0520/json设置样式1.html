@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{ width: 100px; height: 100px; background: #ff0;}
+		</style>
+		<script type="text/javascript">
+			function setStyle(){
+				var obj = arguments[0];
+				if(arguments.length == 3){
+					var name = arguments[1];
+					var value = arguments[2];
+					obj.style[name] = value;
+				}else if(arguments.length == 2){
+					var json = arguments[1];
+					for(name in json){
+						obj.style[name] = json[name];
+					}
+				}
+			}
+			
+			var a = {
+				"background": "#fff",
+				"height": "300px",
+			}
+			
+			a.width = "200px";
+			
+			for(var item in a){
+				div.style[item] = a[item];
+			}
+			
+			window.onload = function(){
+				var oBox = document.getElementById('box');				
+				oBox.onclick = function(){
+					setStyle(oBox,'width','300px');
+//					setStyle(oBox,{
+//						'width':'200px',
+//						'height':'200px',
+//						'background':'#00f'
+//					})
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>

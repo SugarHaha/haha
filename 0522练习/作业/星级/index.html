@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0; padding: 0;}
+			ul{ margin: 0; padding: 0; overflow: hidden;}
+			#box{ width: 135px; margin: 100px auto;}
+			#box li{ width:27px; height:29px; background: url(img/star.gif) no-repeat; float: left; list-style: none;}
+			#box li.on{background: url(img/star.gif) 0 29px;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBox = document.getElementById('box');
+				var aLi = oBox.getElementsByTagName('li');	
+				var selected = -1;		
+				for(var i = 0; i < aLi.length; i++){
+					aLi[i].index = i;
+					aLi[i].onmouseover = function(){
+						for(var j = 0; j < aLi.length; j++){
+							aLi[j].className = j <= this.index ? 'on' : '';
+						}
+					}
+					aLi[i].onclick = function(){
+						if(selected == this.index){
+							selected = -1;
+						}else{
+							selected = this.index;
+						}
+					}
+					aLi[i].onmouseout = function(){
+						for(var j = 0; j < aLi.length; j++){
+							if(j <= selected){
+								aLi[j].className = 'on';
+							}else{
+								aLi[j].className = '';
+							}
+						}
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</body>
+</html>

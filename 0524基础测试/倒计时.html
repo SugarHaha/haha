@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBox = document.getElementById('box');
+				var timer = null;
+				//获取六一的时间
+				var liuyi = new Date();
+				liuyi.setFullYear(2016,5,1);
+				liuyi.setHours(0,0,0,0);
+				//获取六一的时间戳
+				var liuyiTime = parseInt(liuyi.getTime()/1000);	
+				//function show(){
+					var isNow = new Date();    //获取当前时间 
+					var isNowTime = parseInt(isNow.getTime()/1000);	    //获取当前时间的时间戳
+					var s = liuyiTime - isNowTime;					
+					var d = parseInt(s / 86400);
+						s%=86400;
+					var h = parseInt(s / 3600);
+						s%=3600;
+					var m = parseInt(s / 60);
+						s%=60;
+					oBox.innerHTML='现在距离六一儿童节倒计时:'+ d +'天'+ h +'时'+ m +'分钟'+ s +'秒';					
+				//}
+
+				//timer = setInterval(show,1000);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>

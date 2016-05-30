@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBox = document.getElementById('box');
+				//乘法表
+				/*for(var i = 1; i < 10; i++){
+					for(var j = 1; j <= i; j++){
+						document.write ( j +'*'+ i +'='+ i*j + '&nbsp;');
+					}
+					document.write('<br />')
+				}*/
+				//冒泡排序
+				/*var arr = [12,1,34,53,113,55,3,5,66,24]
+				var flag = true;
+				while(flag){
+					flag = false;
+					for(var i = 0; i < arr.length; i++){
+						//每次跟跟上家比
+						if(arr[i] > arr[i + 1]){
+							var temp = arr[i];
+							arr[i] = arr[i + 1];
+							arr[i + 1] = temp;
+							flag = true;
+						}
+					}
+				}
+				
+				document.write(arr);*/
+				//for
+				/*var arr = [12,1,34,53,113,55,3,5,66,24]
+				//j跟i相比时i+1 所以i的长度相对减1
+				for(var i = 0; i < arr.length - 1; i++){
+					//j跟i的上一位相比 j=i+1
+					for(var j = i + 1; j < arr.length; j++){ 
+						if(arr[i] > arr[j]){
+							var temp = arr[i];
+							arr[i] = arr[j];
+							arr[j] = temp;
+						}
+					}
+				}
+				document.write(arr);*/
+				//数组去重
+				/*var arr = [12,35,13,45,12,35,23,44,11,32,35,24,45,12,35,23,44]
+				arr.sort(); //数组排序
+				for(var i = 0; i < arr.length; i++){
+					if(arr[i] == arr[i + 1]){
+						arr.splice(i,1);
+						i--;
+					}					
+				}
+				document.write(arr);*/				
+				//json数组去重；
+				/*var arr = [23,34,42,11,23,42,11,11,43,42]
+				var json = {};
+				var arr2 = [];
+				for(var i = 0; i < arr.length; i++){
+					json[arr[i]] ='a';//数组的每个值都变成json name ，json name 不能重复
+					console.log(json);
+				}
+				for(name in json){
+					arr2.push(name);
+				}
+				document.write(arr2)*/
+				//json去重
+				/*var arr = [12,23,13,24,12,23,3,12,34,24,13];
+				var arr2 = [];
+				var json = {};
+				for(var i = 0; i < arr.length; i++){
+					json[arr[i]] = 'a';
+				}
+				for(name in json){
+					arr2.push(name);
+				}
+				document.write(arr2);*/
+				//数组去重
+				var arr = [12,23,13,24,12,23,3,12,34,24,13];
+				arr.sort();
+				for(var i = 0; i < arr.length; i++){
+					if(arr[i] == arr[i + 1]){
+						arr.splice(i,1);
+						i--;
+					}
+				}
+				document.write(arr)
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>

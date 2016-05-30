@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0; padding: 0;}
+			#box{ width: 500px; margin: 30px auto;}
+			input{ width: 100px; height: 30px; border: none;}
+			.on{ background: #0099FF; color: #fff;}
+			.box{ width: 315px; height: 260px; border: 1px solid #ccc; text-align: center; line-height: 260px; margin-top: 5px; display: none;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBox = document.getElementById('box');
+				var aInput = oBox.getElementsByTagName('input');
+				var oDiv = oBox.getElementsByTagName('div');
+				for(var i = 0; i < aInput.length; i++){
+					aInput[i].index = i;
+					aInput[i].onmouseover = function(){
+						for(var j = 0; j < aInput.length; j++){
+							aInput[j].className = '';
+							oDiv[j].style.display = 'none';
+						}
+						this.className = 'on';
+						oDiv[this.index].style.display = 'block';
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<input type="button" value="选项卡1" class="on"/>
+			<input type="button" value="选项卡2" />
+			<input type="button" value="选项卡3" />
+			<div class="box" style="display: block;">我是选项卡1我会卖萌</div>
+			<div class="box">我是选项卡2我会卖萌</div>
+			<div class="box">我是选项卡3我会卖萌</div>
+		</div>
+	</body>
+</html>

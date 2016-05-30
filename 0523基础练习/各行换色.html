@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			ul{padding:0; margin:0; overflow:hidden;}
+			#box{ width: 500px; margin: 30px auto; border: 1px solid #ccc;}
+			#box li{ height: 30px; list-style: none;}
+			#box li.hui{ background: #F2F2F2;}
+			#box li.withe{background: #fff;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBox = document.getElementById('box');
+				var aLi = oBox.getElementsByTagName('li');
+				for(var i = 0; i < aLi.length; i++){
+					if(i%2 == 0){
+						aLi[i].className = 'withe';
+					}else{
+						aLi[i].className = 'hui';
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</body>
+</html>

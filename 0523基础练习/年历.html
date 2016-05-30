@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<meta name="description" content="智能社是一家专注于web前端开发技术的公司，目前主要提供JavaScript培训和HTML5培训两项服务，同时还推出了大量javascript基础知识教程，智能课堂为你带来全新的学习方法和快乐的学习体验。" />
+<title>智能社— http://www.zhinengshe.com</title>
+<style>
+* { padding: 0; margin: 0; }
+li { list-style: none; }
+body { background: #f6f9fc; font-family: arial; }
+
+.calendar { width: 210px; margin: 50px auto 0; padding: 10px 10px 20px 20px; background: #eae9e9; }
+.calendar ul { width: 210px; overflow: hidden; padding-bottom: 10px; }
+.calendar li { float: left; width: 58px; height: 54px; margin: 10px 10px 0 0; border: 1px solid #fff; background: #424242; color: #fff; text-align: center; cursor: pointer; }
+.calendar li h2 { font-size: 20px; padding-top: 5px; }
+.calendar li p { font-size: 14px; }
+
+.calendar .active { border: 1px solid #424242; background: #fff; color: #e84a7e; }
+.calendar .active h2 { }
+.calendar .active p { font-weight: bold; }
+
+.calendar .text { width: 178px; padding: 0 10px 10px; border: 1px solid #fff; padding-top: 10px; background: #f1f1f1; color: #555;}
+.calendar .text h2 {font-size: 14px; margin-bottom: 10px; }
+.calendar .text p { font-size: 12px; line-height: 18px; }
+</style>
+<script type="text/javascript">
+	window.onload = function(){
+		var oBox = document.getElementById('box');
+		var aLi = oBox.getElementsByTagName('li');
+		var oTxet = document.getElementById('text');
+		var arr = [
+		'过年了，买东西吧',
+		'元宵节到了...',
+		'植树节到了..',
+		'愚人节到了..',
+		'劳动节到了..',
+		'儿童节到了..',
+		'鬼节到了..',
+		'建军节到了..',
+		'教师节到了..',
+		'国庆节到了..',
+		'光棍节见到了..',
+		'圣诞节到了..'
+	];
+		for(var i = 0; i < aLi.length; i++){
+			aLi[i].index = i;
+			aLi[i].onmouseover = function(){
+				for(var j = 0; j < aLi.length; j++){
+					aLi[j].className = '';
+				}
+				this.className = 'active';
+				oTxet.innerHTML = '<h2>'+ (this.index+1) +'月份</h2><p>'+ arr[this.index] +'</p>'
+			}
+		}
+	}
+</script>
+</head>
+
+<body>
+	<div class="calendar" id="box">
+		<ul>
+			<li class="active">
+				<h2>1</h2>
+				<p>JAN</p>
+			</li>
+			<li>
+				<h2>2</h2>
+				<p>FER</p>
+			</li>
+			<li>
+				<h2>3</h2>
+				<p>MAR</p>
+			</li>
+			<li>
+				<h2>4</h2>
+				<p>APR</p>
+			</li>
+			<li>
+				<h2>5</h2>
+				<p>MAY</p>
+			</li>
+			<li>
+				<h2>6</h2>
+				<p>JAN</p>
+			</li>
+			<li>
+				<h2>7</h2>
+				<p>JUL</p>
+			</li>
+			<li>
+				<h2>8</h2>
+				<p>AUG</p>
+			</li>
+			<li>
+				<h2>9</h2>
+				<p>SEP</p>
+			</li>
+			<li>
+				<h2>10</h2>
+				<p>OCT</p>
+			</li>
+			<li>
+				<h2>11</h2>
+				<p>NOV</p>
+			</li>
+			<li>
+				<h2>12</h2>
+				<p>DEC</p>
+			</li>
+		</ul>
+		<div class="text" id="text">
+			<h2>1月份</h2>
+			<p>过年了，买东西吧..</p>
+		</div>
+	</div>
+</body>
+</html>

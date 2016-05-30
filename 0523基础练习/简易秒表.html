@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function toDou(n){
+				if(n < 10){
+					return '0' + n;
+				}else{
+					return n
+				}
+			}
+			window.onload = function(){
+				var oText = document.getElementById('text');
+				var oBtn = document.getElementById('btn');
+				var count = 0;
+				var timer = null;
+				oBtn.onclick = function(){
+					clearInterval(timer)
+					timer = setInterval(function(){
+						count++;
+						var m = parseInt(count/60);
+						var s = count%60;
+						oText.value = toDou(m) +':'+ toDou(s);
+					},1000)
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="text" value="00:00"/>
+		<input type="button" id="btn" value="开始" />
+	</body>
+</html>

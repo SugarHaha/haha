@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<script type="text/javascript">
+			function FindInArr(n,arr){
+				for(var i = 0; i < arr.length; i++){
+					if(arr[i] == n){	
+					return true;
+					}
+					return false;
+				}
+			}
+			function getByClass(oParent,sClass){
+				for (var i = 0; i < aEle.length; i++){
+					var tmp = aEle[i].className.split(' ');
+					if(FindInArr(sClass,tmp)){
+						aEle[i].style.background = 'red';
+					}
+				}
+			}
+			window.onload = function(){
+				var aEle = document.body.getElementsByTagName('*');
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div class="red">red</div>
+		<div class="red bule">red.bule</div>
+		<div class="red1">red1</div>
+		<p class="red">p.red</p>
+	</body>
+</html>

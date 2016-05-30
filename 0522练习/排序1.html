@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var arr = [134,45,3434,51,23,68,1]
+			var flag = true;
+            while(flag){
+                flag = false;
+                for(var i = 0; i < arr.length - 1; i++){
+                    if(arr[i] > arr[i + 1]){
+                        var temp = arr[i];
+                        arr[i] = arr[i + 1];
+                        arr[i + 1] = temp;
+                        flag = true;
+                    }
+                }
+            }
+//			for(var i = 0 ; i < arr.length; i++){
+//				for(var j = i+1;j < arr.length; j++){
+//					if(arr[i] > arr[j]){
+//						var temp = arr[i];
+//						arr[i] = arr[j];
+//						arr[j] = temp;
+//					}
+//				}
+//			}
+			
+			document.write(arr);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{ width: 150px; height: 150px; background: #0099FF;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBox = document.getElementById('box');
+				oBox.onclick = function(){
+					if(oBox.crrentStyle){
+						alert(oBox.currentStyle.width);
+					}else{
+						alert(getComputedStyle(oBox,false).width);
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>

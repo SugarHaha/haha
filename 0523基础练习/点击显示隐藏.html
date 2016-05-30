@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{ width: 200px; height: 200px; border: 1px solid #ccc; background: #ccc;}
+			#cose{ width: 20px; height: 20px; border: 1px solid #ccc; background: #fff; display: block; margin: 3px; text-align: center;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBox = document.getElementById('box');
+				var oCose = document.getElementById('cose');
+				oCose.onclick = function(){
+					if(oBox.style.display == 'none'){
+						oBox.style.display = 'block';
+					}else{
+						oBox.style.display = 'none';
+					}
+					
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<a href="javascript:;" id="cose">X</a>
+		<div id="box">
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{background: #000;}
+			#box{ width: 350px; margin: 40px auto; color: #fff; font-size: 40px;}
+		</style>
+		<script type="text/javascript">
+		function toDou(n){
+			if(n < 0){
+				return '0' + n;
+			}else{
+				return '' + n;
+			}
+		}
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			var aImgs = document.getElementsByTagName('img');
+			function show(){
+				var oDate = new Date();		
+				var h = oDate.getHours();
+				var m = oDate.getMinutes();
+				var s = oDate.getSeconds();
+				var time = toDou(h) + toDou(m) + toDou(s);
+				for(var i = 0; i < aImgs.length; i++){
+					aImgs[i].src = "img/" + time.charAt(i) + ".png";
+				}
+			}
+			show();
+			setInterval(show,1000)
+		}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<img src="img/0.png">
+			<img src="img/0.png">
+			:
+			<img src="img/0.png">
+			<img src="img/0.png">
+			:
+			<img src="img/0.png">
+			<img src="img/0.png">
+		</div>
+	</body>
+</html>

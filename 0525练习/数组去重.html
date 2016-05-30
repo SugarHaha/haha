@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<script type="text/javascript">
+		var arr = [2,454,56,23,56,2,55,56,65,56,,23,24,56]
+		arr.sort();//把数字从小到大排序
+		for(var i = 0; i < arr.length; i++){
+			//arr[i]如果等于i 的上一位 那么就删除一位
+			if(arr[i] == arr[i + 1]){
+				arr.splice(i,1);
+				i--; //一直循环直到没有重复防止有多个1
+			}
+		}
+		document.write(arr)
+	</script>
+	</head>
+	<body>
+	</body>
+</html>

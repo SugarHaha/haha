@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function show(a){
+			    alert(a);
+			    var s=a();
+			    return function(){
+			        alert(s);
+				}
+			}
+			function a(){
+			    alert('b');
+			}
+			alert(show(a())())
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
