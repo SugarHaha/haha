@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<meta name="description" content="智能社是一家专注于web前端开发技术的公司，目前主要提供JavaScript培训和HTML5培训两项服务，同时还推出了大量javascript基础知识教程，智能课堂为你带来全新的学习方法和快乐的学习体验。" />
+<title>智能社— http://www.zhinengshe.com</title>
+<style>
+*{ margin:0; padding:0; list-style:none;}
+#ul1{}
+#ul1 li{ width:100px; height:30px; line-height:30px; text-align:center; float:left; border:1px solid #000; background:#ccc; position:relative;}
+#ul1 li:hover{ background:#f60;}
+.son{ position:absolute; left:0; top:30px; display:none;}
+.graSon{ display:none;position:absolute; left:100px; top:-1px;}
+</style>
+<script type="text/javascript">
+	window.onload = function(){  
+		var oUl = document.getElementById('ul1')
+		var aLi = oUl.getElementsByTagName('li')
+		for(i = 0; i < aLi.length; i++ ){
+			aLi[i].onmouseover = function (){
+				var aUl = this.getElementsByTagName('ul')[0];
+				if(aUl){
+					aUl.style.display = 'block';
+				}
+			}
+			aLi[i].onmouseout = function (){
+				var aUl = this.getElementsByTagName('ul')[0];
+				if(aUl){
+					aUl.style.display = 'none';
+				}
+			}
+		}
+	}
+
+</script>
+</head>
+
+<body>
+<ul id="ul1">
+	<li>首页</li>
+    <li>
+    	<span>公司简介</span>
+        <ul class="son">
+        	<li>大事记</li>
+            <li>
+            	<span>领导致辞</span>
+                <ul class="graSon">
+                	<li>
+                    	<span>2013年</span>
+                        <ul class="graSon">
+                        	<li>10月份</li>
+                            <li>9月份</li>
+                            <li>8月份</li>
+                        </ul>
+                    </li>
+                    <li>2012年</li>
+                </ul>
+            </li>
+            <li>企业文化</li>
+        </ul>
+    </li>
+    <li>联系我们</li>
+    <li>
+    	<span>产品展示</span>
+        <ul class="son">
+        	<li>康师傅</li>
+            <li>老谭</li>
+            <li>今麦郎</li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>

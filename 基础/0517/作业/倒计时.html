@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function(){				
+				var oBtn = document.getElementById('btn');
+				var time = null;		
+					oBtn.onclick = function(){
+						oBtn.disabled = true;
+						clearInterval(time);
+						var overTime = 60;
+						time = setInterval(function(){
+						overTime--;						
+						oBtn.value = ''+ (overTime + 1) +'秒后重新获取';
+						if( overTime < 0){
+							oBtn.value = '免费获取验证码';
+							clearInterval(time);
+							oBtn.disabled = false;
+						}
+						}, 1000)							
+					}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="免费获取验证码" id="btn" />
+	</body>
+</html>

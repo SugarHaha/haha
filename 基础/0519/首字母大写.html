@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var str = 'welcome to zhinengshe';
+			//把每一个单词切出来
+			var arr = str.split(' ');
+			var arr2 = [];
+			//切出来的里每个首字母换成大写
+			for(var i = 0; i < arr.length; i++){
+				var s = arr[i].charAt(0).toUpperCase() + arr[i].substring(1);
+				arr2.push(s);				
+			}	
+			var str2 = arr2.join(' ');
+			alert(str2)
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

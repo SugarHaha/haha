@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{ margin: 0; padding: 0; font-size: 12px;}
+			ul{ padding: 0; margin: 0; overflow: hidden;}
+			#box{ width: 550px; height: 230px; border: 1px solid #ccc; margin: 50px auto;}
+			.box-left{ color: #000; display: block; border-right:1px solid #ccc; width: 29px; height: 110px; float: left; text-align: center; padding:60px 15px; font-size: 24px;}
+			.on{display: block; border-right:1px solid #ccc; width: 29px; height: 110px; float: left; text-align: center; padding:60px 15px; font-size: 24px; color: #398C31;}
+			.boxright{ width: 290px; height:190px; float: left; padding: 20px 10px;display: none;}
+			.boxright li{ line-height: 25px;}
+			.pic{ height: 125px;overflow: hidden; line-height: 22px; display: block;}
+			.pic h2{font-size: 16px; color: #398c31;}
+			.pic img{ float: left; padding-right: 10px;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBox = document.getElementById('box');
+				var aSpan = oBox.getElementsByTagName('span');
+				var oBoxa = oBox.getElementsByClassName('boxa');
+				var oBoxRight = oBox.getElementsByClassName('boxright');
+				for(var i = 0; i < aSpan.length; i++ ){
+					aSpan[i].index=i;
+					aSpan[i].onmouseover = function(){
+						for(var j=0; j< aSpan.length; j++){
+							aSpan[j].className ='box-left';
+							oBoxRight[j].style.display='none';
+						}
+						this.className = 'on';
+						oBoxRight[this.index].style.display='block'
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<div class="boxa">
+				<span class="box-left on">
+					身体事儿
+				</span>
+				<div class="boxright" style="display: block;">
+					<ul>
+						<li><div class="pic"><h2>我国首列永磁跨座式单轨列车问世</h2><img src="img/img01.jpg" />轨道不是两条而是一条，车辆采用橡胶轮胎，骑跨在高架轨道梁上行驶，跨座式单轨这种极为精妙的轨道交通方式...</div></li>
+						<li>我国首列永磁跨座式单轨列车问世</li>
+						<li>我国首列永磁跨座式单轨列车问世</li>
+						<li>我国首列永磁跨座式单轨列车问世</li>
+					</ul>
+				</div>
+			</div>
+			<div class="boxa">
+				<span class="box-left">
+					心理事儿
+				</span>
+				<div class="boxright">
+					<ul>
+						<li><div class="pic"><h2>我国首列永磁跨座式单轨列车问世</h2><img src="img/img01.jpg" />轨道不是两条而是一条，车辆采用橡胶轮胎，骑跨在高架轨道梁上行驶，跨座式单轨这种极为精妙的轨道交通方式...</div></li>
+						<li>我国首列永磁跨座式单轨列车问世</li>
+						<li>我国首列永磁跨座式单轨列车问世</li>
+						<li>我国首列永磁跨座式单轨列车问世</li>
+					</ul>
+				</div>
+			</div>
+			<div class="boxa">
+				<span class="box-left">
+					私密事儿
+				</span>
+				<div class="boxright">
+					<ul>
+						<li><div class="pic"><h2>我国首列永磁跨座式单轨列车问世</h2><img src="img/img01.jpg" />轨道不是两条而是一条，车辆采用橡胶轮胎，骑跨在高架轨道梁上行驶，跨座式单轨这种极为精妙的轨道交通方式...</div></li>
+						<li>我国首列永磁跨座式单轨列车问世</li>
+						<li>我国首列永磁跨座式单轨列车问世</li>
+						<li>我国首列永磁跨座式单轨列车问世</li>
+					</ul>
+				</div>
+			</div>
+			<div class="boxa">
+				<span class="box-left">
+					悦养生活
+				</span>
+				<div class="boxright">
+					<ul>
+						<li><div class="pic"><h2>我国首列永磁跨座式单轨列车问世</h2><img src="img/img01.jpg" />轨道不是两条而是一条，车辆采用橡胶轮胎，骑跨在高架轨道梁上行驶，跨座式单轨这种极为精妙的轨道交通方式...</div></li>
+						<li>我国首列永磁跨座式单轨列车问世</li>
+						<li>我国首列永磁跨座式单轨列车问世</li>
+						<li>我国首列永磁跨座式单轨列车问世</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

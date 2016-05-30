@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		window.onload = function(){						
+			for(var i = 0; i < 2; i++){
+				(function(index){
+					setTimeout(function(){
+					alert(index);
+				},200)	
+				})(i)
+			}
+		}			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
