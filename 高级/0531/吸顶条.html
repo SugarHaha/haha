@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{ width: 100%; height: 40px; background: #191919; color: #fff; font-size: 24px; text-align: center; line-height: 40px;}
+			#box2{ width: 100%; height: 50px; display: none; }
+		</style>
+		<script type="text/javascript">
+			function getPos(obj){
+				var t = 0;
+				var l = 0;
+				while(obj){
+					l+= obj.offsetLeft;
+					t+= obj.offsetTop;
+					obj = obj.offsetParent;
+				}
+				return {left:l,top:t}
+			}
+			window.onload = function(){
+				var oBox = document.getElementById('box');
+				var oBox2 = document.getElementById('box2');
+				var top = getPos(oBox).top;
+				window.onscroll = function(){
+					var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+					if(scrollTop >= top){
+						oBox.style.position = 'fixed';
+						oBox.style.top = 0;
+						oBox.style.left = 0;
+						oBox2.style.display = 'block';
+					}else{
+						oBox.style.position = '';
+						oBox2.style.display = 'none';
+					}
+				}
+ 			}
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+		</ul>
+		<div id="box">吸顶条</div>
+		<div id="box2">haha</div>
+		<ul>
+			<li>我会卖萌你造吗</li>
+			<li>哈哈哈哈哈哈哈哈</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+			<li>西安北大街数十辆出租车聚集 道路被堵</li>
+		</ul>
+	</body>
+</html>

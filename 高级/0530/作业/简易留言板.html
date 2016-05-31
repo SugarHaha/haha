@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oText = document.getElementById('text');
+				var oBtn = document.getElementById('btn');
+				var oUl = document.getElementById('ul1');
+				oBtn.onclick = function(){
+					//创建一个li
+					var aLi = document.createElement('li');
+					aLi.innerHTML = oText.value + '<a href="javascript:;">删除</a>';
+					oText.value ="";
+					//添加
+					if(oUl.children.length == 0){
+						oUl.appendChild(aLi);
+					}else{
+						oUl.insertBefore(aLi,oUl.children[0])
+					}
+					//oUl.appendChild(aLi);
+					//删除
+					var aA = aLi.children[0]; //创建a 是aLi的子级
+					aA.onclick = function(){
+						oUl.removeChild(aLi);
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="text" />
+		<input type="button" id="btn" value="留言" />
+		<ul id="ul1">
+			<!--<li>我是留言内容<a href="javascript:;">删除</a></li>-->
+		</ul>
+	</body>
+</html>

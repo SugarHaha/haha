@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box li{ width: 630px; height: 450px; float: left; list-style: none; border: 1px solid #ccc; margin: 3px;}
+			#box li img{ width: 630px; height: 450px;}
+		</style>
+		<script type="text/javascript">
+			function getPos(obj){
+				var t = 0;
+				var l = 0;
+				while(obj){
+					l+= obj.offsetLeft;
+					t+= obj.offsetTop;
+					obj = obj.offsetParent;
+				}
+				return {left:l,top:t}
+			}
+			window.onresize = window.onscroll = window.onload = function(){
+				//var oBox = document.getElementById('box');
+				var aImg = document.getElementsByTagName('img');
+				//获取滚动条高度
+				var scrollT = document.documentElement.scrollTop || document.body.scrollTop;
+				//获取可视区域高度
+				var clientH = document.documentElement.clientHeight;
+				var scrollBottom = scrollT+clientH;
+				for(var i = 0; i < aImg.length; i++){
+					var oTop = getPos(aImg[i]).top;
+					if(scrollBottom >= oTop){
+						aImg[i].src = aImg[i].getAttribute('_src');
+					}					
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li><img _src="img/pic.png" /></li>
+				<li><img _src="img/pic1.png" /></li>
+				<li><img _src="img/pic2.png" /></li>
+				<li><img _src="img/pic3.png" /></li>
+				<li><img _src="img/pic4.png" /></li>
+				<li><img _src="img/pic.png" /></li>
+				<li><img _src="img/pic1.png" /></li>
+				<li><img _src="img/pic2.png" /></li>
+				<li><img _src="img/pic3.png" /></li>
+				<li><img _src="img/pic4.png" /></li>
+			</ul>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box li{ list-style: none; height: 35px;}
+		</style>
+		<script type="text/javascript">
+		window.onload = function(){
+			var aA = document.getElementsByTagName('a');
+			for(var i = 0; i < aA.length; i++){
+				aA[i].onclick = function(){
+					this.parentNode.style.display = 'none';
+				}
+			}
+		}
+		</script>
+	</head>
+	<body>
+		<div>
+			<ul id="box">
+				<li>asasasas<a href="javascript:;">隐藏</a></li>
+				<li>1111111<a href="javascript:;">隐藏</a></li>
+				<li>wwwww<a href="javascript:;">隐藏</a></li>
+				<li>vvvvvv<a href="javascript:;">隐藏</a></li>
+			</ul>
+		</div>
+	</body>
+</html>

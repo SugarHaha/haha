@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{padding: 0; margin: 0;}
+			#box{ width: 100%; background: red;}
+			/*body{background: #ccc;}*/
+		</style>
+		<script type="text/javascript">				
+		window.onload = window.onresize = function(){
+			var oBox = document.getElementById('box');
+			var big = document.documentElement.clientWidth;
+            //var big1 = document.documentElement.clientHeight;
+            if(big >= 1000){
+            	oBox.style.background = 'red';
+            }else if(big > 700 && big < 1000){
+            	oBox.style.background = 'blue';
+            }else if(big > 400 && big < 700){
+            	oBox.style.background = 'blueviolet';
+            }else{
+            	oBox.style.background = 'black';
+            }
+        }
+		</script>
+	</head>
+	<body id="box">
+		
+	</body>
+</html>

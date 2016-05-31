@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智能社--http://www.zhinengshe.com</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #3bb4f2;
+            position: fixed;
+            _position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oDiv=document.getElementById('div1');
+
+            if(navigator.userAgent.indexOf('MSIE 6.0')!=-1){
+                window.onresize=window.onscroll=function(){
+                    // 滚动条滚动的距离
+                    var scrollTop=document.documentElement.scrollTop || document.body.scrollTop;
+                    // 可视区高度
+                    var clientH=document.documentElement.clientHeight;
+                    // 物体高度
+                    var oH=oDiv.offsetHeight;
+                    var top=scrollTop+clientH-oH;
+                    oDiv.style.top=top+'px';
+                };
+            }
+        };
+    </script>
+</head>
+<body style="height: 3000px;">
+<div id="div1"></div>
+</body>
+</html>

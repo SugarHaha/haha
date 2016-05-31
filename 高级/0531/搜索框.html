@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{font-size: 12px;}
+			#box{position: relative;}
+			#box span{position: absolute; top: 2px; left:5px; color: #999;}
+		</style>
+		<script type="text/javascript">
+		window.onload = function(){
+			var oText = document.getElementById('text');
+			var oSpan = document.getElementById('zi');
+			oText.onfocus = function(){
+				oSpan.style.display = "none";
+			}
+			oText.onblur = function(){
+				if(oText.value == ''){
+					oSpan.style.display = "block";
+				}
+			}
+			oSpan.onclick = function(){
+				oText.focus();
+			}
+		}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<input type="text" id="text" />
+			<span id="zi">萌你一脸</span>
+		</div>
+	</body>
+</html>

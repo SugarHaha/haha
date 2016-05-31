@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{padding: 0; margin: 0; list-style: none;}
+			ul{padding: 0; margin: 0; overflow: hidden;}
+			#box li{ width: 12.5%; text-align: center; float: left; height: 300px; line-height: 300px; color: #FFF; font-size: 24px;}
+			.one{background: #0099FF;}
+			.tow{background: #7D7DFF;}
+			.three{ background: #8A2BE2;}
+			.frou{background: #E84A7E;}
+			.five{background: #FF0000;}
+			.six{background: #FF3300;}
+			.seven{background: #FF8500;}
+			.eight{background: #FFCC33;}
+		</style>
+		<script type="text/javascript">				
+		window.onload = window.onresize = function(){
+			var oBox = document.getElementById('box');
+			var aLi = oBox.getElementsByTagName('li');
+			var big = document.documentElement.clientWidth;
+			for(var i = 0; i < aLi.length; i++){
+				if(big > 1000){
+	            	aLi[i].style.width = '12.5%';
+	            }else if(big < 1000 && big >=500){
+	            	aLi[i].style.width = '25%';
+	            }else if(big < 500 && big >=300){
+	            	aLi[i].style.width = '50%';
+	            }
+	            
+			}
+		}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li class="one">1</li>
+				<li class="tow">2</li>
+				<li class="three">3</li>
+				<li class="frou">4</li>
+				<li class="five">5</li>
+				<li class="six">6</li>
+				<li class="seven">7</li>
+				<li class="eight">8</li>
+			</ul>
+		</div>
+	</body>
+</html>

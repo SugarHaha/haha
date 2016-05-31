@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{ margin: 0; padding: 0;}
+			#box{ width: 200px; height: 200px; background: #0099FF; position: fixed; right: 0; bottom: 0;_position:absolute}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBox = document.getElementById('box');	
+				if(navigator.userAgent.indexOf('MSIE 6.0')!=-1){
+	                window.onresize = window.onscroll=function(){
+	                    // 滚动条滚动的距离
+	                    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+	                    // 可视区
+	                    var ksq = document.documentElement.clientHeight;
+	                    // 物体高度 
+	                    var oH = oBox.offsetHeight;
+	                    var top = scrollTop + ksq - oH;
+	                    oBox.style.top = top + 'px';
+	                };
+	            }
+			}
+		</script>
+	</head>
+	<body style="height: 3000px;">
+		<div id="box"></div>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oUl = document.getElementById('ul');
+				var aA = oUl.getElementsByTagName('a');
+				for(var i = 0; i < aA.length; i++){
+					if(i%2){
+						aA[i].onclick = function(){
+							//父级
+							var oParent = this.parentNode;
+							if(oParent == oUl.children[oUl.children.length - 1]){
+								alert('亲，到底了，别点了');
+								return;
+							}
+							var oNext = oParent.nextElementSibling || oParent.nextSibling;
+							oNext = oNext.nextElementSibling || oNext.nextSibling;
+							oUl.insertBefore(oParent,oNext);
+						}
+					}else{
+						aA[i].onclick = function(){
+							var oParent = this.parentNode;
+							if(oParent == oUl.children[0]){
+								alert('亲，到顶了，别点了');
+								return;
+							}
+							var oPrve = oParent.previousElementSibling || oParent.previousSibling;
+							oUl.insertBefore(oParent,oPrve);
+						}
+					}
+				}
+ 			}		
+		</script>
+	</head>
+	<body>
+		<ul id="ul">
+			<li><a href="javascript:;">上移</a>111111111<a href="javascript:;">下移</a></li>
+			<li><a href="javascript:;">上移</a>222222222<a href="javascript:;">下移</a></li>
+			<li><a href="javascript:;">上移</a>333333333<a href="javascript:;">下移</a></li>
+			<li><a href="javascript:;">上移</a>444444444<a href="javascript:;">下移</a></li>
+		</div>
+	</body>
+</html>
+

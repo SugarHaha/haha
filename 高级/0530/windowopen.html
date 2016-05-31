@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oText = document.getElementById('text');
+				var oBtn = document.getElementById('btn');
+				oBtn.onclick = function(){
+					//直接打开网址
+					//window.open('http://www.baidu.com') 
+					//打开新页面
+					var win = window.open('about:black');
+					win.document.write(oText.value);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="text" />
+		<input type="button" id="btn" value="运行" />
+	</body>
+</html>
