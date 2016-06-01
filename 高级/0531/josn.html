@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="" />
+<meta name="copyright" content="" />
+<meta name="description" content="" />
+<title></title>
+<style>
+	ul{margin: 0; padding: 0; overflow: hidden;}
+	#box li{ width: 350px; font-size: 24px;  font-weight: bold; line-height: 35px;}
+	#box li span{ font-size: 14px; font-weight: normal; display: block; color: #888;} 
+</style>
+<script>
+	var oUl = document.getElementById('ul1');
+	var ads = [
+			{
+				'name' : '习近平祝全国小朋友节日快乐',
+				'content' : '祝他们节日快乐，祝全国小朋友节日快乐'
+			},
+			{
+				'name' : '习近平祝全国小朋友节日快乐',
+				'content' : '祝他们节日快乐，祝全国小朋友节日快乐'
+			},
+			{
+				'name' : '习近平祝全国小朋友节日快乐',
+				'content' : '祝他们节日快乐，祝全国小朋友节日快乐'
+			}
+		];
+	//创建li；
+	var aLi = document.createElement('li');
+	//添加
+	if(oUl.children.length == 0){
+		oUl.appendChild(aLi);
+	}else{
+		oUl.insertBefore(aLi,oUl.children[0]);
+	}
+//	/document.write('标题：'+ ads[0]['name'] + ',文章:'+ ads[0]['content'] );
+	//for(var i = 0; i < aLi.length; i++){
+		aLi.innerHTML = '标题：'+ ads[0]['name'] + ',文章:'+ ads[0]['content'];
+	//}
+	
+</script>
+</head>
+
+<body>
+	<div id="box">
+		<ul id="ul1">
+			<!--<li>习近平祝全国小朋友节日快乐 <span>祝他们节日快乐，祝全国小朋友节日快乐</span></li>-->
+		</ul>
+	</div>
+</body>
+</html>

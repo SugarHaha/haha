@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBox = document.getElementById('box');
+				var arr =[{
+					'title':"习大大祝全国儿童节日快乐",
+					'href':'http://www.daidu.com'
+				},{
+					'title':"习大大祝全国儿童节日快乐",
+					'href':'http://www.daidu.com'
+				},{
+					'title':"习大大祝全国儿童节日快乐",
+					'href':'http://www.daidu.com'
+				},
+				{
+					'title':"习大大祝全国儿童节日快乐",
+					'href':'http://www.daidu.com'
+				},
+				{
+					'title':"习大大祝全国儿童节日快乐",
+					'href':'http://www.daidu.com'
+				},
+				{
+					'title':"习大大祝全国儿童节日快乐",
+					'href':'http://www.daidu.com'
+				}]
+				for(var i = 0; i < arr.length; i++){
+					var oDiv = document.createElement('div');
+					oDiv.innerHTML = '<a href="'+ arr[i].href +'">'+arr[i].title+'</a>';
+					oBox.appendChild(oDiv);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>

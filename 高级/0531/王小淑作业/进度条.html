@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{ width: 300px; height: 30px; background: #ccc; border-radius: 5px; position: absolute; top: 50%; left: 50%; margin-top: -15px; margin-left: -150px;}
+			#box1{ height: 30px; background: #0000FF; border-radius: 5px; position: absolute;top: 50%; left: 50%; margin-top: -15px; margin-left: -150px;} 
+			#box span{color: #fff; text-align: center; line-height: 30px; width: 300px; display: block; z-index: 999;position: absolute;}		
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBox = document.getElementById('box');
+				var oBox1 = document.getElementById('box1');
+				var oSpan = oBox.getElementsByTagName('span');
+				var count = 0;
+				for(var i = 0; i < 77; i++){
+					var oImg = new Image();
+					oImg.src = 'http://www.zhinengshe.com/works/3525/img/'+i+'.jpg';
+					oImg.onload = function(){
+						count++;
+						var bili = count / 77;
+						oBox1.style.width = oBox.offsetWidth * bili +'px';
+						oSpan[0].innerHTML = (bili*100).toFixed(2)+'%';
+						if(count == 77){
+							alert('加载完成')
+						}
+					}
+				}
+ 			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<span></span>
+			<div id="box1"></div>			
+		</div>
+	</body>
+</html>

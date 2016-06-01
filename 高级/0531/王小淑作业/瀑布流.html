@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>智能社--http://www.zhinengshe.com</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul{
+            width: 260px;
+            border: 1px solid #ccc;
+            float: left;
+            margin: 20px;
+        }
+        ul li{
+            width: 240px;
+            margin: 10px;
+        }
+    </style>
+    <script>
+    	function rnd(n,m){
+    		return parseInt(Math.random()*(m-n)+n);
+    	}
+    	function liStyle(){
+    		var aLi = document.createElement('li');
+    		aLi.style.height = rnd(80,350)+'px';
+        	aLi.style.background = 'rgb('+rnd(1, 256)+','+rnd(1, 256)+','+rnd(1, 256)+')';
+        	return aLi;
+    	}
+        window.onload = function(){
+        	var oUl = document.getElementsByTagName('ul');        	
+//      	for(var i = 0; i < 20; i++){
+//      		var aLi = liStyle();
+//      		oUl[0].appendChild(aLi);
+//      	}
+			function show(){
+                for(var i = 0; i < 20; i++){
+                    var oLi = liStyle();
+                    var arrUl = [];
+                    for(var j = 0; j < oUl.length; j++){
+                        arrUl.push(oUl[j]);
+                    }
+                    arrUl.sort(function(n1,n2){
+                        return n1.offsetHeight - n2.offsetHeight;
+                    });
+                    arrUl[0].appendChild(oLi);
+                }
+            }
+            show();
+            window.onscroll = function(){
+                var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                var clientH = document.documentElement.clientHeight;
+                var scrollBottom = scrollTop + clientH;
+                if(scrollBottom >= document.body.scrollHeight - 300){
+                    show();
+                }
+            };
+        }
+    </script>
+</head>
+<body>
+<ul></ul>
+<ul></ul>
+<ul></ul>
+</body>
+</html>

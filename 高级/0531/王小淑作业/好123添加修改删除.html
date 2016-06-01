@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{line-height: 30px;}
+			#btn{ margin-left: 10px; width: 60px; height: 30px; background: #0099FF; color: #fff; border: none;}
+			input{ width: 300px; height: 30px; border: 1px solid #ccc; padding-left: 10px; margin-right: 10px;}
+			label{float: left;}
+			#name{ color: #999; position: absolute; left: 10px; top: 0; }
+			#add{ color: #999; position: absolute; left: 10px; top: 0; }
+			ul{ padding: 0; margin: 0; overflow: hidden; margin-bottom: 30px; border-bottom: 1px dashed #ccc; padding-bottom: 20px;}
+			ul li{ border: 2px solid #ccc; height: 30px; width: 150px; padding:0 5px; line-height: 30px; float: left; margin: 10px 15px; list-style: none;}	
+			ul li  a{float: right; margin-left: 5px;}		
+		</style> 
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBtn = document.getElementById('btn');
+				var oText1 = document.getElementById('text1');
+				var oText2 = document.getElementById('text2');
+				var oName = document.getElementById('name');
+				var oAdd = document.getElementById('add');
+				var oUl = document.getElementById('ul1');
+				//字
+				oText1.onfocus = function(){
+					oName.style.display = "none";
+				}
+				oText1.onblur = function(){
+					if(oText1.value == ''){
+						oName.style.display = "block";
+					}
+				}
+				oName.onclick = function(){
+					oText1.focus();
+				}
+				oText2.onfocus = function(){
+					oAdd.style.display = "none";
+				}
+				oText2.onblur = function(){
+					if(oText1.value == ''){
+						oAdd.style.display = "block";
+					}
+				}
+				oAdd.onclick = function(){
+					oText2.focus();
+				}
+				//点击事件
+				oBtn.onclick = function(){
+					//创建li
+					var aLi = document.createElement('li');
+					var nr = oText1.value +'<a href="javascript:;">删除</a>'+'<a href="javascript:;">修改</a>';
+					aLi.innerHTML = nr;
+					oText1.value = '';
+					oText2.value = '';
+					//添加
+					if(oUl.children.length == 0){ //如果没一第一条那就直接添加
+						oUl.appendChild(aLi);
+					}else{
+						oUl.insertBefore(aLi,oUl.children[0]); //有了第一条信息后往前增加
+					}
+					//删除
+					var oDelete = aLi.children[0];
+					oDelete.onclick = function(){
+						oUl.removeChild(aLi);
+					}
+					if(oText1.value == ''){
+						oAdd.style.display = "block";
+					}
+					//修改
+					var oChange = aLi.children[1];
+					oChange.onclick = function(){
+						//oText1.innerHTML = oText1.value;
+						alert(nr)
+					}
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<ul id="ul1">
+			<!--<li>asds<span><a href="javascript:;">修改</a><a href="javascript:;">删除</a></span></li>-->
+		</ul>
+		<div id="box">
+			<label>网站名称:</label>
+			<div style="float: left; position: relative;"><input type="text" id="text1" /><span id="name">如：百度</span></div>
+			<label>网址:</label>
+			<div style="float: left;  position: relative;"><input type="text" id="text2" /><span id="add">如：www.baidu.com</span>
+			<input type="button" value="添加" id="btn" /></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			ul{margin: 0; padding: 0; overflow: hidden;}
+			#box li{ width: 350px; font-size: 24px;  font-weight: bold; line-height: 35px;}
+			#box li span{ font-size: 14px; font-weight: normal; display: block; color: #888;} 
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBox = document.getElementById('box');
+				var aLi = document.getElementsByTagName('li');
+				var json ={list[{
+					"name" :"习近平祝全国小朋友节日快乐",
+					"content":"祝他们节日快乐，祝全国小朋友节日快乐"
+				},
+				{
+					"name" :"习近平回信勉励大陈岛老垦荒队员的后代",
+					"content":"习近平在信中表示，看了你们的来信，我想起了10年前的大陈岛之行"
+				},
+				{
+					"name" :"习近平祝全国小朋友节日快乐",
+					"content":"祝他们节日快乐，祝全国小朋友节日快乐"
+				},
+				{
+					"name" :"习近平祝全国小朋友节日快乐",
+					"content":"祝他们节日快乐，祝全国小朋友节日快乐"
+				}]
+					
+				};
+				for(var i = 0; i < aLi.length; i++){
+					aLi[i].innerHTML = json.list[i]['name']
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<!--<li>习近平祝全国小朋友节日快乐 <span>祝他们节日快乐，祝全国小朋友节日快乐</span></li>-->
+			</ul>
+		</div>
+	</body>
+</html>

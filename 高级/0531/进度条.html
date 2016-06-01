@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{ width: 300px; height: 30px; background: #ccc; border-radius: 5px; border: 1px solid #CDCDCD; position: absolute; top: 50%; left: 50%; margin-top: -15px; margin-left: -150px; }
+			#box2{ height: 30px;background: #0099FF; border-radius: 5px; top: 50%; left: 50%; margin-top: -15px; margin-left: -150px;  position: absolute;}
+			#box span{ line-height: 30px; position: absolute;color: #fff; z-index: 999; width: 300px; height: 30px; text-align: center;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBox = document.getElementById('box');
+				var oBox2 = document.getElementById('box2');
+				var oSpan = document.getElementsByTagName('span'); 
+				var count = 0;
+				for(var i = 0; i < 77; i++){
+					var oImg = new Image();
+					oImg.src = 'http://www.zhinengshe.com/works/3525/img/'+i+'.jpg';
+					oImg.onload = function(){
+						count++;//当图片加载的时候执行
+						var scale = count/77;					
+						oBox2.style.width = oBox.offsetWidth * scale+'px';	
+						oSpan[0].innerHTML = (scale*100).toFixed(2)+'%';
+						if(count == 77){
+							alert('加载完成')
+						}
+					}
+				}								
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<div id="box2"></div>
+			<span></span>
+		</div>
+		
+	</body>
+</html>
