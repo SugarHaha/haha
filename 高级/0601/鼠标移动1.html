@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{width: 100px; height: 100px; background: #0099FF; position: absolute;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBox = document.getElementById('box');
+				document.onmousemove = function(ev){
+					var oEvent = ev || event;
+					oBox.style.left = oEvent.clientX - oBox.offsetWidth/2 +'px';
+					oBox.style.top = oEvent.clientY - oBox.offsetHeight/2 +'px';
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oText = document.getElementById('text');
+				var oSpan = document.getElementById('span');
+				var timer = null;
+						if(navigator.userAgent.indexOf('MDIE 0.0')!=-1){
+					oText.onfocus = function(){
+						timer = setInterval(function(){
+							oSpan.innerHTML = oText.value.length;
+						},30);
+					}
+					oText.onbur = function(){
+						clearInterval(timer);		
+					}
+				}else{
+					oText.oninput = oText.onpropertychange = function(){
+						oSpan.innerHTML = oText.value.length;
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<textarea rows="4" id="text"></textarea><span id="span">0</span>
+	</body>
+</html>

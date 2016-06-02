@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">		
+			#box{ width: 120px;}
+			#box h2{ font-size: 14px; width: 118px; height: 35px; text-align: center; line-height: 35px; border: 1px solid #ccc; margin: 0;}
+			#box ul{padding:0; margin:0; overflow: hidden; display: none;}
+			#box li{ width: 120px; height: 30px; background: #0099FF; border-bottom: 1px solid #fff; color: #fff; text-align: center;  line-height: 30px;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBox = document.getElementById('box');
+				var oH2 = oBox.children[0];
+				var oUl = oBox.children[1];
+				var aLi = document.getElementsByTagName('li');
+				var bFlag = true;
+				oH2.onclick = function(ev){
+					var oEvent = ev || event;
+					if(bFlag){
+						oUl.style.display = 'block';
+					}else{
+						oUl.style.display = 'none';
+					}
+					bFlag=!bFlag;
+					oEvent.cancelBubble = true;
+				}
+				document.onclick = function(){
+					oUl.style.display = 'none';
+					bFlag = true;
+				}
+				for(var i = 0; i < aLi.length; i++){
+					aLi[i].onclick = function(){
+						oH2.innerHTML = this.innerHTML;
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<h2>选择</h2>
+			<ul>
+				<li>haha傻</li>
+				<li>haha呆</li>
+				<li>haha二</li>
+				<li>haha耍赖</li>
+			</ul>
+		</div>
+	</body>
+</html>

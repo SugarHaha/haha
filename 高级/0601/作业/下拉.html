@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{width: 120px;}
+			#box h2{ font-size: 14px; border: 1px solid #ccc; line-height: 30px; text-align: center; margin: 0; }
+			#box ul{margin: 0; padding: 0; overflow: hidden; display: none;}
+			#box li{ height: 30px; line-height: 30px; background: #0099FF; text-align: center; color: #fff; border-bottom: 1px solid #fff;} 
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBox = document.getElementById('box');
+				var oH2 = oBox.children[0];
+				var oUl = oBox.children[1];
+				var aLi = document.getElementsByTagName('li')
+				var flag = true;
+				oBox.onclick = function(ev){
+					var oEvent = ev || event;
+					if(flag){
+						oUl.style.display = 'block';
+					}else{
+						oUl.style.display = 'none';
+					}
+					flag=!flag;
+					oEvent.cancelBubble = true;
+				}
+				document.onclick = function(){
+					oUl.style.display = 'none';
+					flag = true;
+				}
+				for(var i = 0; i < aLi.length; i++){
+					aLi[i].onclick = function(){
+						oH2.innerHTML = this.innerHTML;
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<h2>选择</h2>
+			<ul>
+				<li>北京</li>
+				<li>上海</li>
+				<li>广州</li>
+			</ul>
+		</div>
+	</body>
+</html>

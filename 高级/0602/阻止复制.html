@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function(){
+				document.onkeydown = function(ev){
+					var oEvent = ev || event;
+					if(oEvent.ctrlKey && oEvent.keyCode == 67){
+						return false;
+					}
+				}
+				document.oncontextmenu = function(){
+					return false;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		haha去死吧
+	</body>
+</html>

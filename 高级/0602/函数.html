@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function(obj,sEv,fn){
+				function addEvent(){
+					if(obj.addEventListener){
+						obj.addEventListener(sEv,fn,false);
+					}else{
+						obj.attachEvent('on'+sEv,fn);
+					}
+				}
+				function removeEvent(obj,sEv,fn){
+					if(obj.removeEventListener){
+						obj.removeEventListener(sEv,fn,false);
+					}else{
+						obj.detachEvent('on'+sEv,fn)
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" id="btn" />
+	</body>
+</html>

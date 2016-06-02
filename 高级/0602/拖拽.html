@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{ width: 100px; height: 100px; background: #0099FF; position: absolute; left: 0; top: 0;}
+		</style>
+		<script type="text/javascript">
+			function getPos(obj){
+	            var l=0;
+	            var t=0;	
+	            while(obj){
+	                l+=obj.offsetLeft;
+	                t+=obj.offsetTop;
+	
+	                obj=obj.offsetParent;
+	            }
+	            return {left: l, top: t};
+	        }
+			window.onload = function(){
+				var oBox = document.getElementById('box');
+				oBox.onmousedown = function(ev){
+					var oEvent = ev || event;
+					var fistLeft =  oEvent.clientX - oBox.offsetLeft;
+					var fistTop =  oEvent.clientY - oBox.offsetTop;
+					document.onmousemove = function(ev){
+						var oEvent = ev || event;
+						
+//						if(fistLeft <= 0){
+//						l = 0;
+//						}
+//						if(fistTop <= 0){
+//							t = 0;
+//						}
+//						if(fistLeft >= document.documentElement.clientWidth - oBox.offsetWidth){
+//	                    l = document.documentElement.clientWidth - oBox.offsetWidth;
+//		                }
+//		                if(fistTop >= document.documentElement.clientHeight - oBox.offsetHeight){
+//		                    t = document.documentElement.clientHeight - oBox.offsetHeight;
+//		                }
+						oBox.style.left = oEvent.clientX - fistLeft+'px';
+						oBox.style.top = oEvent.clientY - fistTop+'px';
+					}
+					document.onmouseup = function(){
+						document.onmousemove = null;
+						document.onmouseup = null;
+						//释放捕获
+						oBox.releaseCapture && oBox.releaseCapture();
+					}
+					//事件捕获
+					oBox.setCapture && oBox.setCapture();
+					return false;
+				}				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>
