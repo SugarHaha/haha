@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function domReady(fn){
+				if(document.addEventListener){
+					document.addEventListener('DOMContentLoaded',function(){
+						fn && fn();
+					},false);
+				}else{
+					document.attachEvent('onreadystatechange',function(){
+						if(document.readyState == 'complete'{
+							fn && fn();
+						})
+					})
+				}
+			}
+			window.onload = function(){
+				alert('window');
+			}
+			domReady(function(){
+				alert('dom')
+			})
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

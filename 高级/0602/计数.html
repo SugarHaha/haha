@@ -8,7 +8,7 @@
 				var oText = document.getElementById('text');
 				var oSpan = document.getElementById('span');
 				var timer = null;
-						if(navigator.userAgent.indexOf('MDIE 0.0')!=-1){
+				if(navigator.userAgent.indexOf('MDIE 0.0')!=-1){
 					oText.onfocus = function(){
 						timer = setInterval(function(){
 							oSpan.innerHTML = oText.value.length;

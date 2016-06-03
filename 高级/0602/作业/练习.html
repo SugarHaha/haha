@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0; padding: 0; font-family: "微软雅黑";}
+			.top{ width: 600px; margin: 0 auto; height: 60px; margin-top: 40px;}
+			.sq{ float: left; display: block; font-size: 30px; line-height: 60px; float: left;}
+			.ys{ width: 345px; height: 60px; float: left;position: relative; margin: 0 15px;z-index: 9;}
+			#text{ width: 290px; height: 50px; border: 1px solid #ccc; margin:4px 0; padding-left: 10px; font-size: 30px; }
+			#span{ color: #ccc; position: absolute; left: 10px; top: 0; line-height: 60px; font-size: 30px;}
+			.dw{font-size: 30px; color: #FF3300;line-height: 60px; float: left;}
+			#box{ width: 600px; height: 60px; margin: 0 auto; position: relative;}
+			#line{ width: 600px; height: 10px; background: #ccc; position: absolute; top: 25px; border-radius: 3px; left: 0;}
+			#move{ width:26px; height: 26px; border-radius: 50%; background: #0099FF; position: absolute; z-index: 999; top: 17px; left: 0;}
+		</style>
+		<script type="text/javascript">
+			function getPos(obj){
+	            var l=0;
+	            var t=0;	
+	            while(obj){
+	                l+=obj.offsetLeft;
+	                t+=obj.offsetTop;
+	
+	                obj=obj.offsetParent;
+	            }
+	            return {left: l, top: t};
+	        }
+			window.onload = function(){
+				var oText = document.getElementById('text');
+				var oLine = document.getElementById('line');
+				var oMove = document.getElementById('move');
+				var oSpan = document.getElementById('span');
+				var oBox = document.getElementById('box')
+				oText.onfocus = function(){
+					oSpan.style.display = 'none';
+				};
+				oText.onblur = function(){
+					if(oText.value == ''){
+						oSpan.style.display = 'block';
+					};
+				}
+				oSpan.onclick = function(){
+					oText.focus();
+				}
+				oText.onkeydown = function(ev){
+					var oEvent = ev || event;
+					if((oEvent.keyCode < 48 || oEvent.keyCode > 57) && oEvent.keyCode != 8){
+						return false;
+					}
+				}
+				oMove.onmousedown = function(ev){
+					var oEvent = ev || event;
+					document.onmousemove = function(ev){
+						var oEvent = ev || event
+						var l=oEvent.clientX - oBox.offsetLeft;
+						if(l<= 0){
+							l =0;
+						}
+						if(l>=(oBox.offsetWidth-oMove.offsetWidth)){
+							l=oBox.offsetWidth-oMove.offsetWidth;
+						}
+						oMove.style.left = l+'px';
+						
+					}
+					document.onmouseup = function(){
+						document.onmousemove = null;
+						document.onmouseup = null;
+					};
+					return false;
+				}				
+			}
+		</script>
+	</head>
+	<body>
+		<div class="top">
+			<span class="sq">申请贷款</span>
+			<div class="ys">
+				<input type="text" id="text" />
+				<span id="span">5000</span>
+			</div>
+			<span class="dw">元</span>
+		</div>
+		<div id="box"><span id="line"></span><span id="move"></span></div>
+	</body>
+</html>
