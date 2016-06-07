@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{ width: 150px; height: 150px; background: #0099FF; position: absolute;left: 0; top:0;}
+		</style>
+		<script type="text/javascript">			
+			window.onload = function(){				
+				var oBox = document.getElementById('box');
+				oBox.onclick = function(){
+					 move(oBox, {width: 500, height: 500, opacity: 0}, 1200);
+				}
+				var timer = null;
+				function getStyle(obj,name){
+					return(obj.currentStyle || getComputedStyle(obj,false))[name];
+				}			
+				function move(obj, json, duration, complete){
+					var start={};
+                	var dis={};
+					for(var name in json){
+						start[name]=parseFloat(getStyle(obj, name));
+                    	dis[name]=json[name]-start[name];
+					}
+					//var target = itarget;//终点					
+					var count = Math.floor(duration/30);//总步数
+					var n = 0;
+					timer = setInterval(function(){
+						n++;
+						for(var name in json){
+	                        var a=n/count;
+	                        var cur=start[name]+dis[name]*a;
+	                        if(name=='opacity'){
+	                            obj.style.opacity=cur;
+	                            obj.style.filter='alpha(opacity='+cur*100+')';
+	                        }else{
+	                            obj.style[name]=cur+'px';
+	                        }
+	                    }
+						if(n == count){
+							clearInterval(timer);
+							complete && complete();
+						}						
+					},30)
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>

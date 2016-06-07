@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{padding: 0; margin: 0;}
+			div{ width: 200px; height: 50px; background: #0099FF; margin-bottom: 10px; }	
+		</style>
+		<script type="text/javascript">	
+			function getStyle(obj,name){
+				return(obj.currentStyle || getComputedStyle(obj,false))[name];
+			}
+			window.onload = function(){				
+				var oBox = document.getElementById('box');
+				var timer = null;
+				for(var i = 0; i < oBox.length; i++){
+					oBox[i].onmouseover = function(){
+						move(this,'width',200,500)
+					}
+				}
+//				oBox.onclick = function(){
+//					move(oBox,'width',600,200,function(){
+//						move(oBox,'height',600,200)
+//					});
+//				}
+				function move(obj,name,itarget,duration){
+					var start = parseFloat(getStyle(obj,name));
+					//var start = oBox.offsetTop;//起点
+					//var target = 500;//终点
+					var target = itarget;//终点
+					var dis = target - start;
+					var count = Math.floor(duration/30);//总步数
+					var n = 0;
+					timer = setInterval(function(){
+						n++;
+						oBox.style[name] = start+n/count*dis +'px';
+						if(n == count){
+							clearInterval(timer);
+							complete && complete();
+						}						
+					},30)
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</body>
+</html>

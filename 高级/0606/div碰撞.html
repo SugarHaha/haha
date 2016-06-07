@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0; padding: 0;}
+			#box{width: 150px; height: 150px; background: #0099FF; position: absolute;}
+			#box1{width: 150px; height: 150px; background: #5A8CE6; position: absolute; left: 600px; top: 200px;}
+		</style>
+		<script type="text/javascript">
+			function collTest(obj, obj2){
+			    var l1 = obj.offsetLeft;
+			    var r1 = obj.offsetWidth + l1;
+			    var t1 = obj.offsetTop;
+			    var b1 = obj.offsetHeight + t1;
+			
+			    var l2 = obj2.offsetLeft;
+			    var r2 = obj2.offsetWidth + l2;
+			    var t2 = obj2.offsetTop;
+			    var b2 = obj2.offsetHeight + t2;
+			
+			    if(r1<l2 || b1<t2 || l1>r2 || t1>b2){
+			        return false;
+			    }else{  
+			        return true;
+			    }
+			}
+			window.onload = function(){
+				var oBox = document.getElementById('box');
+				var oBox1 = document.getElementById('box1');
+				oBox.onmousedown = function(ev){
+					var oEvent = ev || event;
+					var disX = oEvent.clientX - oBox.offsetLeft;
+					var disY = oEvent.clientY - oBox.offsetTop;
+					document.onmousemove = function(ev){
+						var oEvent = ev || event;
+						oBox.style.top = oEvent.clientY - disY +'px';
+						oBox.style.left = oEvent.clientX - disX +'px';
+						if(collTest(box,box1)){
+							box1.style.background = 'red';
+						}else{
+							box1.style.background = '#5A8CE6';
+						}
+					}
+					document.onmouseup = function(){
+						document.onmousemove = null;
+						document.onmouseup = null;
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box"></div>
+		<div id="box1"></div>
+	</body>
+</html>

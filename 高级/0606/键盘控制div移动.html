@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0; padding: 0;}
+			#box{ width: 200px; height: 200px; background: #0099FF; position: absolute;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBox = document.getElementById('box');
+				var timer = null;
+				
+				document.onkeydown = function(ev){
+					var oEvent = ev || event;				
+					switch(oEvent.keyCode){
+						case 37:
+						oBox.style.left = oBox.offsetLeft - 10+'px';
+						break;
+						case 38:
+						oBox.style.top = oBox.offsetTop - 10+'px';
+						break;
+						case 39:
+						oBox.style.left = oBox.offsetLeft + 10+'px';
+						break;
+						case 40:
+						oBox.style.top = oBox.offsetTop + 10+'px';
+						break;
+					}
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>

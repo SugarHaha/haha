@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{ width: 400px; height: 600px; border: 1px solid #ccc; margin: 0 auto;}
+			#left{ width: 385px; height: 600px; float: left;position: relative; overflow: hidden;} 
+			#text{ position: absolute; top: 0; left: 0;  padding-left: 10px; line-height: 30px;}
+			#right{ width: 15px; height: 600px; float: left; background: #ccc; position: relative;}
+			#line{ width: 15px; height: 25px; background: #0099FF; position: absolute; left: 0; top: 0;;}
+		</style>
+		<script type="text/javascript">
+			function getPos(obj){
+	            var l=0;
+	            var t=0;	
+	            while(obj){
+	                l+=obj.offsetLeft;
+	                t+=obj.offsetTop;
+	
+	                obj=obj.offsetParent;
+	            }
+	            return {left: l, top: t};
+	        }
+			window.onload = function(){
+				var oRinght = document.getElementById('right');
+				var oLine = document.getElementById('line');
+				var oLeft = document.getElementById('left');
+				var oText = document.getElementById('text');
+				oLine.onmousedown = function(ev){
+					var oEvent = ev || event;
+					var disy = oEvent.clientY - oLine.offsetTop;
+					document.onmousemove = function(ev){
+						var oEvent = ev || event;
+						var t = oEvent.clientY - disy;
+						if(t < 0){
+							t = 0;
+						}
+						if(t >= (oRinght.offsetHeight - oLine.offsetHeight)){
+							t = oRinght.offsetHeight - oLine.offsetHeight;
+						}
+						oLine.style.top = t +'px';
+						var scle = t/(oRinght.offsetHeight - oLine.offsetHeight);
+						oText.style.top = -scle*(oText.scrollHeight - oLeft.offsetHeight)+'px';
+					}
+					document.onmouseup = function(){
+						document.onmousemove = null;
+						document.onmouseup = null;
+					}
+					return false;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		  <div id="box">
+			<div id="left">
+				<div id="text">
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				哦啦啦啦德玛西亚<br />
+				</div>
+			</div>
+			<div id="right">
+				<span id="line"></span>
+			</div>
+		</div>
+	</body>
+</html>

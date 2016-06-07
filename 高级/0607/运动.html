@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{ width: 150px; height: 150px; background: #0099FF; position: absolute;left: 0; top:0;}
+		</style>
+		<script type="text/javascript">			
+			window.onload = function(){				
+				var oBox = document.getElementById('box');
+				var timer = null;
+				function getStyle(obj,name){
+					return(obj.currentStyle || getComputedStyle(obj,false))[name];
+				}
+				oBox.onclick = function(){
+					move(oBox,'width',600,200,function(){
+						move(oBox,'height',600,200)
+					});
+				}
+				function move(obj,name,itarget,duration,complete){
+					var start = parseFloat(getStyle(obj,name));
+					//var start = oBox.offsetTop;//起点
+					//var target = 500;//终点
+					var target = itarget;//终点
+					var dis = target - start;
+					var count = Math.floor(duration/30);//总步数
+					var n = 0;
+					timer = setInterval(function(){
+						n++;
+						oBox.style[name] = start+n/count*dis +'px';
+						if(n == count){
+							clearInterval(timer);
+							complete && complete();
+						}						
+					},30)
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>

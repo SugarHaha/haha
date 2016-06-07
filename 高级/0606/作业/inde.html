@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{font-size: 12px;}
+			ul{margin: 0; padding: 0; overflow: hidden;}
+			#box{ width: 600px; margin: 0 auto;}
+			#box li{ width: 270px; height: 30px; line-height: 30px; float: left; margin: 10px; background: #ccc; list-style: none; padding-left: 10px; color: #fff;  position: relative;}
+			#box1{ width: 120px; border: 1px solid #ccc; background: #fff; display: none; position: absolute;}
+			#box1 li{ width: 120px; height: 25px; line-height: 25px; border-bottom: 1px solid #ccc; cursor: pointer; text-align: center;}
+			#box1 li:hover{ background: #0099FF; color: #fff;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBox = document.getElementById('box');
+				var oBox1 = document.getElementById('box1');
+				oBox.oncontextmenu = function(ev){
+					var oEvent = ev || event;
+					var target = oEvent.srcElement || oEvent.target;
+					if(target.tagName == 'LI'){
+						oBox1.style.left = oEvent.clientX +'px';
+						oBox1.style.top = oEvent.clientY + 'px';
+						oBox1.style.display = 'block';
+					}
+					return false;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li>噢啦啦啦德玛西亚</li>
+				<li>噢啦啦啦德玛西亚</li>
+				<li>噢啦啦啦德玛西亚</li>
+				<li>噢啦啦啦德玛西亚</li>
+				<li>噢啦啦啦德玛西亚</li>
+				<li>噢啦啦啦德玛西亚</li>
+			</ul>
+		</div>
+		<div id="box1">
+			<ul>
+				<li>变红色</li>
+				<li>变蓝色</li>
+				<li>变黄色</li>
+			</ul>
+		</div>
+	</body>
+</html>
