@@ -8,13 +8,175 @@
 	</head>
 	<script type="text/javascript">
 		window.onload = function(){
-			
+			//头部吸顶条
+			function getPos(obj){
+				var t = 0;
+				var l = 0;
+				while(obj){
+					l+= obj.offsetLeft;
+					t+= obj.offsetTop;
+					obj = obj.offsetParent;
+				}
+				return {left:l,top:t}
+			}
+			var oTop = document.getElementById('top');
+			var oKong = document.getElementById('kong');
+			var top = getPos(oTop).top;
+				window.onscroll = function(){
+					var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+					if(scrollTop >= top){
+						oTop.style.position = 'fixed';
+						oTop.style.top = 0;
+						oTop.style.left = 0;
+						oKong.style.display = 'block';
+					}else{
+						oTop.style.position = '';
+						oKong.style.display = 'none';
+					}
+				}
+			//搜索框
+			var oText = document.getElementById('text');
+			var oPlaceholder = document.getElementById('placeholder');
+			oText.onfocus = function(){
+				oPlaceholder.style.display = 'none';
+			};
+			oText.onblur = function(){
+				if(oText.value == ''){
+					oPlaceholder.style.display = 'block';
+				};
+			}
+			oPlaceholder.onclick = function(){
+				oText.focus();
+			}
+			//私信
+			var oMail = document.getElementById('mail');
+			var oMailList = document.getElementById('mail-list')
+			oMail.onmouseover = function(){
+				oMailList.style.display = 'block';
+			}
+			oMail.onmouseout = function(){
+				oMailList.style.display = 'none';
+			}
+			//设置
+			var oSetting = document.getElementById('setting');
+			var oSettingList = document.getElementById('setting-list')
+			oSetting.onmouseover = function(){
+				oSettingList.style.display = 'block';
+			}
+			oSetting.onmouseout = function(){
+				oSettingList.style.display = 'none';
+			}
+			//展开
+			var oMidLeftList = document.getElementById('mid-left-list');
+			var aLiLenght = oMidLeftList.getElementsByTagName('li')
+			var oOpen = document.getElementById('open');
+			oOpen.onclick = function(){
+				if(this.innerText === "展开"){
+					this.innerText = "收起";
+					oMidLeftList.style.height = 41 * aLiLenght.length + "px";
+				}else{
+					this.innerText = "展开";
+					oMidLeftList.style.height = 41 * 8 + "px";
+				}
+			}
+			//文本框
+			var oPublishList = document.getElementById('publish-list');
+			var oNumber = document.getElementById('number');
+			var oTexta = document.getElementById('texta');
+			var oBtn = document.getElementById('btn');
+			var oSz = document.getElementById('sz');
+			var timer = null;
+			var count = 140;
+			oTexta.onfocus = function(){
+				oPublishList.style.display = 'none';
+				oNumber.style.display = 'block';
+			}
+			oTexta.onblur = function(){
+				if(oTexta.value == ""){
+					oPublishList.style.display = 'block';
+					oNumber.style.display = 'none';
+				}else{
+					oNumber.style.display = 'block';
+				}								
+			}
+			oTexta.onkeyup = function(){
+				if(oTexta.value == ""){
+					oBtn.className = 'btn';				
+				}else{
+					oBtn.className = 'on';
+				}
+			}
+			if(navigator.userAgent.indexOf('MDIE 9.0')!=-1){
+				oTexta.onfocus = function(){
+					timer = setInterval(function(){
+						oSz.innerHTML = count - (oTexta.value.length);
+					},140);
+				}
+				oTexta.onbur = function(){
+					clearInterval(timer);		
+				}
+			}else{
+				oTexta.oninput = oTexta.onpropertychange = function(){
+					oSz.innerHTML = count - (oTexta.value.length);
+				}
+			}
+//			if(count == 0){
+//				oTexta.onkeyup = function(){}
+//			}
+			//排行榜
+			var oMoveList = document.getElementById('move-list');
+			var oMovep = oMoveList.getElementsByTagName('p');
+			var oMoverdiv = oMoveList.getElementsByTagName('div');
+			for(var i = 0; i<oMovep.length; i++){
+				oMovep[i].index = i;
+				oMovep[i].onmouseover = function(){						
+					for(var j = 0; j < oMovep.length; j++){
+						oMovep[j].style.display = '';
+						oMoverdiv[j].style.display ='none';
+					}
+					this.style.display = 'none'
+					oMoverdiv[this.index].style.display = 'block'
+				}
+			}
+			//换一换
+			var oExchange = document.getElementById('exchange');
+			var oChange = document.getElementById('change');
+			var aUl = oExchange.getElementsByTagName('ul');
+			var icount = 0;
+			for(var i = 0; i < aUl.length; i++){
+				oChange.onclick = function(){				
+					icount++;
+					if(icount == aUl.length){
+						icount = 0;
+					}						
+				}
+			}	
+			//头像
+			var oContentLeft = document.getElementById('content-left');
+			var aImg = oContentLeft.getElementsByTagName('img')[0];
+			var oZl = document.getElementById('zl');
+			aImg.onmouseover = function(){
+				oZl.style.display = 'block';
+			}
+			aImg.onmouseout = function(){
+				oZl.style.display = 'none';
+			}
+			//展开
+			var userList = document.getElementById('user-list');
+			var oL = userList.getElementsByTagName('i')[0];
+			var userLista = document.getElementById('urse-lista');
+			oL.onmouseover = function(){
+				userLista.style.display = 'block';
+			}
+			oL.onmouseout = function(){
+				userLista.style.display = 'none';
+			}
 		}
 	</script>
 	<body>
 	<!--头部-->
 	<div class="box">
-		<div class="top">
+		<div class="top" id="top">
 			<div class="top-mid">
 				<div class="logo"><img src="images/WB_logo.png" /></div>	
 				<div class="search margin-top-10">
@@ -32,14 +194,39 @@
 				</div>
 				<div class="list margin-top-10">
 					<ul>
-						<li><a href="javascript:;"><i class="iconfont font-size-22">&#xe605;</i></a></li>
-						<li><a href="javascript:;"><i class="iconfont font-size-22">&#xe602;</i></a></li>
+						<li>
+							<span id="mail">
+								<a href="javascript:;"><i class="iconfont font-size-22">&#xe605;</i></a>
+								<div id="mail-list">
+									<ul>
+										<li><a href="javascript:;">@我的</a></li>
+										<li><a href="javascript:;">评论</a></li>
+										<li style="border: none;"><a href="javascript:;">赞</a></li>
+									</ul>
+								</div>
+							</span>
+						</li>
+						<li>
+							<span id = "setting">
+								<a href="javascript:;"><i class="iconfont font-size-22">&#xe602;</i></a>
+								<div id="setting-list">
+									<ul>
+										<li><a href="javascript:;">账户设置</a></li>
+										<li><a href="javascript:;">会员设置</a></li>
+										<li><a href="javascript:;">V认证</a></li>
+										<li><a href="javascript:;">账户安全</a></li>
+										<li><a href="javascript:;">隐私设置</a></li>
+										<li><a href="javascript:;">账户设置</a></li>
+										<li style="border: none;"><a href="javascript:;">帮助中心</a></li>
+									</ul>
+								</div>
+							</span></li>
 						<li><a href="javascript:;" class="orange"><i class="iconfont font-size-22">&#xe603;</i></a></li>
 					</ul>
 				</div>
 			</div>		
 		</div>
-		<div class="kong"></div>
+		<div id="kong"></div>
 		<!--中间-->
 		<div class="withebg">
 			<!--左边-->
@@ -53,7 +240,7 @@
 				</div>
 				<div class="set"><a href="javascript:;"><i class="iconfont">&#xe602;</i></a></div>
 				<div class="mid-left-bot">
-					<ul>
+					<ul id="mid-left-list">
 						<li><a href="javascript:;"><i class="iconfont">&#xe609;</i> 热门微博</a></li>
 						<li><a href="javascript:;"><i class="iconfont">&#xe610;</i> 好友圈</a></li>
 						<li><a href="javascript:;"><i class="iconfont">&#xe60f;</i> 群微博</a></li>
@@ -62,6 +249,10 @@
 						<li><a href="javascript:;"><i class="iconfont">&#xe612;</i> 八卦杂谈</a></li>
 						<li><a href="javascript:;"><i class="iconfont">&#xe612;</i> 美图摄影</a></li>
 						<li><a href="javascript:;"><i class="iconfont">&#xe612;</i> 明星趣事</a></li>
+						<li><a href="javascript:;"><i class="iconfont">&#xe612;</i> haha1</a></li>
+						<li><a href="javascript:;"><i class="iconfont">&#xe612;</i> haha2</a></li>
+						<li><a href="javascript:;"><i class="iconfont">&#xe612;</i> haha3</a></li>
+						<li><a href="javascript:;"><i class="iconfont">&#xe612;</i> haha4</a></li>						
 					</ul>
 					<div id="open">展开</div>
 				</div>
@@ -71,11 +262,10 @@
 					<div class="publish-top">
 						<span class="publish-name">有什么新鲜事想告诉大家?</span>
 						<span id="publish-list"><a href="">阿里因病去世，众网友微博悼念</a></span>
-						<span id="number">还可以输入140个字</span>
+						<span id="number">还可以输入<span id="sz">140</span>个字</span>
 					</div>
 					<div class="publish-text">
 						<textarea rows="5" id="texta"></textarea>
-						<textarea rows="5" id="textb"></textarea>
 					</div>
 					<div class="publish-bt">
 						<ul>
@@ -102,7 +292,7 @@
 				</div>
 				<div id="content" class="margin-top-10">
 					<div class="content-tp">
-						<div class="content-left">
+						<div class="content-left" id="content-left">
 							<img src="images/pic.jpg" />
 							<div id="zl">
 								<div class="zl-tp"><img src="images/pic02.jpg" /></div>
@@ -113,7 +303,7 @@
 							</div>
 						</div>
 						<div class="content-right">
-							<div class="user">最旅客<span id="user-list"><a href="javascript:;"><i class="iconfont ">&#xe614;</i><div id="urse-list1"><ul><li><a href="javascript:;">帮上头条</a></li><li><a href="javascript:;">帮上头条</a></li></ul></div></a></span></div>
+							<div class="user">最旅客<span id="user-list"><a href="javascript:;"><i class="iconfont ">&#xe614;</i><div id="urse-lista"><ul><li><a href="javascript:;">帮上头条</a></li><li><a href="javascript:;">帮上头条</a></li></ul></div></a></span></div>
 							<div class="time">6月3日 12:43 来自 微博 weibo.com </div>
 							<div class="user-content">
 								 独立大街，它就像伊斯坦布尔一样，能品读出多种的味道。它足够的热闹繁华，足够有人文气息，又有历史的风情夹杂其中。在这里散步，可以一边享受着现代世界的繁华，一边又在不经意的瞬间注意到街边建筑似乎不为人知的历史痕迹。
@@ -137,19 +327,25 @@
 				<div id="movie" class="margin-tb-10">
 					<span class="movie-title"><a href="javascript:;">微博电影想看榜</a> </span>
 					<ul id="move-list">
-						<li style="display: none;"><span class="nub">1</span>魔兽 <span class="score">9.7</span></li>
-						<div class="zc"  style="display: block;"><img src="images/pic04.jpg" /><span class="nub">1</span>魔兽<p>导演:haha</p><p>剧情:haha</p><span class="score">9.7</span><div class="clear"></div></div>
-						<li><span class="nub">2</span>haha <span class="score">9.7</span></li>
-						<div class="zc"><img src="images/pic04.jpg" /><span class="nub">2</span>魔兽<p>导演:haha</p><p>剧情:haha</p><span class="score">9.7</span><div class="clear"></div></div>
-						<li><span class="nub">3</span>哈哈哈哈哈 <span class="score">9.7</span></li>
-						<div class="zc"><img src="images/pic04.jpg" /><span class="nub">3</span>魔兽<p>导演:haha</p><p>剧情:haha</p><span class="score">9.7</span><div class="clear"></div></div>
+						<li>
+							<p style="display: none;"><span class="nub">1</span>魔兽 <span class="score">9.7</span></p>
+							<div class="zc"  style="display: block;"><img src="images/pic04.jpg" /><span class="nub">1</span>魔兽<br />导演:haha<br />剧情:haha<br /><span class="score">9.7</span></div>
+						</li>
+						<li >
+							<p><span class="nub">2</span>魔兽 <span class="score">9.7</span></p>
+							<div class="zc"><img src="images/pic04.jpg" /><span class="nub">2</span>魔兽<br />导演:haha<br />剧情:haha<br /><span class="score">9.7</span></div>
+						</li>
+						<li >
+							<p><span class="nub">3</span>魔兽 <span class="score">9.7</span></p>
+							<div class="zc"><img src="images/pic04.jpg" /><span class="nub">3</span>魔兽<br />导演:haha<br />剧情:haha<br /><span class="score">9.7</span></div>
+						</li>
 					</ul>
 					<span class="movie-bt"><a href="javascript:;">查看更多</a> </span>
 				</div>
 				<div id="exchange" >
 					<span class="movie-title">热门话题 <a href="javascript:;" id="change"><i class="iconfont ">&#xe601;</i> 换一换</a></a></span>
 					<div id="ht" class="ht">
-						<ul>
+						<ul style="display: block;">
 							<li><span class="hui">2.1亿</span><a href="javascript:;">#挑战者联盟# </a></li>
 							<li><span class="hui">2.1亿</span><a href="javascript:;">#挑战者联盟# </a></li>
 							<li><span class="hui">2.1亿</span><a href="javascript:;">#挑战者联盟# </a></li>
@@ -161,8 +357,6 @@
 							<li><span class="hui">2.1亿</span><a href="javascript:;">#挑战者联盟# </a></li>
 							<li><span class="hui">2.1亿</span><a href="javascript:;">#挑战者联盟# </a></li>
 						</ul>
-					</div>
-					<div id="ht1" class="ht" style="display: none;">
 						<ul>
 							<li><span class="hui">2.1亿</span><a href="javascript:;">#挑战者联盟1# </a></li>
 							<li><span class="hui">2.1亿</span><a href="javascript:;">#挑战者联盟1# </a></li>

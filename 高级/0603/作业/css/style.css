@@ -16,7 +16,7 @@ body { font-family:"微软雅黑";font-size: 12px;color:#333;margin: 0 auto;padd
 
 /*头部*/
 .box{width: 100%; background: url(../images/body_bg.jpg) no-repeat;}
-.top{ width:100%;border-top: 2px solid #fa7d3c; height: 50px;   background-color: rgba(255,255,255,0.9); position: fixed;}
+.top{ width:100%;border-top: 2px solid #fa7d3c; height: 50px;background-color: rgba(255,255,255,0.9); position: fixed;_position: absolute;}
 .top-mid{ width: 1260px; margin: 0 auto;}
 .logo{ float: left; width: 130px; text-align: center; padding-top: 11px;}
 .search{ width: 548px;  height: 28px; border: 1px solid #ccc; background: #f2f2f5; float: left; position: relative;}
@@ -31,15 +31,23 @@ body { font-family:"微软雅黑";font-size: 12px;color:#333;margin: 0 auto;padd
 .orange{ color: #fa7d3c;}
 .list{ width: 130px; float: left;}
 .list li{ width:40px; float: left; text-align: center;}
-.kong{ width: 100%; height: 52px;}
+#kong{ width: 100%; height: 52px;}
+#mail,#setting{ position: relative;}
+#mail-list,#setting-list{width: 120px;  background: #fff; position: absolute; border: 1px solid #ccc; right: -10px; display: none;}
+#mail-list li,#setting-list li{ width: 120px; height: 30px; line-height: 30px; border-bottom: 1px solid #f2f2f2; text-align: left;}
+#mail-list li a,#setting-list li a{display: block; width: 100px; padding: 0 10px; float: left;}
+#mail-list li a:hover,#setting-list li a:hover{ background: #f2f2f2;}
 /*中间代码*/
 .withebg{width: 980px;  margin: 0 auto; background-color: rgba(208,187,171,0.6); padding: 15px 10px; }
 .mid-left{ width: 130px; float: left;}
-.mid-left-top li{ height: 40px; line-height: 40px; border-bottom: 1px solid #cbb4a5; padding-left: 10px;}
-.mid-left-top li a,.mid-left-bot li a{font-size: 14px; color: #fff;  display: block; }
+.mid-left-top li{ height: 40px; line-height: 40px; border-bottom: 1px solid #cbb4a5;}
+.mid-left-top li a,.mid-left-bot li a{font-size: 14px; color: #fff;  display: block;  padding-left: 10px;}
+.mid-left-bot li a{font-size: 14px; color: #fff;  display: block; }
+.mid-left-top li a:hover,.mid-left-bot li a:hover{ background-color: rgba(198,174,161,0.6);}
 .set a{ color: #fff; text-align: right; margin: 13px 0; display: block;}
-.mid-left-bot{ border-bottom:1px solid #cbb4a5;}
-.mid-left-bot li{height: 40px; line-height: 40px;padding-left: 10px;}
+.mid-left-bot{ border-bottom:1px solid #cbb4a5; }
+#mid-left-list{ height: 320px; overflow: hidden;}
+.mid-left-bot li{height: 40px; line-height: 40px;}
 #open{ width: 35px; height: 20px; border-radius: 3px; text-align: center; line-height: 20px; background: #c6ada0; color: #fff;  margin: 10px auto; cursor:pointer;}
 .mid-md{ width: 600px; float: left;}
 .publish{ height: 145px; background: #fff; border-radius: 3px; padding: 10px;}
@@ -57,8 +65,8 @@ body { font-family:"微软雅黑";font-size: 12px;color:#333;margin: 0 auto;padd
 .blue-gray{ color: #737e95;}
 .bule{ color: #5a8ce6;}
 .btn{ float: right; width: 80px; height: 30px; margin-top: 3px; background: #ffc09f; border: none; color: #fff; border-radius: 3px; text-align: center; line-height: 30px;}
-.btn a{ color: #fff; display: block;}
-.on{background: #ff8140;}
+.btn a,.on a{ color: #fff; display: block;}
+.on{background: #ff8140; float: right; width: 80px; height: 30px; margin-top: 3px; border: none; color: #fff; border-radius: 3px; text-align: center; line-height: 30px;}
 #tab{ height: 35px; background: #fff; border-radius: 3px;}
 #tab li{ width: 60px; float: left; line-height: 35px; text-align: center;}
 #tab li a{ display: block;}
@@ -73,9 +81,9 @@ body { font-family:"微软雅黑";font-size: 12px;color:#333;margin: 0 auto;padd
 .content-right{ width: 500px; float: left; margin-left: 10px; line-height: 24px;}
 .user{ font-size: 14px; font-weight: bold; line-height: 25px;}
 #user-list{ float: right; position: relative;}
-#urse-list1{ display: none; width: 100px; border: 1px solid #ccc; background: #fff; position: absolute; left: -90px;}
-#urse-list1 li{ height: 30px; line-height: 30px; text-align: center;}
-#urse-list1 li a{ font-weight: normal;}
+#urse-lista{ display: none; width: 100px; border: 1px solid #ccc; background: #fff; position: absolute; left: -70px;}
+#urse-lista li{ height: 30px; line-height: 30px; text-align: center;}
+#urse-lista li a{ font-weight: normal;}
 .time{ color: #999; line-height: 25px;}
 .content-right img{ margin-top: 10px;}
 .content-bt{ border-top: 1px solid #f1f1f1; margin-top: 15px;}
@@ -89,10 +97,11 @@ body { font-family:"微软雅黑";font-size: 12px;color:#333;margin: 0 auto;padd
 #move-list li{ border-bottom: 1px solid #f2f2f2; line-height: 35px; cursor: pointer;}
 .nub{ margin-top: 10px; width: 15px; height: 15px; background: #df3e3e; display: block; color: #fff; text-align: center; line-height: 15px; border-radius: 50%; float: left; margin-right: 10px;}
 .score{color: #999; float: right;}
-.zc{ display: none; border-bottom: 1px solid #f2f2f2; line-height: 25px; margin-bottom: 10px;cursor: pointer;}
+.zc{ display: none; height: 100px;  line-height: 25px; margin-bottom: 10px;cursor: pointer;}
 .zc img{ float: left; margin-right: 10px;}
 #change{ float: right; font-size: 12px;}
 .ht{ padding: 10px; line-height: 30px;}
+.ht ul{ display: none;}
 .hui{ color: #999; float: right;}
 
 

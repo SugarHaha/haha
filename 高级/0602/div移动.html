@@ -9,7 +9,7 @@
 		<script type="text/javascript">
 			window.onload = function(){
 				var oBox = document.getElementById('box');
-				document. = function(ev){
+				document.onkeydown = function(ev){
 					var oEvent = ev || event;
 					switch(oEvent.keyCode){
 						case 37:
@@ -22,7 +22,7 @@
 						oBox.style.left = oBox.offsetLeft + 10+'px';
 						break;
 						case 40:
-						oBox.style.top = oBox.offsetTopcc + 10+'px';
+						oBox.style.top = oBox.offsetTop + 10+'px';
 						break;
 					}
 				}

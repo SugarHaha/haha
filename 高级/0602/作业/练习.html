@@ -54,12 +54,12 @@
 					var oEvent = ev || event;
 					document.onmousemove = function(ev){
 						var oEvent = ev || event
-						var l=oEvent.clientX - oBox.offsetLeft;
-						if(l<= 0){
-							l =0;
+						var l = oEvent.clientX - oBox.offsetLeft;
+						if(l <= 0){
+							l = 0;
 						}
-						if(l>=(oBox.offsetWidth-oMove.offsetWidth)){
-							l=oBox.offsetWidth-oMove.offsetWidth;
+						if(l >= (oBox.offsetWidth - oMove.offsetWidth)){
+							l = oBox.offsetWidth - oMove.offsetWidth;
 						}
 						oMove.style.left = l+'px';
 						
