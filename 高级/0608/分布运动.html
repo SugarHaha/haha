@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				background: #000000;color:#fff
+			}
+			span{opacity: 0;}
+		</style>
+		<script src="move2.js"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				var str = ' 著名舰船摄影家“巡海”因公殉职 全国军迷集体哀悼 著名舰船摄影家“巡海”因公殉职 全国军迷集体哀悼 著名舰船摄影家“ 巡海” 因公殉职 全国军迷集体哀悼 著名舰船摄影家“ 巡海” 因公殉职 全国军迷集体哀悼 著名舰船摄影家“ 巡海” 因公殉职 全国军迷集体哀悼 著名舰船摄影家“ 巡海” 因公殉职 全国军迷集体哀悼 著名舰船摄影家 ';
+				for(var i = 0; i < str.length; i++){
+					var oSpan = document.createElement('span');
+					oSpan.innerHTML = str.charAt(i);
+					document.body.appendChild(oSpan);					
+				}
+				var aSpan=document.getElementsByTagName('span');
+				var iNow=0;
+				var timer=setInterval(function(){
+					move(aSpan[iNow],{opacity:1});
+					iNow++;
+					if(iNow==aSpan.length){
+						clearInterval(timer);
+					}
+				},300)
+				
+				
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="box"></div>
+	</body>
+
+</html>

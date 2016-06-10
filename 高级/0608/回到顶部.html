@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			input{ position: fixed; bottom: 0; right: 20px; display: none;} 
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBtn = document.getElementById('btn');
+				window.onscroll = function(){
+					var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+					if(scrollTop > 800){
+						oBtn.style.display = 'block';
+					}else{
+						oBtn.style.display = 'none';
+					}
+				}
+				oBtn.onclick = function(){
+					var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+					var start = scrollTop;//开始位置
+					var dis = 0-start;
+					var count =Math.floor(1000/30);//速度
+					var n = 0; 
+					clearInterval(timer);
+					var timer = setInterval(function(){
+						n++;
+						var a = n/count;
+						var cur = start+dis*a;
+						document.documentElement.scrollTop || document.body.scrollTop = cur;
+						if(n == count){
+							clearInterval(timer);
+						}
+					},30)	
+				}
+			}
+		</script>
+	</head>
+	<body style="height: 3000px;">
+		<input type="button" value="回到顶部" id="btn" />
+	</body>
+</html>

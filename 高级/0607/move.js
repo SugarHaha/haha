@@ -1,4 +1,4 @@
-function getStyle(obj, name){
+			function getStyle(obj, name){
                 return (obj.currentStyle || getComputedStyle(obj, false))[name];
             }
             function move(obj, json, duration, complete){
