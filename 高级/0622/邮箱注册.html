@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>邮箱注册</title>
+</head>
+<script type="text/javascript">
+    var reg={
+        email:/^\w+@[0-9a-zA-Z-]+(\.[a-z]{2,8}){1,2}$/,
+        age: /^(1[89]|[2-9]\d|100)$/,
+        tel: /^(0\d{2,3}-)?[1-9]\d{6,7}$/,
+        cnName: /^[\u4e00-\u9fa5]{2,4}$/
+    };
+    window.onload = function () {
+        var oForm = document.getElementById('form');
+        var oEmail = document.getElementsByName('email')[0];
+        var oAage = document.getElementsByName('age')[1];
+        var oTel = document.getElementsByName('tel')[2];
+        var aInput=document.getElementsByTagName('input');
+        function check(obj,reg) {
+            if(obj.value){
+                if(reg.test(obj.value)){
+                    obj.parentNode.children[1].innerHTML='';
+                    return true;
+                }else{
+                    obj.parentNode.children[1].innerHTML=obj.getAttribute('data-err');
+                    return false;
+                }
+            }else{
+                obj.parentNode.children[1].innerHTML='* 内容不能为空';
+                return false;
+            }
+        }
+        oForm.onsubmit = function () {
+            for(var i=0; i<aInput.length; i++){
+                // 有没有这个正则
+                if(reg[aInput[i].name]){
+                    // 如果通过返回true , 如果不通过false -> 阻止默认事件
+                    if(!check(aInput[i], reg[aInput[i].name])){
+                        return false;
+                    }
+                }
+            }
+        }
+    }
+</script>
+<body>
+<form action="http://www.baidu.com" id="form" target="_blank">
+    <div>
+        M-Email：<input type="text" name="email" data-err="邮箱格式错误">
+        <span></span>
+    </div>
+    <div>
+        年龄：<input type="text" name="age" data-err="年龄不符合">
+        <span></span>
+    </div>
+    <div>
+        座机：<input type="text" name="tel" data-err="座机格式不正确">
+        <span></span>
+    </div>
+    <input type="submit" value="注册" id="btn">
+</form>
+</body>
+</html>

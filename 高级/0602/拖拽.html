@@ -7,17 +7,17 @@
 			#box{ width: 100px; height: 100px; background: #0099FF; position: absolute; left: 0; top: 0;}
 		</style>
 		<script type="text/javascript">
-			function getPos(obj){
-	            var l=0;
-	            var t=0;	
-	            while(obj){
-	                l+=obj.offsetLeft;
-	                t+=obj.offsetTop;
-	
-	                obj=obj.offsetParent;
-	            }
-	            return {left: l, top: t};
-	        }
+//			function getPos(obj){
+//	            var l=0;
+//	            var t=0;
+//	            while(obj){
+//	                l+=obj.offsetLeft;
+//	                t+=obj.offsetTop;
+//
+//	                obj=obj.offsetParent;
+//	            }
+//	            return {left: l, top: t};
+//	        }
 			window.onload = function(){
 				var oBox = document.getElementById('box');
 				oBox.onmousedown = function(ev){

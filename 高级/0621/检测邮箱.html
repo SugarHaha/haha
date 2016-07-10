@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            var oText = document.getElementById('text');
+            var oBtn = document.getElementById('btn');
+            var reg = /^\w+@[0-9a-zA-Z-]+(\.[a-zA-Z]{2,8}){1,2}$/;
+            oBtn.onclick = function () {
+                var str = oText.value;
+                alert(reg.test(str))
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="text">
+<input type="button" id="btn" value="查询">
+</body>
+</html>

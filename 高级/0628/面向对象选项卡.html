@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智能社--http://www.zhinengshe.com</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #box input{
+            border: none;
+            width: 100px;
+            height: 30px;
+        }
+        #box input.active{
+            background: red;
+            color: #fff;
+        }
+        #box div{
+            width: 315px;
+            height: 200px;
+            border: 1px solid #ccc;
+            display: none;
+        }
+        #box div.active{
+            display: block
+        }
+    </style>
+    <script type="text/javascript">
+        function Tab() {
+            this.oBox = document.getElementById('box')
+            this.oBtn = this.oBox.getElementsByTagName('input');
+            this.oDiv = this.oBox.getElementsByTagName('div');
+            this.init();
+        }
+        window.onload = function () {
+            new Tab();
+        }
+    </script>
+</head>
+<body>
+<div id="box">
+    <input class="active" type="button" value="1111">
+    <input type="button" value="2222">
+    <input type="button" value="3333">
+    <div class="active">aaaa</div>
+    <div>bbbb</div>
+    <div>cccc</div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

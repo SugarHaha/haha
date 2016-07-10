@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #div1{width: 100px; height: 100px; background: #84c002; position: absolute; left: 0; top:0;}
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            var oDiv = document.getElementById('div1');
+
+            oDiv.onclick = function () {
+                elastic(oDiv,600)
+            }
+            function elastic(obj,iTarget) {
+                var left = 0;
+                var iSpeed = 0; //速度
+                var timer = null;
+                timer = setInterval(function () {
+                    iSpeed+= (iTarget - left)/5;
+                    iSpeed*= 0.8;
+                    left+=iSpeed;
+                    obj.style.left = Math.round(left) + 'px';
+                    //关闭计时器
+                    if(Math.abs(iSpeed) < 1 && Math.round(left) == iTarget){
+                        clearInterval(timer)
+                    }
+                },30)
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>

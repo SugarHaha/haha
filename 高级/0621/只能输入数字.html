@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            var oText = document.getElementById('text');
+            oText.oninput = function () {
+                oText.value = oText.value.replace(/\D/g,'');
+            }
+            oText.onkeyup = function () {
+                oText.value = oText.value.replace(/\D/g,'');
+            }
+         }
+    </script>
+</head>
+<body>
+<input type="text" id="text">
+</body>
+</html>

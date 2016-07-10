@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #ul1{
+            width: 200px;
+            margin: 100px auto;
+        }
+        #ul1 li{
+            float: left;
+            font-size: 30px;
+            width: 24px;
+            height: 35px;
+            overflow: hidden;
+            position: relative;
+        }
+        #ul1 img{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script src="../jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        function toDou(n, count) {
+            if(!count) count = 2;
+            var result = "" + n;
+            while(result.length < count){
+                result = "0" + result;
+            }
+            return result;
+        }
+        $(function () {
+            function clock() {
+                var now = new Date();
+                var str = toDou(now.getHours()) + toDou(now.getMinutes()) + toDou(now.getSeconds());
+                console.log(str);
+                $('img').each(function(index, item){
+                    var num = parseInt(str[index]);
+                    $(item).animate({top: -35 * (num === 0 &&((index === str.length - 1) || parseInt(str[index + 1] === 0))? 10 : num) + "px"},
+                            300, function(){
+                                if(!num){
+                                    $(item).css("top", "0px");
+                                }
+                            });
+                });
+            }
+            clock();
+            setInterval(clock, 1000);
+        })
+    </script>
+</head>
+<body>
+<ul id="ul1">
+    <li><img src="num.png"></li>
+    <li><img src="num.png"></li>
+    <li>:</li>
+    <li><img src="num.png"></li>
+    <li><img src="num.png"></li>
+    <li>:</li>
+    <li><img src="num.png"></li>
+    <li><img src="num.png"></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>wangxiaoshu-jsonp</title>
+    <link rel="stylesheet" type="text/css" href="css/jsonpstyle.css" />
+</head>
+<script src="js/wheel.js"></script>
+<script src="js/jsonp4.js"></script>
+<script type="text/javascript">
+
+
+    window.onload = function () {
+
+        //头像换一换
+        var oFace=document.getElementById('face_next');
+        var oImg=document.getElementById('face_img');
+        var iNow=1;
+        oFace.onclick=function(){
+            iNow++;
+            if(iNow>8)iNow=1;
+            oImg.src='img/'+iNow+'.jpg';
+        };
+
+        //login
+        var oUser = document.getElementById('user');
+        var oPassword = document.getElementById('password');
+        var oUse = document.getElementById('use');
+        var oPass = document.getElementById('pass');
+        // 账号
+        oUser.onfocus=function(){
+            oUse.style.display='none';
+        };
+        oUser.onblur=function(){
+            if(oUser.value==''){
+                oUse.style.display='block';
+            }
+        };
+        oUse.onclick=function(){
+            oUser.focus();
+        };
+        // 密码
+        oPassword.onfocus=function(){
+            oPass.style.display='none';
+        };
+        oPassword.onblur=function(){
+            if(oPassword.value==''){
+                oPass.style.display='block';
+            }
+        };
+        oPass.onclick=function(){
+            oPassword.focus();
+        };
+        //页面关闭
+        var oMineClose = document.getElementById('mine-close');
+        var oBox = document.getElementById('box');
+        var oMain = document.getElementById('main');
+        oMineClose.onclick = function () {
+            oMain.style.display = 'none';
+            oBox.style.display = 'block';
+        }
+
+        // 滚动条
+        function silder(box, listRt, silder){
+            new _silder(box, listRt, silder);
+        }
+        function _silder(box, listRt, silder){
+            this.t = 0;
+
+            this.oUl = document.getElementById(box);
+            this.oListRt = document.getElementById(listRt);
+            this.oSlider = document.getElementById(silder);
+
+            this.moveDiv = function(){
+                obj.oSlider.style.top = obj.t + 'px';
+                var scale=obj.t / (obj.oListRt.offsetHeight - obj.oSlider.offsetHeight);
+                obj.oUl.style.top =- scale * (obj.oUl.scrollHeight - obj.oUl.offsetHeight)+'px';
+            }
+            var obj = this;
+            this.oSlider.onmousedown=function(ev){
+                var oEvent=ev || event;
+                var disY=oEvent.clientY - obj.oSlider.offsetTop;
+                document.onmousemove=function(ev){
+                    var oEvent=ev || event;
+                    obj.t=oEvent.clientY-disY;
+
+                    if(obj.t<=0){
+                        obj.t=0;
+                    }
+                    if(obj.t>=obj.oListRt.offsetHeight-obj.oSlider.offsetHeight){
+                        obj.t=obj.oListRt.offsetHeight-obj.oSlider.offsetHeight;
+                    }
+                    obj.moveDiv();
+                };
+                document.onmouseup=function(){
+                    document.onmousemove=null;
+                    document.onmouseup=null;
+                };
+                return false;
+            };
+            addWheel(this.oUl, function(bDown){
+                if(bDown){
+                    obj.t+=10;
+                    if(obj.t >= obj.oListRt.offsetHeight - obj.oSlider.offsetHeight){
+                        obj.t = obj.oListRt.offsetHeight - obj.oSlider.offsetHeight;
+                    }
+                }else{
+                    obj.t -= 10;
+                    if(obj.t <= 0){
+                        obj.t = 0;
+                    }
+                }
+                obj.moveDiv();
+            });
+        }
+
+        //用户名list
+        silder('ul1', 'list-rt', 'slider');
+        //消息列表
+        silder('content-list', 'cunt', 'cunt-slider');
+        //注册
+        // 注册：http://zhinengshe.com/exercise/im/api.php?a=reg&user=aaa&pass=aaa&face=1&cb=show
+//        a:reg,
+//        user:用户名,
+//        pass：密码，
+//        face: 头像
+        var URL = "http://zhinengshe.com/exercise/im/api.php";
+        document.getElementById("join-btn").onclick = function(){
+            var user = document.getElementById("user").value;
+            var password = document.getElementById("password").value;
+            if(user == ''){
+                alert('用户名不能为空')
+            }
+            if(password == ''){
+                alert('密码不能为空')
+            }
+            jsonp({
+                url: URL,
+                data: {
+                    a:"reg",
+                    user:user,
+                    pass: password,
+                    face: iNow
+                },
+                success: function (json) {
+                    if(json.err){
+                        alert(json.msg);
+                        return;
+                    }
+                    for(var item in json){
+                        console.log(item + ": " + json[item]);
+                    }
+                }
+            });
+        };
+        //登陆
+        // 登录：http://zhinengshe.com/exercise/im/api.php?a=lgn&user=aaa&pass=aaa&cb=show
+//                a:lgn,
+//                user:用户名,
+//                pass：密码
+
+
+        var getInfoInterval = null;
+        var oLoginBtn = document.getElementById('login-btn');
+        oLoginBtn.onclick = function () {
+
+            var oUser = document.getElementById("user").value;
+            var password = document.getElementById("password").value;
+            if(oUser == ''){
+                alert('请输入用户名')
+            }
+            if(password == ''){
+                alert('请输入密码')
+            }
+            jsonp({
+                url: URL,
+                data: {
+                    a:"lgn",
+                    user:oUser,
+                    pass: password,
+                },
+                success: function (json) {
+                    if(json.err){
+                        alert(json.msg);
+                    }else{
+
+
+                        //获取玩家列表
+                        jsonp({
+                            url: URL,
+                            data: {
+                                a:"get_user_list",
+                                token:json.token,
+                            },
+                            success: function (json) {
+                                if(json.err){
+                                    alert(json.msg);
+                                }else{
+                                    for(var i = 0; i < (json.data.length > 100 ? 100 : json.data.length); ++i){
+                                        var oUl = document.getElementById('ul1');
+                                        //ID, username, face
+                                        oUl.innerHTML += '<li><img src="img/'+json.data[i].face+'.jpg">' + json.data[i].username + '</li>'
+                                    }
+//                                    var oLi = document.createElement('li');
+//                                    oLi.innerHTML = '<img src="img/img.jpg">'+'oUser'
+//                                    oUl.appendChild(oLi);
+                                }
+                            }
+                        });
+
+                        //定时获取消息
+                        getInfoInterval = setInterval(function(){
+                            jsonp({
+                                url: URL,
+                                data: {
+                                    a: "get_msg",
+                                    token: json.token
+                                },
+                                success: function(json){
+                                    if(json.err){
+                                        alert(json.msg);
+                                        return;
+                                    }
+                                    var contentList = document.getElementById("content-list");
+                                    var tempHtml = "";
+                                    for(var i = 0; i < json.data.length; ++i){
+                                        var info = json.data[i];
+                                        tempHtml += "<li><span>" + info.username + " " + info.post_time + "</span><p>" + info.content + "</p></li>";
+                                    }
+                                    contentList.innerHTML = tempHtml;
+                                    contentList.scrollTop=contentList.scrollHeight;
+                                }
+                            });
+                        }, 1000);
+
+                        // 发送消息
+                        document.getElementById("ent").onclick = function(){
+                            var oText = document.getElementById('text');
+                            var content =oText.value;
+                            jsonp({
+                                url: URL,
+                                data: {
+                                    a: "snd_msg",
+                                    token: json.token,
+                                    content: content
+                                },
+                                success: function(json){
+                                    var contentList = document.getElementById("content-list");
+                                    contentList.scrollTop=contentList.scrollHeight;
+                                    oText.value = '';
+                                }
+                            })
+                        };
+                        oMain.style.display = 'block';
+                    }
+                }
+            });
+        }
+        // 获取用户列表：http://zhinengshe.com/exercise/im/api.php?a=get_user_list&token=xxx&cb=show
+//        a:get_user_list,
+//        token: token
+        var oUserList = document.getElementById('user-list');
+        var oUl = document.getElementById('ul1');
+
+
+    }
+</script>
+
+<body>
+<div class="about_top">
+    <div class="mian_top">
+        <img src="img/logo.png">
+        <div class="ny_nav">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="index.html#page5">项目</a></li>
+                <li><a href="javascript:;">案例</a></li>
+                <li><a href="javascript:;">关于我</a></li>
+                <li><a href="javascript:;">联系我</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--登陆-->
+<div id="box">
+    <div class="box-top"><span id="close" class="active"><img src="img/close.png" /></span></div>
+    <div class="box-bot">
+        <div id="head-img">
+            <!--<img src="img/1.jpg" id="face_img"/><span id="change">换一换</span>-->
+            <img src="img/1.jpg" id="face_img">
+            <a href="javascript:;" id="face_next">换一换</a>
+        </div>
+        <div id="login">
+            <input id="user" type="text" value="">
+            <span id="use">账号</span>
+            <input id="password" type="text" value="">
+            <span id="pass">账户密码</span>
+        </div>
+        <div class="longin-btn"><input type="button" id="join-btn" value="注册"><input type="button" id="login-btn" value="登陆"></div>-
+    </div>
+</div>
+<!--页面-->
+<div id="main">
+    <div class="main-left">
+        <div class="mine">
+            <img src="img/4.jpg"> 西瓜夏天
+            <span id="mine-close"><img src="img/close.png" /></span>
+        </div>
+        <div id="user-list">
+            <ul id="ul1">
+                <!--<li><img src="img/img.jpg">西瓜夏天</li>-->
+            </ul>
+            <div id="list-rt">
+                <span id="slider"></span>
+            </div>
+        </div>
+    </div>
+    <div class="main-right">
+        <div class="main-rt-tp">暂无消息</div>
+        <div id="content">
+            <ul id="content-list">
+                <!--<li>-->
+                <!--<span>用户名 21016-060-19 12：00：00</span>-->
+                <!--<p>习近平同塞尔维亚总统尼科利奇举行会谈</p>-->
+                <!--</li>-->
+            </ul>
+            <div id="cunt">
+                <span id="cunt-slider"></span>
+            </div>
+        </div>
+        <div id="main-rt-bt">
+            <textarea id="text"></textarea>
+            <input type="button" id="ent" value="发送" />
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

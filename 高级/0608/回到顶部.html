@@ -28,7 +28,7 @@
 						n++;
 						var a = n/count;
 						var cur = start+dis*a;
-						document.documentElement.scrollTop || document.body.scrollTop = cur;
+						document.documentElement.scrollTop=document.body.scrollTop=cur;
 						if(n == count){
 							clearInterval(timer);
 						}

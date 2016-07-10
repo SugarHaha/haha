@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hahaha</title>
+    <style type="text/css">
+        ul{ margin: 0; padding: 0; overflow: hidden; list-style: none}
+        #box{ width: 660px; margin: 10px auto; }
+        #ul1 li{ width: 200px; height: 200px; float: left; margin: 5px 10px;}
+        #ul1 li.active{ border: 2px solid #3BB4F2; position: absolute}
+        #ul1 li img{ width: 100%; height: auto}
+    </style>
+    <script src="move.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var oUl = document.getElementById('ul1');
+            var aLi = oUl.children;
+            var zIndex = 999;
+            //布局转换
+            var aPos = [];
+            for(var i = 0; i < aLi.length; i++){
+                aPos[i] = {
+                    left:aLi[i].offsetLeft,
+                    top:aLi[i].offsetTop
+                }
+            }
+            for(var i = 0; i < aLi.length; i++){
+                aLi[i].style.position = 'absolute';
+                aLi[i].style.left = aPos[i].left + 'px';
+                aLi[i].style.top = aPos[i].top + 'px';
+                aLi[i].style .margin = '0';
+            }
+            // 拖拽
+            for(var i=0; i<aLi.length; i++){
+                drag(aLi[i]);
+            }
+            function drag(obj){
+                obj.onmousedown=function(ev){
+                    obj.style.zIndex = zIndex++;
+                    var oEvent=ev || event;
+                    var disX=oEvent.clientX-obj.offsetLeft;
+                    var disY=oEvent.clientY-obj.offsetTop;
+
+                    document.onmousemove=function(ev){
+                        var oEvent=ev || event;
+
+                        obj.style.left=oEvent.clientX-disX+'px';
+                        obj.style.top=oEvent.clientY-disY+'px';
+                        //碰撞检测
+                        for(var i=0; i<aLi.length; i++){
+                            aLi[i].className='';
+                        }
+                        var oNear=findNearest(obj);
+
+                        if(oNear){
+                            oNear.className='active';
+                        }
+                    };
+                    document.onmouseup=function(){
+                        document.onmousemove=null;
+                        document.onmouseup=null;
+                        // 交换位置
+                        var oNear=findNearest(obj);
+                        if(oNear){
+                            move(oNear, aPos[obj.index]);
+                            move(obj, aPos[oNear.index]);
+
+                            oNear.className='';
+                            var tmp;
+                            tmp=oNear.index;
+                            oNear.index=obj.index;
+                            obj.index=tmp;
+                        }else{
+                            move(obj, aPos[obj.index]);
+                        }
+                    };
+                    return false;
+                };
+            }
+            //碰撞检测
+            function collTest(obj,obj1) {
+                var l1 = obj.offsetLeft;
+                var r1 = obj.offsetWidth + l1;
+                var t1 = obj.offsetTop;
+                var b1 = obj.offsetHeight + t1;
+
+                var l2 = obj1.offsetLeft;
+                var r2 = obj1.offsetWidth + l2;
+                var t2 = obj1.offsetTop;
+                var b2 = obj1.offsetHeight + t2;
+                if( r1<l2 || b1<t2 || l1>r2 || t1>b2){
+                    return false;
+                }else{
+                    return true;
+                }
+            }
+            // 求两个物体的距离
+            function getDis(obj, obj2){
+                var l1=obj.offsetLeft+obj.offsetWidth/2;
+                var l2=obj2.offsetLeft+obj2.offsetWidth/2;
+
+                var t1=obj.offsetTop+obj.offsetHeight/2;
+                var t2=obj2.offsetTop+obj2.offsetHeight/2;
+
+                var a=l1-l2;
+                var b=t1-t2;
+
+                return Math.sqrt(a*a+b*b);
+            }
+            // 找离我最近的人
+            function findNearest(obj){
+                var iMin=9999999;
+                var iMinIndex=-1;
+                for(var i=0; i<aLi.length; i++){
+                    if(obj==aLi[i])continue;
+                    if(collTest(obj, aLi[i])){
+                        var dis=getDis(obj, aLi[i]);
+
+                        if(dis<iMin){
+                            iMin=dis;
+                            iMinIndex=i;
+                        }
+                    }
+                }
+                if(iMinIndex==-1){
+                    return null;
+                }else{
+                    return aLi[iMinIndex];
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="box">
+        <ul id="ul1">
+            <li><img src="img/1.jpg" /></li>
+            <li><img src="img/2.jpg" /></li>
+            <li><img src="img/3.jpg" /></li>
+            <li><img src="img/4.jpg" /></li>
+            <li><img src="img/5.jpg" /></li>
+            <li><img src="img/6.jpg" /></li>
+            <li><img src="img/7.jpg" /></li>
+            <li><img src="img/8.jpg" /></li>
+            <li><img src="img/9.jpg" /></li>
+        </ul>
+    </div>
+</body>
+</html>

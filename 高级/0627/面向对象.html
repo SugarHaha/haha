@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function createPerson(name,age) {
+            var obj = new Object();//建一个空对象
+            //对象
+            obj.name = name;
+            obj.age = age;
+            //方法
+            obj.showName = function () {
+                return this.name;
+            }
+            obj.showAge = function () {
+                return this.age;
+            }
+            return obj;
+        }
+        var p1 = createPerson('haha',8)
+        alert(p1.showName()+'年龄'+p1.showAge());
+    </script>
+</head>
+<body>
+
+</body>
+</html>

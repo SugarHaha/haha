@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        input{
+            width: 100px;
+            height: 30px;
+            margin-bottom: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        #box div{ width: 315px; height: 200px; border: 1px solid #ccc; text-align: center; line-height: 200px; display: none}
+        #box div.active{ display: block;}
+        input.active{ background: #8A2BE2; color: #fff;}
+    </style>
+    <script src="jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('input').click(function () {
+                $('input').removeClass('active').eq($(this).index()).addClass('active');;
+                $('#box div').removeClass('active').eq($(this).index()).addClass('active');;
+            })
+        })
+    </script>
+</head>
+<body>
+
+<input class="active" type="button" value="选项卡一">
+<input type="button" value="选项卡二">
+<input type="button" value="选项卡三">
+<div id="box">
+    <div class="active" >我是选项卡一</div>
+    <div>我是选项卡二</div>
+    <div>我是选项卡三</div>
+</div>
+</body>
+</html>

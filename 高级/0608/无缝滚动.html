@@ -7,7 +7,7 @@
 			*{margin:0; padding:0}
 			ul{margin:0; padding:0; overflow: hidden;}
 			#box{ width: 1120px; height: 280px;  border: 1px solid #ccc; margin: 100px auto;}
-			#box ul{ width: 1120px; overflow: hidden; height: 280px;}
+			#ul1{ width: 1120px; overflow: hidden; height: 280px;}
 			#box li{ width: 260px; height: 260px; float: left; padding: 10px;}
 			#box li img{ width: 100%; }
 		</style>
@@ -15,22 +15,24 @@
 			window.onload = function(){
 				var oBox = document.getElementById('box');
 				var oUl = document.getElementById('ul1');
-				var aLi = oUl.children;
-				var oLeft = document.getElementById('left')
-				var oRingt = document.getElementById('ringht');
-				oUl.innerHTML += oUl.innerHTML;
-				oUl.style.width = aLi[0].offsetWidth * aLi.length+'px';
+//				var aLi = oUl.children;
+//				var oLeft = document.getElementById('left')
+//				var oRingt = document.getElementById('ringht');
+//				oUl.innerHTML += oUl.innerHTML;
+//				oUl.style.width = aLi[0].offsetWidth * aLi.length + 'px';
 				//左
 				function showLeft(){
-					var timer = clearInterval(function(){
-						left-=2;
-						if(left<=oUl.offsetWidth/2){
-							left=0;
+					var timer = setInterval(function(){
+						oUl.style.marginLeft = "10px";
+						var left = !oUl.style.marginLeft ? 0 : parseInt(oUl.style.marginLeft) - 2;
+						if(left <= oUl.offsetWidth / 2){
+							left = 0;
 						}
-						oUl.style.left = left+'px';
-					},30)
+						console.log("marginLeft: " + left);
+						oUl.style.marginLeft = left + 'px';
+					}, 100);
 				}
-				showLeft()
+				showLeft();
 			}
 		</script>
 	</head>

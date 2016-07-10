@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #div1{ width:200px; height: 200px; margin: 100px auto; transform: perspective(800px) rotateY(-60deg) rotateX(30deg); position: relative; transform-style: preserve-3D}
+        #div1 div{ width: 200px; height: 200px; position: absolute;}
+        .front{ background: #c00fa0; opacity: .5; transform: translateZ(100px)}
+        .block{ background: #63f2b0; opacity: .5; transform: translateZ(-100px)}
+        .top{ background: #ffa277; opacity: .5; transform:translateY(-100px) rotateX(-90deg) }
+        .bottom{ background: #abdc11; opacity: .5; transform:translateY(100px) rotateX(90deg) }
+        .right{ background: #807cdf;opacity: .5;  transform:translateX(100px) rotateY(-90deg)}
+        .left{ background: #E84A7E;opacity: .5;  transform:translateX(100px) rotateY(90deg)}
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            var oDiv = document.getElementById('div1');
+            oDiv.onmousedown = function (ev) {
+                var oEvent = ev || event;
+                document.onmousemove = function (ev) {
+
+                }
+                document.onmouseup = function () {
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="div1">
+    <div class="front"></div>
+    <div class="block"></div>
+    <div class="left"></div>
+    <div class="right"></div>
+    <div class="top"></div>
+    <div class="bottom"></div>
+</div>
+</body>
+</html>

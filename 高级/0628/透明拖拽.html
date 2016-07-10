@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #div1{ width: 150px; height: 150px; background: #FFFF00; position: absolute;
+            top:0; left: 0;}
+        #div2{ width: 150px; height: 150px; background: #8A2BE2; position: absolute;
+            top:0; right: 0;}
+        .div3{ width: 150px; height: 150px; background: #2acfff; position: absolute;
+            top:0; left: 40%;}
+    </style>
+    <script src="Drag.js"></script>
+    <script src="LimtiDrag.js"></script>
+    <script type="text/javascript">
+        function MoveDrag() {
+            Drag.apply(this,arguments);
+        }
+        MoveDrag.prototype = new Drag();
+        MoveDrag.prototype.constructor = MoveDrag;
+        var parent = {};
+        for(var name in MoveDrag.prototype){
+            parent[name] = MoveDrag.prototype[name];
+        }
+        MoveDrag.prototype.fnDown = function () {
+            parent.fnDown.apply(this,arguments);
+            this.oNewDiv = this.oDiv.cloneNode(true);
+            this.oNewDiv.removeAttribute('id');
+            this.oNewDiv.style.opacity = '0.5';
+            this.oDiv.parentNode.appendChild(this.oNewDiv);
+            //狸猫换太子
+            this.oldDiv = this.oDiv;
+            this.oDiv = this.oNewDiv;
+        }
+        MoveDrag.prototype.fnUp = function () {
+            parent.fnUp.apply(this,arguments);
+            this.oldDiv.style.left = this.oDiv.style.left;
+            this.oldDiv.style.top = this.oDiv.style.top;
+            //删除透明div
+            this.oldDiv.parentNode.removeChild(this.oDiv);
+            //太子换狸猫
+            this.oDiv = this.oldDiv;
+        }
+
+
+        window.onload = function () {
+            new Drag('div1');
+            new LimitDrag('div2')
+            new MoveDrag('div3')
+        }
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3" class="div3"></div>
+</body>
+</html>

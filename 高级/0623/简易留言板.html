@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#btn').click(function () {
+                if($('#text').val() ==''){
+                    alert('留言不能为空')
+                }else{
+                    $('<li>'+$('#text').val()+'<a href="javascript:;">删除</a></li>').prependTo($('#ul1'));
+                    $('#text').val('');
+                }
+            })
+            $('#ul1').on('click','a',(function () {
+                $(this).parent().remove();
+            }))
+        })
+    </script>
+</head>
+<body>
+<input type="text" id="text">
+<input type="button" id="btn" value="留言">
+<ul id="ul1">
+    <li>haha<a href="javascript:;">删除</a></li>
+</ul>
+</body>
+</html>

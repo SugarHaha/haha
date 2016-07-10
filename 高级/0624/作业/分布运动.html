@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var str = '习近平强调，3年前，我同奥巴马总统同意共同努力构建中美新型大国关系。3年来中美关系取得的成果表明，这条道路完全符合两国人民和世界人民的根本利益，能够走得通、走得远。双方应该牢牢把握中美关系发展的历史趋势，聚焦合作，多做实事，妥处分歧，排除干扰，推动中美关系健康稳定向前发展。';
+            var tempHtml = "";
+            for(var char in str){
+                tempHtml += "<span>" + str[char] + "</span>";
+            }
+            $("body").append(tempHtml);
+            $("body>span").each(function(index, item){
+                $(item).css({opacity: 0});
+                setTimeout(function(){
+                    $(item).animate({opacity: 1}, 400);
+                },index * 100)
+            });
+
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>

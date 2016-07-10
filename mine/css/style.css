@@ -1,0 +1,76 @@
+@charset "utf-8";
+/* CSS Document */
+body html{ width: 100%; height: 100%;}
+fieldset, img{ border:none;}
+ul,li,form,input,span,ol{ padding:0; margin:0; list-style:none;}
+a{text-decoration:none;color: #555;}
+a:hover{text-decoration:none;color:#333;}
+p{ margin:0; padding:0}
+body { font-family:"微软雅黑";font-size: 12px;color:#333;margin: 0 auto;padding: 0px; overflow: hidden }
+.clear{ clear:both;}
+.content{  width:100%; height:auto;position: absolute;  top:0; left: 0;}
+.content li{ position: absolute;  top:0; left: 0; }
+.page1{width: 100%; height: 100%;  background: url("../img/bg1.jpg") no-repeat; background-size: cover;}
+.page5{width: 100%; height: 100%; background: #fff;}
+.page2{width: 100%; height: 100%; background: url("../img/bg04.jpg") no-repeat; background-size: cover;}
+.page3{width: 100%; height: 100%;  background: url("../img/bg2.jpg") no-repeat; background-size: cover;}
+.page4{width: 100%; height: 100%;  background: url("../img/bg3.jpg") no-repeat; background-size: cover;}
+.navball{ width: 15px; position: fixed; right: 3%; height: 312px; top:50%; margin-top: -156px; z-index: 99; color: #fff; }
+.navball li{  width:15px;  float: left; cursor: pointer;margin-bottom: 30px}
+.on{ width: 10px; height: 10px; border: 1px solid #666; border-radius: 50%; position: absolute; left:-32.5px;}
+.line{ width: 1px; height:500px; background: #767676; position:fixed; right: 6%; top: 50%;; margin-top: -250px}
+/*首页*/
+.main{ width: 100%; height: 100%; margin:0 auto;}
+#logo{ width: 147px; height: 38px; position: fixed; top: 8%; left: 3%;}
+#logo img,#mouse img,.icon li img{ position: absolute;}
+#mid_img{ width: 480px; height: 212px;left: 50%; top: 50%; margin-top:-106px; margin-left:-240px; position: absolute;}
+#mouse{ width: 38px; height: 76px; position: fixed;left: 50%;margin-left:-19px; bottom:5%; }
+.icon{ position: fixed; bottom: 5%; left: 3%; }
+.icon li{ width: 25px; height: 20px; float: left; margin:0 5px; cursor: pointer; }
+
+/*我的项目*/
+.case,.mine{ width: 1200px; height: 350px; left: 50%; top:50%; margin-left: -600px; margin-top: -175px;  position: absolute}
+.case{ width: 1150px;}
+.case_title{font-size: 40px; color: #000; height: 70px; }
+.case_line{ height: 3px; width: 20px; background: #000;}
+.case_list{ margin-top: 30px; overflow: hidden;}
+#case_list{ width: 2350px; overflow: hidden; position: relative;height: 195px;}
+#case_list li{ width: 345px; height: 195px; float: left; position: relative; margin-right: 55px; cursor: pointer;}
+.case_content{ position: absolute; z-index: 999; width: 305px; height: 155px;  top: 10px; left: 10px; padding: 10px; display: none;background:#fff;filter:Alpha(opacity=90);  background-color: rgba(255,255,255,0.9); }
+#list{ height: 1px; background: #767676; position: absolute; width: 100%; margin-top: 30px; margin-bottom: 30px}
+#slider{ width: 20px; height: 20px;background:#000; border-radius: 50%; position:absolute; bottom: -10px; z-index: 999;cursor: pointer}
+
+/*我的案例*/
+#item { margin-top: 30px; height: 195px; overflow: hidden; width: 2400px;}
+#item li{ width: 345px; height: 195px; float: left; position: relative; margin-right: 55px; }
+.item_content{ position: absolute; z-index: 999; width: 305px; height: 155px; line-height: 155px; text-align: center; display: none; color: #fff;  top: 10px; left: 10px; padding: 10px; font-size:30px;background:#202020;filter:Alpha(opacity=90);  background-color: rgba(32,32,32,0.9);}
+.mine_title span{float: right; color: #fff; font-size: 14px; line-height: 60px; margin-right: 5%; cursor: pointer}
+/*关于我*/
+.mine_title{font-size: 40px; color: #fff; height: 70px; }
+.mine_line{ height: 3px; width: 20px; background: #fff;}
+.resume{ width:100%; height: 240px; margin-top: 30px; color: #000;}
+.pic img{ width: 384px; height: 240px; float: left;}
+.haha{ width: 63%; height: 240px; background:#fff;filter:Alpha(opacity=90);background-color: rgba(255,255,255,0.85); float: left;}
+#resume_list{  border-bottom: 1px solid #ccc; margin: 15px 20px; height: 45px;}
+#resume_list li { width: 100px; height: 45px; line-height: 45px; text-align: center; display: block; position: static; float: left;-moz-transform:rotate(-20deg);-webkit-transform:rotate(-20deg);-ms-transform: rotate(-20deg);-O-transform: rotate(-20deg); transform: rotate(-20deg); cursor: pointer; position: relative; }
+#resume_content{height: 134px; margin: 0 20px 20px 20px;}
+.active{ width: 10px; height: 10px; background: #333; border-radius: 50%; position: absolute; left: 50%; margin-left: -20px; bottom:-1px; display: block;}
+#resume_content span{width: 100%; height: 134px; line-height: 25px; display: none; margin-bottom: 20px}
+.haha h2{ line-height: 45px; padding-left: 20px;}
+.couse{ padding: 20px; position: absolute; margin-left:95px;}
+.couse li{ width: 100px; height: 50px; text-align: center; float: left; position: static; line-height: 35px; margin: 0 30px;}
+.couse li img{ width:35px; height: 28px; }
+
+/*案例内页*/
+.about_top{ width: 100%; height: 60px; background: #2a2a2a;}
+.mian_top{ width: 1200px; margin: 0 auto;}
+.mian_top img{ margin-top: 10px; float: left}
+.ny_nav{ float: right;}
+.ny_nav li{ width: 100px; height: 60px; line-height: 60px; text-align: center; float: left}
+.ny_nav li a{ color: #fff; font-size: 14px;}
+.mian{ width: 1200px; margin: 50px auto;}
+
+/*ajax*/
+.ajax{ text-align: center; color: #fff;}
+.ajax img{ margin: 30px 0;}
+.ajax h2{ font-size: 36px; border-bottom: 2px solid #fff; width: 120px; margin: 0 auto;}

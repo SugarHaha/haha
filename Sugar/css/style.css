@@ -1,0 +1,99 @@
+@charset "utf-8";
+/* CSS Document */
+body html{ width: 100%; height: 100%;}
+fieldset, img{ border:none;}
+ul,li,form,input,span{ padding:0; margin:0; list-style:none;}
+a{text-decoration:none;color: #555;}
+a:hover{text-decoration:none;color:#333;}
+p{ margin:0; padding:0}
+body { font-family:"微软雅黑";font-size: 12px;color:#333;margin: 0 auto;padding: 0px; }
+.clear{ clear:both;}
+#page1{width: 100%; height: 100%;  background: url("../img/bg1.png") no-repeat; background-size: cover;}
+#page2{width: 100%; height: 100%; background: url("../img/bg04.jpg") no-repeat; background-size: cover;}
+#page3{width: 100%; height: 100%;  background: url("../img/bg2.png") no-repeat; background-size: cover;}
+#page4{width: 100%; height: 100%;  background: url("../img/bg3.png") no-repeat; background-size: cover;}
+.main{ width: 100%; height: 100%; margin:0 auto;}
+.logo{ width: 147px; height: 38px; position: fixed; top: 8%; left: 3%}
+#mid-img{ width: 480px; height: 212px;left: 50%; top: 50%; margin-top:-106px; margin-left:-240px; position: absolute;}
+#mouse{ width: 38px; height: 76px; position: fixed;left: 50%;margin-left:-19px; bottom:5%; }
+.icon{ position: fixed; bottom: 5%; left: 3%; }
+.icon li{ width: 25px; height: 20px; float: left; margin:0 5px; cursor: pointer; }
+/*我的项目*/
+.case{ width: 1200px; height: 350px; left: 50%; top:50%; margin-left: -600px; margin-top: -175px;  position: absolute}
+.case_title{font-size: 40px; color: #fff; height: 80px}
+.case_title span{ font-size: 14px;float: right; line-height: 60px}
+.line{ width: 20px; height: 4px; background: #fff;}
+
+/*滚动*/
+#superContainer {
+    height: 100%;
+    position: relative;
+}
+.section {
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.tableCell {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+}
+
+#fullPage-nav {
+    position: fixed;
+    z-index: 100;
+    margin-top: -32px;
+    top: 50%;
+    opacity: 1;
+}
+#fullPage-nav.right {
+    right: 17px;
+}
+#fullPage-nav.left {
+    left: 17px;
+}
+#fullPage-nav ul,
+.fullPage-slidesNav ul {
+    margin: 0;
+    padding: 0;
+}
+#fullPage-nav li,
+.fullPage-slidesNav li {
+    display: block;
+    width: 14px;
+    height: 13px;
+    margin: 7px;
+    position:relative;
+}
+
+#fullPage-nav li a,
+.fullPage-slidesNav li a {
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    text-decoration: none;
+}
+#fullPage-nav li .active span,
+.fullPage-slidesNav .active span {
+    background: #fff;
+}
+#fullPage-nav span,
+.fullPage-slidesNav span {
+    top: 2px;
+    left: 2px;
+    width: 8px;
+    height: 8px;
+    border: 1px solid #fff;
+    background: rgba(255, 255, 255, 0);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+}

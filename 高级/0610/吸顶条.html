@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0; padding: 0;}
+			#box{ width: 100%; height: 50px; background: #0099FF; color: #fff; text-align: center; line-height: 50px;}
+		</style>
+		<script type="text/javascript">
+			function getPos(obj){
+				var l = 0;
+				var t = 0;
+				while(obj){
+					l+= obj.offsetLeft;
+					t+= obj.offsetTop;
+					obj = obj.offsetParent;
+				}
+				return{top:t,left:l}
+			}
+			window.onload = function(){
+				var oBox = document.getElementById('box');
+				var top = getPos(oBox).top;
+				window.onscroll = function(){
+					var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+					if(scrollTop >= top){
+						oBox.style.position = 'fixed';
+						oBox.style.top = '0';
+						oBox.style.left = '0';
+					}else{
+						oBox.style.position = '';
+					}
+				}
+			}
+		</script>
+	</head>
+	<body style="height: 3000px;">
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		<div id="box">吸顶条</div>
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+		聚集到附近多舒服的花费为何为会计师可贷款及<br />
+	</body>
+</html>

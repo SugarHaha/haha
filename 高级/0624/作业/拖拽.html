@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>haha</title>
+    <style type="text/css">
+        #box{width: 100px;
+            height: 100px;
+            background: #8A2BE2;
+            position: absolute;
+            top:0;
+            left: 0;
+        }
+    </style>
+    <script src="jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#box').mousedown(function (ev) {
+                var disX = ev.clientX-$('#box').offset().left;
+                var disY = ev.clientY-$('#box').offset().top;
+                function fnMove(ev) {
+                    $('#box').css({
+                        left: ev.clientX - disX,
+                        top: ev.clientY - disY
+                    })
+                }
+                function fnUp() {
+                    $(document).unbind('mousemove',fnMove);
+                    $(document).unbind('mouseup',fnUp);
+                    $('#box').get(0).releaseCapture && $('#box').get(0).releaseCapture();
+                }
+                $(document).bind('mousemove',fnMove);
+                $(document).bind('mouseup',fnUp);
+                $('#box').get(0).setCapture && $('#box').get(0).setCapture();
+                return false;
+            })
+        })
+    </script>
+</head>
+<body>
+sfsfsdfsd
+<div id="box"></div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{padding: 0; margin: 0;}
+			ul{ padding: 0; margin:0; overflow: hidden;}
+			#box{ width: 670px; height: 350px; margin: 0 auto;}
+			.pic{float: left; width: 550px; height:350px; overflow: hidden; display: none;}
+			.active{display: block;}
+			.nav{ float: right; width: 120px; height: 350px;}
+			.nav li{ background: #211821; color: #fff; border-bottom: 1px solid #524a52; width: 120px;height: 69px; text-align: center; line-height: 70px; font-size: 14px;}
+			.nav li.on{ background: #f7528c;}		
+		</style>
+		<script src="../jquery-1.7.2.js"></script>
+		<script type="text/javascript">
+			$(function () {
+				$('#box ul li').mouseover(function () {
+					$('#box ul li').removeClass('on').eq($(this).index()).addClass('on');
+					$('#box div').removeClass('active').eq($(this).index()).addClass('active');
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<div class="pic active"><img src="img/pic.jpg" /></div>
+			<div class="pic"><img src="img/pic02.jpg" /></div>
+			<div class="pic"><img src="img/pic.jpg" /></div>
+			<div class="pic"><img src="img/pic02.jpg" /></div>
+			<div class="pic"><img src="img/pic.jpg" /></div>
+			<ul class="nav">
+				<li class="on">时尚新品</li>
+				<li>简约之美</li>
+				<li>HOLLOW风潮</li>
+				<li>“公主病”万岁</li>
+				<li>纯棉立体</li>
+			</ul>
+		</div>
+	</body>
+</html>

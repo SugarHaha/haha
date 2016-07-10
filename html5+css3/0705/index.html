@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            var oT1 = document.querySelector('#t1');
+            var oT2 = document.querySelector('#t2');
+            var sUrse = localStorage.urse;
+            var sPass = localStorage.pass;
+            oT1.value = sUrse;
+            oT2.value = sPass;
+            oT1.oninput = function () {
+                localStorage.urse = oT1.value;
+            }
+            oT2.oninput = function () {
+                localStorage.pass = oT2.value;
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="t1" >
+<input type="text" id="t2" >
+</body>
+</html>

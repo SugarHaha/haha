@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>haha</title>
+    <style type="text/css">
+        #div1{ width: 150px; height: 150px; border-radius: 50%; background: #3BB4F2; position: absolute; left: 0;
+            top:0;}
+    </style>
+    <script src="move.js"></script>
+      <script type="text/javascript">
+        window.onload = function () {
+            var oDiv = document.getElementById('div1');
+            var arr = [
+                {left:500,top:0},
+                {left:500,top:500},
+                {left:0,top:500},
+                {left:0,top:0}
+            ]
+            var iNow = 0;
+            function next() {
+               move(oDiv,arr[iNow % 4],{complete:function () {
+                   iNow++;
+                   next();
+               }})
+            }
+            next();
+        }
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>

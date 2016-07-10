@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>匹配电话号码</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            var oText = document.getElementById('text');
+            var oBtn = document.getElementById('btn');
+            var reg = /^(0\d{2,3}-)?[1-9]\d{6,7}$/;
+            oBtn.onclick = function () {
+                var str = oText.value;
+                alert(reg.test(str))
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+<input type="text" id="text">
+<input type="button" id="btn" value="查询">
+</html>

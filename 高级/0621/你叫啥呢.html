@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #text{ line-height: 25px}
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            var oText = document.getElementById('text');
+            var oBtn = document.getElementById('btn');
+            oBtn.onclick = function () {
+                oText.value = oText.value.replace(/^/gm,'    ');
+            };
+        }
+    </script>
+</head>
+<body>
+<textarea id="text" cols="50" rows="20"></textarea>
+<input type="button" id="btn" value="aa">
+</body>
+</html>

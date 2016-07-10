@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        String.prototype.trim = String.prototype.trim || function () {
+            return this.replace(/^\s+|s+$/g,'');
+        };
+        var str ='  dssdsd      sd sdsffs    ';
+        alert(str.trim())
+    </script>
+</head>
+<body>
+
+</body>
+</html>

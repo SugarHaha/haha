@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #div1{width: 100px; height: 100px; background: #84c002; position: absolute; left: 0; top:0;}
+    </style>
+    <script src="elastic.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var oDiv = document.getElementById('div1');
+            oDiv.onclick = function () {
+                elastic(oDiv,600)
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>

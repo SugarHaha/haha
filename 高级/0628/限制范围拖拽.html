@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #div1{ width: 150px; height: 150px; background: #FFFF00; position: absolute;
+            top:0; left: 0;}
+        #div2{ width: 150px; height: 150px; background: #8A2BE2; position: absolute;
+            top:0; right: 0;}
+        #div3{ width: 150px; height: 150px; background: #2acfff; position: absolute;
+            top:0; left: 40%;}
+    </style>
+    <script src="Drag.js"></script>
+    <script type="text/javascript">
+        function LimitDrag(id) {
+            Drag.apply(this,arguments);
+        }
+        LimitDrag.prototype = new Drag();
+        LimitDrag.prototype.constructor = LimitDrag;
+        var oldMove = LimitDrag.prototype.fnMove;
+        LimitDrag.prototype.fnMove = function () {
+            oldMove.apply(this,arguments);
+            if(this.oDiv.offsetLeft < 0){
+                this.oDiv.style.left = 0;
+            }
+            if(this.oDiv.offsetTop < 0){
+                this.oDiv.style.top = 0;
+            }
+            if(this.oDiv.offsetLeft > document.documentElement.clientWidth - this.oDiv.offsetWidth){
+                this.oDiv.style.left = document.documentElement.clientWidth - this.oDiv.offsetWidth + 'px';
+            }
+            if(this.oDiv.offsetTop > document.documentElement.clientHeight - this.oDiv.offsetHeight){
+                this.oDiv.style.top = document.documentElement.clientHeight - this.oDiv.offsetHeight + 'px';
+            }
+        }
+        window.onload = function () {
+            new Drag('div1');
+            new LimitDrag('div2')
+        }
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+</body>
+</html>
