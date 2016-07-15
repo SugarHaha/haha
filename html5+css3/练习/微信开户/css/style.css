@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin: 0; padding: 0;}
+fieldset, img{ border:none;}
+ul,li,form,input,span{ padding:0; margin:0; list-style:none;}
+a{text-decoration:none;color: #333;}
+a:hover{text-decoration:none;color:#fa7d3c;}
+p{ margin:0; padding:0}
+body { font-family:"微软雅黑";color:#333;margin: 0 auto;padding: 0px;background: url(../img/bg.jpg);}
+.clear{ clear:both;}

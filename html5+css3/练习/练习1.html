@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			@keyframes move{
+				0%{
+					width: 200px;;
+					height: 200px;
+					background: #0099FF;
+				}
+				25%{
+					width: 200px;
+					height: 200px;
+					background: yellow;
+					border-radius: 50%;
+				}
+				50%{
+					width: 200px;;
+					height: 200px;
+					background: #0099FF;
+				}
+				75%{
+					width: 200px;
+					height: 200px;
+					background: yellow;
+					-webkit-transform:rotate(45deg);
+					-moz-transform:rotate(45deg);
+					-ms-transform:rotate(45deg);
+					-o-transform:rotate(45deg);
+					transform:(45deg);
+				}
+				100%{
+					width: 200px;;
+					height: 200px;
+					background: #0099FF;
+				}
+			}
+			.div1{
+				width: 200px;
+				height: 200px; 
+				background: #0099FF; 
+				margin: 100px auto; 
+				animation: 3s move ease infinite alternate 2s;
+				}
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+	</body>
+</html>

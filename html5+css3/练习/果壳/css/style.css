@@ -1,0 +1,60 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin: 0; padding: 0;}
+fieldset, img{ border:none;}
+ul,li,form,input,span{ padding:0; margin:0; list-style:none;}
+a{text-decoration:none;color: #333;}
+a:hover{text-decoration:none;color:#fa7d3c;}
+p{ margin:0; padding:0}
+body { font-family:"微软雅黑";color:#333;margin: 0 auto;padding: 0px;}
+.clear{ clear:both;}
+.fleft{float: left;}
+
+/*头部*/
+
+.wrap header{ width: 100%; height: 2.25rem; background: #262626; border-bottom: 0.1rem solid #4bccae;}
+.wrap header menu,.wrap header h3{ width: 2.25rem; height: 2.25rem; text-align: center; line-height: 2.25rem; text-align: center;} 
+header menu img,.wrap header h3 img{ width: 1.45rem; height: auto;}
+.logo{ width: 11.5rem; text-align: center; line-height: 2.25rem;}
+.logo img{ width: 6.25rem; height: auto;}
+
+/*登陆*/
+
+.urse{ width: 100%; height: 1.5rem; padding: .3rem 0; background: #fafafa;}
+.urse li{ width: 5rem; line-height: 1.5rem; float: left; padding:0 1.45rem; border-right: 1px solid #ccc;}
+.urse li img{ width: 1.5rem; height: auto; float: left; padding-right: 5px; margin-top: 3px;}
+.urse li a{ font-size: .75rem;}
+
+/*banner*/
+.banner{ width: 100%; height: 7.75rem; position: relative;}
+.banner img{ width: 16rem; height: auto;}
+.text{ width: 100%; height: 1.8rem; background: rgba(37,37,37,.5); position: absolute; left: 0; bottom: 0; line-height: 1.8rem; text-align: center;; color: #fff;font-size: .75rem;}
+
+/*新闻列表*/
+
+.new_list{ padding: .35rem; }
+.new_list li{ width: 100%; height: 2rem; border-bottom: 1px solid #ccc; line-height: 2rem;}
+.new_list li a,#hot_ol li a,#team_ol li a{ font-size: .75rem; color: #2f3332; display: block;}
+
+/*热门问答*/
+
+.hot_tp{padding: 0 .35rem; height: 2rem; line-height: 2rem; font-size: .75rem; border-bottom: 1px solid #ccc; background: #fafafa; border-top: .1rem solid #4bccae; ;}
+.hot_tp img{ float: right; width: 1.5rem; margin-top: .2rem;}
+#hot_ol,#team_ol{ width: 100%;height: 2rem; border-bottom: 1px solid #ccc;}
+#hot_ol li,#team_ol li{ width: 20%;height: 2rem; line-height: 2rem; text-align: center; float: left;}
+.active{ border-bottom: 2px solid #FF0000;}
+#hot_ul,#team_ul{padding:.35rem; }
+#hot_ul li,#team_ul li{width: 100%; border-bottom: 1px solid #ccc; }
+#hot_ul li span,#team_ul li span{ height: 2rem; line-height: 2rem; cursor: pointer; font-size: .75rem;}
+#hot_ul li div,#team_ul li div{ height: 3.75rem; overflow: hidden; margin-bottom: .35rem; display: none;}
+#hot_ul li div img,#team_ul li div img{ float: left;  margin-right:.25rem; width: 5.2rem;}
+#hot_ul li div a,#team_ul li div a{ font-size: .7rem; color: #868686;}
+
+/*回到顶部*/
+.top{width: 5rem; padding: 0 5.5rem; background: #fafafa; height: 3rem; line-height: 3rem; font-size: .75rem;color: #555; cursor: pointer;}
+.top img{ width: 1.5rem; float: left; padding-top: .8rem; padding-right: 5px;}
+
+/*底部*/
+footer{ width: 100%; background: #262626; border-top: 0.1rem solid #4bccae; height:3.75rem;}
+footer li{height: 2rem; line-height: 2rem; width: 4.5rem; float: left; margin:.875rem 0; padding: 0 1.7rem;color: #fff; font-size: .75rem; text-align: center; border-right: 1px solid #fff;}
+footer li img{ width:1.45rem; float: left; margin-top: 0.5rem;}

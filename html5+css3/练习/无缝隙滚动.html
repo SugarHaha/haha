@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			@keyframes move{
+				0%{
+					transform:translateX(0);
+				}
+				100%{
+					transform: translateX(-440px);
+				}
+			}
+			ul{padding: 0; margin: 0; list-style:none;}
+			.div1{ width: 440px; height:100px; border: 1px solid #ccc; padding: 10px; margin: 100px auto;overflow: hidden;}
+			#ul1{width: 880px; height: 100px; animation: 5s move linear infinite; }
+			#ul1 li{ width: 100px; height: 100px; float: left;margin: 0 5px; }
+			#ul1 li img{ width: 100%; height: auto; }
+			#ul1:hover{animation-play-state:paused;}
+		</style>
+	</head>
+	<body>
+		<div class="div1">
+			<ul id="ul1">
+				<li><a href="http://www.baidu.com"><img src="img/img.jpg"></a></li>
+				<li><img src="img/2.jpg"></li>
+				<li><img src="img/3.jpg"></li>
+				<li><img src="img/4.jpg"></li>
+				<li><a href="http://www.baidu.com"><img src="img/img.jpg"></a></li>
+				<li><img src="img/2.jpg"></li>
+				<li><img src="img/3.jpg"></li>
+				<li><img src="img/4.jpg"></li>
+			</ul>
+		</div>
+	</body>
+</html>

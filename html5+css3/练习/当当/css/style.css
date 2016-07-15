@@ -1,0 +1,76 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin: 0; padding: 0;}
+fieldset, img{ border:none;}
+ul,li,form,input,span{ padding:0; margin:0; list-style:none;}
+a{text-decoration:none;color: #333;}
+a:hover{text-decoration:none;color:#fa7d3c;}
+p{ margin:0; padding:0}
+body { font-family:"微软雅黑";color:#333;margin: 0 auto;padding: 0px;background: #f0f0f0;}
+.clear{ clear:both;}
+
+/*头部*/
+.warp header{ width: 100%; height: 2.125rem; }
+.logo{ width: 5rem; height: 2.125rem; float: left; text-align: center; }
+.logo img{ width: 4.125rem; height: 1.25rem; padding: .4375rem 0;}
+.list{ width: 6.625rem; height: 2.125rem; float: right;}
+.list li{width: 1.5rem; height: 1.25rem; float: left;padding: .4375rem .3rem;}
+.list li img{width: 100%; height: auto;}
+
+/*banner*/
+.banner{width: 100%; height: 6.25rem;}
+.banner img{ width: 100%; height: auto;} 
+
+/*公告*/
+.notice{ width: 14.45rem; height: 1.5rem; margin:.375rem; background: #f5b249; padding: 0 .4rem;}
+.notice_pic{ width: 1.25rem; height: 1.5rem; display: block; float: left;}
+.notice_pic img{ width: 100%; height: auto; padding: .1875rem 0;}
+.notice a{width: 13rem;height: 1.5rem; line-height: 1.5rem; float: left; font-size: .7rem;color: #fff; padding-left: .2rem; }
+
+/*搜索*/
+.search{ width: 15.25rem; height: 2rem; margin:.375rem; position:relative;}
+#text,#text1{ width: 11rem; height: 1.95rem; border: 1px solid #ff9300; float: left; padding: 0 .45rem;}
+.search span{ width: 11rem; height: 1.95rem;padding: 0 .45rem; position:absolute; left: 0; top: 0; line-height: 1.95rem; font-size: .7rem;}
+.search a{ width: 3.25rem; height: 2rem; float: left;}
+.search a img{ width: 3.25rem; height: 2.05rem;}
+
+/*关键词*/
+.keyword{ width: 15rem; height: 3.2rem; margin: 0 auto;}
+.keyword li{ width: 1.5rem; height: 1.2rem;line-height: 1.2rem; float: left; padding: .2rem .75rem;}
+.keyword li a{ font-size: .7rem;}
+
+/*mine_nav*/
+.mine_nav{ width: 16rem; height: 4rem; margin:.375rem 0 ;}
+.mine_nav li{ width: 3.3rem; height: 4rem; float: left; margin:0 .35rem; text-align: center;}
+.mine_nav li img{ width: 100%; height: auto;}
+.mine_nav li a{font-size: .65rem;}
+
+/*今日闪价*/
+.price_title,.zk_title{width: 15.25rem;  height:1.5rem; background: #fe9600; padding:0 .375rem; color: #fff; font-size: .65rem; margin: 1rem 0; line-height: 1.5rem;}
+.price_title span,.zk_title span{ font-size: .5rem; margin-left: .5rem;}
+.price_list li{ width: 7.25rem; height: 7.25rem; float: left; margin:0 .375rem; position:relative;}
+.price_list li img{ width: 100%; height: auto;}
+.list_title{font-size: .6rem;color: #fff;  width: 6.75rem; height: 1.5rem;padding: .25rem; background: rgba(37,37,37,0.5); position:absolute;left: 0; bottom:0; z-index: 99;}
+.list_title h3{ font-size: .65rem; font-weight: normal; }
+.red{ color: #FF0000; padding-right: 1rem;}
+.orange{ color: #F5B249;}
+.text_list{width: 15.25rem;padding:0 .375rem; margin: .375rem 0; }
+.text_list li{ width: 100%; line-height: 2rem; border-bottom: 1px solid #CCCCCC;}
+.text_list li a{ font-size: .65rem; display: block;}
+.text_list li span{ float: right; color: #FF0000; }
+.zk_title{ background: #e50055; margin-bottom: 0;}
+.zk_lis li{ width: 100%; height: 7rem;}
+.zk_lis li img{ width: 100%; height: auto;}
+.fl{ width: 100%; height: 4.6rem;}
+.fl li{ width: 4.625rem; height: 1.5rem;margin:.4rem .35rem ; text-align: center; line-height: 1.5rem; background: #fff; float: left;}
+.fl li a{ font-size: .65rem; display: block;}
+
+/*ffooter*/
+.warp footer{ background: #e0e0e0; padding: .5rem 0; margin-top: 1rem; text-align: center; font-size: .6rem;} 
+#text1{ border: 1px solid #b0b0b0;}
+.foot_nav{ width: 14.25rem; margin: 0 auto; height: 4rem;}
+.foot_nav li{width: 3.25rem; height:1.25rem; text-align: center; line-height: 1.25rem; float: left; margin:.375rem .75rem;}
+.foot_nav li a{ font-size: .65rem;}
+.login{ color:#fff; width: 15.25rem; height: 2rem;  font-size: .65rem; padding:0 .375rem; margin:.2rem 0; background: #b0b0b0; line-height: 2rem;}
+.login a{ font-size: .65rem; color: #fff; margin-right: .4rem;}
+.login span{ float: right;}

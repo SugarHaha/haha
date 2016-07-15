@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智能社--http://www.zhinengshe.com</title>
+    <style>
+        @keyframes move{
+            0%{
+                transform: translateX(0);
+            }
+            100%{
+                transform: translateX(-480px);
+            }
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #box{
+            width: 480px;
+            height: 120px;
+            border: 1px solid #000;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        #ul1{
+            width: 960px;
+            animation: 4s move linear infinite;
+        }
+        #ul1 li{
+            width: 100px;
+            height: 100px;
+            float: left;
+            padding: 10px;
+        }
+        #ul1 li img{
+            width: 100%;
+        }
+
+        #box:hover #ul1{
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul id="ul1">
+            <li><img src="img/img.jpg"></li>
+            <li><img src="img/2.jpg"></li>
+            <li><img src="img/3.jpg"></li>
+            <li><img src="img/4.jpg"></li>
+            <li><img src="img/img.jpg"></li>
+            <li><img src="img/2.jpg"></li>
+            <li><img src="img/3.jpg"></li>
+            <li><img src="img/4.jpg"></li>
+        </ul>
+    </div>
+</body>
+</html>
